@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helvetia Digital – Ihr digitaler Partner für Gastronomie &amp; Handel</title>
+<meta name="description" content="Helvetia Digital – Schweizer Präzision, digital umgesetzt. Website-Entwicklung, App-Entwicklung und Chat- & Call-Automatisierung für Gastronomie und Handel. Zürich, Schweiz.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060b16;
+  --bg-2:#0a1424;
+  --bg-3:#0e1a2e;
+  --card:rgba(255,255,255,.035);
+  --card-hover:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.09);
+  --border-strong:rgba(255,255,255,.16);
+  --text:#eef2f8;
+  --muted:#94a3b8;
+  --blue:#2f86e0;
+  --blue-soft:rgba(47,134,224,.14);
+  --blue-glow:rgba(47,134,224,.35);
+  --gold:#d9b36a;
+  --gold-soft:rgba(217,179,106,.12);
+  --radius:20px;
+  --nav-h:72px;
+  --font:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--blue);color:#fff}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+section{scroll-margin-top:calc(var(--nav-h) + 12px)}
+
+/* ————— Reveal animations ————— */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ————— Navbar ————— */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  transition:background .4s ease,border-color .4s ease,backdrop-filter .4s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  background:rgba(6,11,22,.72);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom-color:var(--border);
+}
+.nav-inner{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo img{height:44px;width:auto}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{
+  font-size:14.5px;font-weight:500;color:var(--muted);
+  padding:8px 14px;border-radius:999px;
+  transition:color .2s,background .2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--text);background:rgba(255,255,255,.07)}
+.nav-cta{
+  font-size:14.5px;font-weight:600;color:#fff;
+  background:var(--blue);
+  padding:10px 20px;border-radius:999px;border:none;
+  box-shadow:0 0 24px var(--blue-glow);
+  transition:transform .2s,box-shadow .2s,background .2s;
+  white-space:nowrap;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 36px var(--blue-glow);background:#4595e8}
+.nav-burger{display:none;background:none;border:none;width:44px;height:44px;position:relative}
+.nav-burger span{position:absolute;left:11px;right:11px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s}
+.nav-burger span:nth-child(1){top:16px}.nav-burger span:nth-child(2){top:22px}.nav-burger span:nth-child(3){top:28px}
+.nav-burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:860px){
+  .nav-links{
+    position:fixed;top:var(--nav-h);left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:2px;
+    background:rgba(6,11,22,.97);backdrop-filter:blur(20px);
+    padding:16px 24px 24px;border-bottom:1px solid var(--border);
+    transform:translateY(-8px);opacity:0;pointer-events:none;transition:transform .3s,opacity .3s;
+  }
+  .nav-links.open{transform:none;opacity:1;pointer-events:auto}
+  .nav-links a{padding:14px 16px;font-size:16px}
+  .nav-burger{display:block}
+}
+
+/* ————— Hero ————— */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:0;overflow:hidden;transition:border-radius .1s linear}
+.hero-media video{width:100%;height:100%;object-fit:cover;transform:scale(1.02)}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(120% 90% at 50% 110%, rgba(6,11,22,.92) 0%, rgba(6,11,22,.55) 45%, rgba(6,11,22,.28) 70%),
+    linear-gradient(180deg, rgba(6,11,22,.62) 0%, rgba(6,11,22,.28) 35%, rgba(6,11,22,.45) 75%, var(--bg) 100%);
+}
+.hero-content{position:relative;z-index:2;padding:140px 0 40px;text-align:center}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:500;letter-spacing:.04em;color:#cdd9ea;
+  background:rgba(255,255,255,.07);border:1px solid var(--border-strong);
+  padding:8px 18px;border-radius:999px;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+.hero h1{
+  margin:28px auto 0;max-width:960px;
+  font-size:clamp(2.5rem,6.6vw,5.2rem);
+  font-weight:800;line-height:1.05;letter-spacing:-.03em;
+  text-wrap:balance;
+}
+.hero h1 .accent{
+  background:linear-gradient(100deg,#6db1f5 0%,var(--blue) 50%,#7cc4ff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{margin:22px auto 0;max-width:620px;font-size:clamp(1.02rem,1.6vw,1.25rem);font-weight:300;color:#c3cfdf}
+.hero-actions{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:16px;font-weight:600;color:#fff;background:var(--blue);
+  padding:15px 32px;border-radius:999px;border:none;
+  box-shadow:0 4px 32px var(--blue-glow);
+  transition:transform .2s,box-shadow .2s,background .2s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 44px var(--blue-glow);background:#4595e8}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:16px;font-weight:500;color:var(--text);
+  background:rgba(255,255,255,.07);border:1px solid var(--border-strong);
+  padding:15px 32px;border-radius:999px;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  transition:background .2s,transform .2s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.hero-meta{margin-top:26px;font-size:13.5px;color:#9fb0c6;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.hero-meta span{display:inline-flex;align-items:center;gap:7px}
+.hero-meta svg{width:15px;height:15px;stroke:var(--gold)}
+
+/* video controls */
+.video-controls{
+  position:absolute;right:26px;bottom:26px;z-index:5;
+  display:flex;gap:8px;
+}
+.vc-btn{
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(10,18,32,.55);border:1px solid var(--border-strong);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .2s;
+}
+.vc-btn:hover{background:rgba(47,134,224,.4);transform:scale(1.06)}
+.vc-btn svg{width:18px;height:18px;fill:#fff}
+.vc-btn .icon-alt{display:none}
+.vc-btn.toggled .icon-main{display:none}
+.vc-btn.toggled .icon-alt{display:block}
+@media(max-width:640px){.video-controls{right:16px;bottom:16px}}
+
+/* stats */
+.hero-stats{position:relative;z-index:2;margin-top:auto;padding:0 0 46px}
+.stats-grid{
+  max-width:1180px;margin:0 auto;padding:0 24px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+.stat{
+  background:rgba(10,18,32,.5);border:1px solid var(--border);
+  border-radius:var(--radius);padding:22px 18px;text-align:center;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.stat b{display:block;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;letter-spacing:-.02em;color:#fff}
+.stat span{font-size:13px;color:var(--muted)}
+@media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ————— Section scaffolding ————— */
+.section{padding:110px 0}
+.section-head{max-width:680px;margin:0 auto 60px;text-align:center}
+.eyebrow{
+  display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);background:var(--blue-soft);border:1px solid rgba(47,134,224,.25);
+  padding:6px 16px;border-radius:999px;margin-bottom:18px;
+}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:700;letter-spacing:-.025em;line-height:1.12;text-wrap:balance}
+.section-head p{margin-top:16px;color:var(--muted);font-size:1.05rem;font-weight:300}
+
+/* ————— Leistungen ————— */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.service{
+  position:relative;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:34px 30px;
+  transition:transform .35s cubic-bezier(.2,.6,.2,1),background .3s,border-color .3s,box-shadow .35s;
+}
+.service:hover{transform:translateY(-6px);background:var(--card-hover);border-color:rgba(47,134,224,.4);box-shadow:0 20px 60px rgba(0,0,0,.45),0 0 40px rgba(47,134,224,.08)}
+.service.popular{border-color:rgba(217,179,106,.4);background:linear-gradient(180deg,var(--gold-soft) 0%,var(--card) 32%)}
+.service.popular:hover{border-color:rgba(217,179,106,.65);box-shadow:0 20px 60px rgba(0,0,0,.45),0 0 40px rgba(217,179,106,.1)}
+.popular-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  font-size:12px;font-weight:600;letter-spacing:.06em;color:#0c0f16;
+  background:linear-gradient(100deg,#e8cd94,var(--gold));
+  padding:5px 16px;border-radius:999px;white-space:nowrap;
+}
+.service-icon{
+  width:54px;height:54px;border-radius:15px;
+  background:var(--blue-soft);border:1px solid rgba(47,134,224,.3);
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+}
+.service-icon svg{width:26px;height:26px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.service.popular .service-icon{background:var(--gold-soft);border-color:rgba(217,179,106,.35)}
+.service.popular .service-icon svg{stroke:var(--gold)}
+.service h3{font-size:1.3rem;font-weight:600;letter-spacing:-.01em}
+.service > p{margin-top:12px;font-size:.95rem;color:var(--muted);font-weight:300}
+.service-features{margin-top:22px;display:grid;gap:12px}
+.service-features li{display:flex;gap:11px;font-size:.92rem;color:#c3cfdf}
+.service-features li svg{flex:none;width:17px;height:17px;margin-top:2px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.service.popular .service-features li svg{stroke:var(--gold)}
+.service-features b{color:var(--text);font-weight:600}
+@media(max-width:960px){.services{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+
+/* ————— iPhone showcase ————— */
+.showcase{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 50%,var(--bg) 100%)}
+.showcase-glow{position:absolute;top:20%;left:50%;transform:translate(-50%,0);width:900px;height:600px;background:radial-gradient(closest-side,rgba(47,134,224,.14),transparent);pointer-events:none}
+.showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.showcase-text .eyebrow{margin-bottom:16px}
+.showcase-text h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:700;letter-spacing:-.025em;line-height:1.12}
+.showcase-text > p{margin-top:18px;color:var(--muted);font-weight:300;font-size:1.02rem;max-width:460px}
+.showcase-points{margin-top:30px;display:grid;gap:16px}
+.showcase-points li{display:flex;gap:14px;align-items:flex-start}
+.showcase-points .pt-icon{
+  flex:none;width:40px;height:40px;border-radius:12px;
+  background:var(--blue-soft);border:1px solid rgba(47,134,224,.3);
+  display:flex;align-items:center;justify-content:center;
+}
+.showcase-points svg{width:19px;height:19px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.showcase-points b{display:block;font-size:.98rem;font-weight:600}
+.showcase-points span{font-size:.88rem;color:var(--muted)}
+.phone-wrap{display:flex;justify-content:center;perspective:1200px}
+.phone{
+  position:relative;width:min(300px,72vw);aspect-ratio:9/19;
+  border-radius:44px;padding:11px;
+  background:linear-gradient(160deg,#2a3547,#141c2b 60%);
+  box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.1),0 0 70px rgba(47,134,224,.14);
+  transform-style:preserve-3d;
+  transition:transform .25s ease-out;
+  cursor:pointer;
+}
+.phone-screen{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden;background:#000}
+.phone-screen video{width:100%;height:100%;object-fit:cover}
+.phone-notch{
+  position:absolute;top:22px;left:50%;transform:translateX(-50%);
+  width:34%;height:26px;background:#0a0d13;border-radius:999px;z-index:3;
+}
+.phone-hint{
+  position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
+  display:flex;align-items:center;gap:8px;z-index:4;
+  font-size:12.5px;font-weight:500;color:#fff;white-space:nowrap;
+  background:rgba(10,15,25,.6);border:1px solid rgba(255,255,255,.2);
+  padding:8px 16px;border-radius:999px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:opacity .3s;pointer-events:none;
+}
+.phone-hint svg{width:14px;height:14px;fill:#fff}
+@media(max-width:960px){
+  .showcase-grid{grid-template-columns:1fr;gap:56px}
+  .showcase-text{text-align:center}
+  .showcase-text > p{margin-left:auto;margin-right:auto}
+  .showcase-points li{text-align:left}
+}
+
+/* ————— Preise ————— */
+.price-toggle{display:flex;justify-content:center;margin-bottom:52px}
+.toggle-pill{
+  position:relative;display:flex;gap:4px;
+  background:var(--card);border:1px solid var(--border);
+  padding:5px;border-radius:999px;
+}
+.toggle-pill button{
+  position:relative;z-index:2;
+  font-size:14.5px;font-weight:600;color:var(--muted);
+  background:none;border:none;padding:10px 26px;border-radius:999px;
+  transition:color .3s;
+}
+.toggle-pill button.active{color:#fff}
+.toggle-slider{
+  position:absolute;top:5px;bottom:5px;left:5px;z-index:1;
+  background:var(--blue);border-radius:999px;
+  box-shadow:0 0 20px var(--blue-glow);
+  transition:transform .35s cubic-bezier(.3,.7,.3,1),width .35s cubic-bezier(.3,.7,.3,1);
+}
+.toggle-note{text-align:center;font-size:13px;color:var(--muted);margin:-38px 0 44px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.price-card{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:36px 30px;
+  transition:transform .35s cubic-bezier(.2,.6,.2,1),border-color .3s,box-shadow .35s;
+}
+.price-card:hover{transform:translateY(-6px);border-color:rgba(47,134,224,.4);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.price-card.popular{border-color:rgba(217,179,106,.45);background:linear-gradient(180deg,var(--gold-soft) 0%,var(--card) 34%)}
+.price-card h3{font-size:1.12rem;font-weight:600}
+.price-amount{margin-top:20px;min-height:96px}
+.price-amount .chf{font-size:2.35rem;font-weight:700;letter-spacing:-.02em;color:#fff}
+.price-amount .per{font-size:.95rem;color:var(--muted);font-weight:400}
+.price-amount .sub{display:block;margin-top:7px;font-size:.85rem;color:var(--muted)}
+.price-amount .best{
+  display:inline-block;margin-left:10px;vertical-align:middle;
+  font-size:11.5px;font-weight:600;letter-spacing:.04em;color:#7fe0a8;
+  background:rgba(72,199,131,.12);border:1px solid rgba(72,199,131,.3);
+  padding:3px 10px;border-radius:999px;
+}
+.price-incl{margin-top:22px;padding-top:22px;border-top:1px solid var(--border);display:grid;gap:11px;flex:1}
+.price-incl li{display:flex;gap:10px;font-size:.9rem;color:#c3cfdf}
+.price-incl svg{flex:none;width:16px;height:16px;margin-top:3px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.price-card.popular .price-incl svg{stroke:var(--gold)}
+.price-cta{
+  margin-top:28px;text-align:center;
+  font-size:15px;font-weight:600;color:var(--text);
+  background:rgba(255,255,255,.07);border:1px solid var(--border-strong);
+  padding:13px 20px;border-radius:999px;
+  transition:background .2s,transform .2s;
+}
+.price-cta:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+.price-card.popular .price-cta{background:var(--blue);border-color:transparent;color:#fff;box-shadow:0 4px 26px var(--blue-glow)}
+.price-card.popular .price-cta:hover{background:#4595e8}
+@media(max-width:960px){.pricing{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+
+/* ————— Compliance ————— */
+.compliance{
+  background:linear-gradient(140deg,var(--bg-2) 0%,var(--bg-3) 100%);
+  border:1px solid var(--border);border-radius:26px;
+  padding:clamp(36px,5vw,64px);
+  display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.compliance::before{
+  content:"";position:absolute;top:-40%;right:-15%;width:520px;height:520px;
+  background:radial-gradient(closest-side,rgba(47,134,224,.16),transparent);pointer-events:none;
+}
+.compliance h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.compliance > div > p{margin-top:18px;color:var(--muted);font-weight:300}
+.badges{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.badges span{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:500;color:#cdd9ea;
+  background:rgba(255,255,255,.06);border:1px solid var(--border-strong);
+  padding:8px 16px;border-radius:999px;
+}
+.badges svg{width:14px;height:14px;stroke:#7fe0a8;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.compliance-points{display:grid;gap:14px;position:relative;z-index:1}
+.compliance-points li{
+  display:flex;gap:16px;align-items:flex-start;
+  background:rgba(255,255,255,.045);border:1px solid var(--border);
+  border-radius:16px;padding:20px 22px;
+}
+.compliance-points .pt-icon{
+  flex:none;width:42px;height:42px;border-radius:12px;
+  background:var(--blue-soft);border:1px solid rgba(47,134,224,.3);
+  display:flex;align-items:center;justify-content:center;
+}
+.compliance-points svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.compliance-points b{display:block;font-size:.98rem;font-weight:600}
+.compliance-points span{font-size:.87rem;color:var(--muted)}
+@media(max-width:960px){.compliance{grid-template-columns:1fr;gap:40px}}
+
+/* ————— Über uns / Timeline ————— */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.about-text h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:700;letter-spacing:-.025em;line-height:1.14}
+.about-text p{margin-top:20px;color:#c3cfdf;font-weight:300;font-size:1.02rem}
+.about-text p b{color:var(--text);font-weight:600}
+.values{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.values span{
+  font-size:13.5px;font-weight:500;color:#cdd9ea;
+  background:var(--blue-soft);border:1px solid rgba(47,134,224,.3);
+  padding:8px 18px;border-radius:999px;
+}
+.timeline{position:relative;display:grid;gap:8px}
+.timeline::before{
+  content:"";position:absolute;left:23px;top:28px;bottom:28px;width:2px;
+  background:linear-gradient(180deg,var(--blue),rgba(47,134,224,.08));
+}
+.tl-item{position:relative;display:flex;gap:22px;padding:18px 0}
+.tl-num{
+  flex:none;width:48px;height:48px;border-radius:50%;z-index:1;
+  background:var(--bg-2);border:2px solid var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:1.02rem;color:var(--blue);
+  box-shadow:0 0 24px rgba(47,134,224,.25);
+}
+.tl-item b{display:block;font-size:1.06rem;font-weight:600}
+.tl-item i{display:block;font-style:normal;font-size:.83rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.tl-item p{font-size:.92rem;color:var(--muted);margin-top:5px}
+@media(max-width:960px){.about-grid{grid-template-columns:1fr;gap:52px}}
+
+/* ————— Team ————— */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.member{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:32px 28px;text-align:center;
+  transition:transform .35s cubic-bezier(.2,.6,.2,1),border-color .3s,box-shadow .35s;
+  position:relative;
+}
+.member:hover{transform:translateY(-6px);border-color:rgba(47,134,224,.4);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.member.founder{border-color:rgba(217,179,106,.4);background:linear-gradient(180deg,var(--gold-soft) 0%,var(--card) 40%)}
+.founder-badge{
+  position:absolute;top:16px;right:16px;
+  font-size:11px;font-weight:600;letter-spacing:.06em;color:#0c0f16;
+  background:linear-gradient(100deg,#e8cd94,var(--gold));
+  padding:4px 12px;border-radius:999px;
+}
+.avatar{
+  width:76px;height:76px;border-radius:50%;margin:0 auto 20px;
+  background:linear-gradient(140deg,var(--blue) 0%,#1a4f8f 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;font-weight:700;color:#fff;
+  box-shadow:0 0 30px rgba(47,134,224,.3);
+}
+.member.founder .avatar{background:linear-gradient(140deg,#e8cd94,#b78f4a);box-shadow:0 0 30px rgba(217,179,106,.3);color:#1b1405}
+.member h3{font-size:1.12rem;font-weight:600}
+.member .role{margin-top:5px;font-size:.85rem;font-weight:600;color:var(--blue)}
+.member.founder .role{color:var(--gold)}
+.member p{margin-top:12px;font-size:.88rem;color:var(--muted);font-weight:300}
+@media(max-width:960px){.team{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.team{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+
+/* ————— Kontakt ————— */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+.contact-info h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:700;letter-spacing:-.025em;line-height:1.14}
+.contact-info > p{margin-top:16px;color:var(--muted);font-weight:300}
+.contact-items{margin-top:34px;display:grid;gap:14px}
+.contact-items li{
+  display:flex;gap:16px;align-items:center;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:18px 20px;
+}
+.contact-items .pt-icon{
+  flex:none;width:42px;height:42px;border-radius:12px;
+  background:var(--blue-soft);border:1px solid rgba(47,134,224,.3);
+  display:flex;align-items:center;justify-content:center;
+}
+.contact-items svg{width:19px;height:19px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.contact-items b{display:block;font-size:.95rem;font-weight:600}
+.contact-items span{font-size:.85rem;color:var(--muted)}
+.contact-items a span{transition:color .2s}
+.contact-items a:hover span{color:var(--blue)}
+.form-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:24px;padding:clamp(28px,4vw,44px);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;color:#cdd9ea;margin-bottom:8px}
+.field input,.field select,.field textarea{
+  width:100%;font-family:inherit;font-size:15px;color:var(--text);
+  background:rgba(255,255,255,.05);border:1px solid var(--border-strong);
+  border-radius:12px;padding:13px 16px;outline:none;
+  transition:border-color .2s,box-shadow .2s,background .2s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,134,224,.18);background:rgba(255,255,255,.07);
+}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
+.field select option{background:var(--bg-2);color:var(--text)}
+.field textarea{min-height:130px;resize:vertical}
+.form-submit{width:100%;justify-content:center;margin-top:8px}
+.form-note{margin-top:14px;text-align:center;font-size:12.5px;color:var(--muted)}
+@media(max-width:960px){.contact-grid{grid-template-columns:1fr;gap:48px}}
+@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+
+/* ————— Footer ————— */
+footer{border-top:1px solid var(--border);background:#050910;padding:64px 0 34px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+.footer-brand img{height:54px;width:auto;margin-bottom:18px}
+.footer-brand p{font-size:.92rem;color:var(--muted);font-weight:300;max-width:340px}
+.footer-col h4{font-size:.85rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#cdd9ea;margin-bottom:18px}
+.footer-col ul{display:grid;gap:11px}
+.footer-col a{font-size:.92rem;color:var(--muted);transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{
+  margin-top:52px;padding-top:26px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:13px;color:#64748b;
+}
+@media(max-width:760px){.footer-grid{grid-template-columns:1fr;gap:36px}}
+</style>
+</head>
+<body>
+
+<!-- ————————— NAVBAR ————————— -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Helvetia Digital – Startseite">
+      <img src="assets/logo-light.png" alt="Helvetia Digital Logo">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#preise">Preise</a>
+      <a href="#ueber-uns">Team &amp; Über uns</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a class="nav-cta" href="#kontakt">Projekt starten</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ————————— HERO ————————— -->
+<header class="hero" id="top">
+  <div class="hero-media" id="heroMedia">
+    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
+      <source src="assets/hero-zurich.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="video-controls">
+    <button class="vc-btn" id="vcPlay" aria-label="Video pausieren">
+      <svg class="icon-main" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+      <svg class="icon-alt" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg>
+    </button>
+    <button class="vc-btn toggled" id="vcMute" aria-label="Ton einschalten">
+      <svg class="icon-main" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+      <svg class="icon-alt" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm18.6 3 2.1-2.1-1.4-1.4-2.1 2.1-2.1-2.1-1.4 1.4L18.8 12l-2.1 2.1 1.4 1.4 2.1-2.1 2.1 2.1 1.4-1.4L21.6 12z"/></svg>
+    </button>
+  </div>
+
+  <div class="hero-content container">
+    <div class="hero-badge reveal in"><span class="dot"></span>Digitale Lösungen · Schweizer &amp; Deutsche Qualität</div>
+    <h1 class="reveal in d1">Ihr digitaler Partner für<br><span class="accent">Gastronomie &amp; Handel</span></h1>
+    <p class="hero-sub reveal in d2">Schweizer Präzision, digital umgesetzt – vom ersten Konzept bis zum fertigen Produkt.</p>
+    <div class="hero-actions reveal in d3">
+      <a class="btn-primary" href="#kontakt">Projekt starten
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn-ghost" href="#leistungen">Leistungen entdecken</a>
+    </div>
+    <div class="hero-meta reveal in d3">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Zürich · Schweiz</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Antwort innerhalb von 24 Stunden</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg>EU- &amp; DSG-konform</span>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stats-grid">
+      <div class="stat reveal"><b data-count="50" data-suffix="+">0+</b><span>Realisierte Projekte</span></div>
+      <div class="stat reveal d1"><b data-count="6" data-suffix="">0</b><span>Expert:innen im Team</span></div>
+      <div class="stat reveal d2"><b data-count="100" data-suffix="%">0%</b><span>Kundenzufriedenheit</span></div>
+      <div class="stat reveal d3"><b>24/7</b><span>Automatisierter Support</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ————————— LEISTUNGEN ————————— -->
+<section class="section" id="leistungen">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Leistungen</span>
+      <h2>Digitale Lösungen, die Gäste und Kunden gewinnen</h2>
+      <p>Vom ersten Konzept bis zum fertigen Produkt – alles aus einer Hand.</p>
+    </div>
+    <div class="services">
+
+      <article class="service reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="14" rx="2"/><path d="M2.5 9h19M8 21h8M12 18v3"/></svg>
+        </div>
+        <h3>Website-Entwicklung</h3>
+        <p>Wir gestalten moderne, blitzschnelle Websites mit individuellem Design – optimiert für Suchmaschinen und perfekt auf allen Geräten. So gewinnen Sie online neue Gäste und Kunden.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Individuelles Design</b> – Maßgeschneidert auf Ihre Marke</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Mobil-first</b> – Perfekt auf Handy, Tablet &amp; Desktop</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>SEO-optimiert</b> – Besser gefunden bei Google</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Top-Performance</b> – Schnelle Ladezeiten</span></li>
+        </ul>
+      </article>
+
+      <article class="service popular reveal d1">
+        <span class="popular-badge">⭐ Beliebt</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+        </div>
+        <h3>App-Entwicklung</h3>
+        <p>Native Apps, die Ihre Kunden begeistern – mit Bestellfunktion, Treueprogramm oder Reservierung. Direkt auf dem Smartphone Ihrer Gäste, jederzeit griffbereit.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>iOS &amp; Android</b> – Native Entwicklung</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Push-Nachrichten</b> – Aktionen direkt aufs Handy</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Bestellen &amp; Buchen</b> – Integrierte Funktionen</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Offline-fähig</b> – Funktioniert auch ohne Netz</span></li>
+        </ul>
+      </article>
+
+      <article class="service reveal d2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1.1L3 20l1.1-5.3A8.4 8.4 0 0 1 3 11.5a8.5 8.5 0 0 1 8.5-8.5 8.5 8.5 0 0 1 9.5 8.5z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01"/></svg>
+        </div>
+        <h3>Chat &amp; Call-Automatisierung</h3>
+        <p>Intelligente Chatbots und Anruf-Automatisierung übernehmen Reservierungen, Bestellungen und Fragen – 24/7, datenschutzkonform nach EU-Recht und Schweizer DSG.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>KI-Chatbot</b> – Antwortet sofort, jederzeit</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Call-Automatisierung</b> – Anrufe automatisch bearbeitet</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>DSGVO &amp; DSG</b> – Voll datenschutzkonform</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>CRM-Integration</b> – Nahtlos angebunden</span></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ————————— APP SHOWCASE (iPhone + Zürich Video) ————————— -->
+<section class="section showcase" id="app-showcase">
+  <div class="showcase-glow"></div>
+  <div class="container">
+    <div class="showcase-grid">
+      <div class="showcase-text reveal">
+        <span class="eyebrow">App-Entwicklung · Live</span>
+        <h2>Direkt auf dem Smartphone Ihrer Gäste – jederzeit griffbereit</h2>
+        <p>Native Apps, die Ihre Kunden begeistern – mit Bestellfunktion, Treueprogramm oder Reservierung.</p>
+        <ul class="showcase-points">
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
+            <div><b>iOS &amp; Android nativ</b><span>Gemeinsames Backend, App Store Veröffentlichung inklusive</span></div>
+          </li>
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></span>
+            <div><b>Push-Nachrichten</b><span>Aktionen direkt aufs Handy Ihrer Gäste</span></div>
+          </li>
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M2.5 12a9.5 9.5 0 0 1 19 0 9.5 9.5 0 0 1-19 0z"/><path d="M2.5 12h19M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/></svg></span>
+            <div><b>Offline-fähig</b><span>Funktioniert auch ohne Netz</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="phone-wrap reveal d1">
+        <div class="phone" id="phone" role="button" tabindex="0" aria-label="Zürich-Video abspielen">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <video id="phoneVideo" loop playsinline preload="metadata" poster="assets/app-poster.jpg">
+              <source src="assets/app-zurich.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="phone-hint" id="phoneHint">
+            <svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg>Tippen zum Abspielen
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— PREISE ————————— -->
+<section class="section" id="preise">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Preise</span>
+      <h2>Transparente Preise, keine Überraschungen</h2>
+      <p>Wählen Sie zwischen Vollzahlung zum Bestpreis oder bequemer Ratenzahlung über 6 Monate.</p>
+    </div>
+
+    <div class="price-toggle reveal">
+      <div class="toggle-pill" id="togglePill">
+        <span class="toggle-slider" id="toggleSlider"></span>
+        <button class="active" data-mode="voll">Vollzahlung</button>
+        <button data-mode="raten">Ratenzahlung</button>
+      </div>
+    </div>
+
+    <div class="pricing">
+
+      <article class="price-card reveal">
+        <h3>Website-Entwicklung</h3>
+        <div class="price-amount" data-plan
+          data-voll-chf="CHF 499.–" data-voll-sub="inkl. 8,1% MwSt: CHF 539.42" data-voll-best="1"
+          data-raten-chf="6× CHF 93.15" data-raten-per="/Mt." data-raten-sub="Gesamt CHF 558.88 · inkl. MwSt: CHF 604.15">
+          <span class="chf">CHF 499.–</span><span class="best">Bestpreis</span>
+          <span class="sub">inkl. 8,1% MwSt: CHF 539.42</span>
+        </div>
+        <ul class="price-incl">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Individuelles Design</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Bis zu 10 Unterseiten</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Kontakt- &amp; Buchungsformular</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Mobil-optimiert &amp; SEO</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>1 Monat Support inklusive</li>
+        </ul>
+        <a class="price-cta" href="#kontakt" data-service="Website-Entwicklung">Anfrage senden</a>
+      </article>
+
+      <article class="price-card popular reveal d1">
+        <span class="popular-badge">⭐ Beliebt</span>
+        <h3>App-Entwicklung</h3>
+        <div class="price-amount" data-plan
+          data-voll-chf="CHF 599.–" data-voll-sub="inkl. 8,1% MwSt: CHF 647.52" data-voll-best="1"
+          data-raten-chf="6× CHF 111.81" data-raten-per="/Mt." data-raten-sub="Gesamt CHF 670.88 · inkl. MwSt: CHF 725.22">
+          <span class="chf">CHF 599.–</span><span class="best">Bestpreis</span>
+          <span class="sub">inkl. 8,1% MwSt: CHF 647.52</span>
+        </div>
+        <ul class="price-incl">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>iOS &amp; Android nativ</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Gemeinsames Backend</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Push-Benachrichtigungen</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>App Store Veröffentlichung</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>3 Monate Support inklusive</li>
+        </ul>
+        <a class="price-cta" href="#kontakt" data-service="App-Entwicklung">Anfrage senden</a>
+      </article>
+
+      <article class="price-card reveal d2">
+        <h3>Chat &amp; Call-Automatisierung</h3>
+        <div class="price-amount" data-plan
+          data-voll-chf="CHF 243.–" data-voll-sub="inkl. 8,1% MwSt: CHF 262.68" data-voll-best="1"
+          data-raten-chf="6× CHF 45.36" data-raten-per="/Mt." data-raten-sub="Gesamt CHF 272.16 · inkl. MwSt: CHF 294.20">
+          <span class="chf">CHF 243.–</span><span class="best">Bestpreis</span>
+          <span class="sub">inkl. 8,1% MwSt: CHF 262.68</span>
+        </div>
+        <ul class="price-incl">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>KI-Chatbot Einrichtung</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Call-Automatisierung</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>DSGVO- &amp; DSG-konform</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>CRM-Integration möglich</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>1 Monat Support inklusive</li>
+        </ul>
+        <a class="price-cta" href="#kontakt" data-service="Chat &amp; Call-Automatisierung">Anfrage senden</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ————————— COMPLIANCE ————————— -->
+<section class="section" id="compliance" style="padding-top:0">
+  <div class="container">
+    <div class="compliance reveal">
+      <div>
+        <span class="eyebrow">Datenschutz &amp; Compliance</span>
+        <h2>Automatisierung – 100% EU-konform</h2>
+        <p>Unsere Chat- &amp; Call-Automatisierung erfüllt höchste regulatorische Standards. Ihre Kundendaten bleiben geschützt, nachvollziehbar und rechtssicher verarbeitet – nach EU-Recht und Schweizer Datenschutzgesetz.</p>
+        <div class="badges">
+          <span><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>DSGVO-konform</span>
+          <span><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Schweizer DSG</span>
+          <span><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Ende-zu-Ende verschlüsselt</span>
+        </div>
+      </div>
+      <ul class="compliance-points">
+        <li>
+          <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div><b>Rechtssichere Verarbeitung</b><span>Konform mit aktueller EU-Regulatorik</span></div>
+        </li>
+        <li>
+          <span class="pt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/></svg></span>
+          <div><b>Volle Transparenz</b><span>Nachvollziehbare Datenflüsse &amp; Protokolle</span></div>
+        </li>
+        <li>
+          <span class="pt-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+          <div><b>Hosting in Europa</b><span>Daten verbleiben im EU-/CH-Rechtsraum</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— ÜBER UNS ————————— -->
+<section class="section" id="ueber-uns" style="background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="eyebrow">Über uns</span>
+        <h2>Schweizer &amp; Deutsche Werte vereint</h2>
+        <p>Helvetia verbindet Schweizer Präzision mit deutscher Gründlichkeit. Gegründet von <b>Robin</b> und <b>Nicolas</b> – beide mit Hintergrund in IT-Wirtschaft und Recht – steht unser Name für Verlässlichkeit, Transparenz und echte Kundenbindung.</p>
+        <p>Mit über 4 Jahren Erfahrung in der IT begleiten wir kleine und mittelständische Unternehmen aus Gastronomie und Handel auf ihrem Weg in die digitale Zukunft.</p>
+        <div class="values">
+          <span>Transparenz</span><span>Kundenbindung</span><span>Zufriedenheit</span><span>Verlässlichkeit</span>
+        </div>
+      </div>
+      <div class="timeline reveal d1">
+        <div class="tl-item">
+          <span class="tl-num">1</span>
+          <div>
+            <i>Die Gründung</i>
+            <b>Vision von Robin &amp; Nicolas</b>
+            <p>Zwei Köpfe aus IT-Wirtschaft und Recht vereinen Schweizer und deutsche Expertise.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-num">2</span>
+          <div>
+            <i>4+ Jahre IT</i>
+            <b>Fundierte Erfahrung</b>
+            <p>Tiefes technisches Know-how kombiniert mit rechtlichem Verständnis.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-num">3</span>
+          <div>
+            <i>Heute</i>
+            <b>Ein Team aus 6 Expert:innen</b>
+            <p>Gemeinsam realisieren wir digitale Lösungen mit Fokus auf Transparenz und Kundenbindung.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— TEAM ————————— -->
+<section class="section" id="team" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Team</span>
+      <h2>6 Expert:innen, ein Ziel: Ihr Erfolg</h2>
+    </div>
+    <div class="team">
+      <article class="member founder reveal">
+        <span class="founder-badge">Gründer</span>
+        <div class="avatar">R</div>
+        <h3>Robin</h3>
+        <div class="role">Co-Founder · IT &amp; Strategie</div>
+        <p>Hintergrund in IT-Wirtschaft &amp; Recht. Verbindet technische Exzellenz mit unternehmerischer Weitsicht.</p>
+      </article>
+      <article class="member founder reveal d1">
+        <span class="founder-badge">Gründer</span>
+        <div class="avatar">N</div>
+        <h3>Nicolas</h3>
+        <div class="role">Co-Founder · Recht &amp; Compliance</div>
+        <p>Hintergrund in IT-Wirtschaft &amp; Recht. Sorgt für rechtssichere, EU-konforme Lösungen.</p>
+      </article>
+      <article class="member reveal d2">
+        <div class="avatar">&lt;/&gt;</div>
+        <h3>Lead Developer</h3>
+        <div class="role">Web &amp; App-Entwicklung</div>
+        <p>Entwickelt performante, skalierbare Anwendungen nach höchsten Standards.</p>
+      </article>
+      <article class="member reveal">
+        <div class="avatar">UX</div>
+        <h3>UX / UI Design</h3>
+        <div class="role">Design &amp; Experience</div>
+        <p>Gestaltet intuitive, ästhetische Oberflächen, die Kunden begeistern.</p>
+      </article>
+      <article class="member reveal d1">
+        <div class="avatar">KI</div>
+        <h3>Automation Engineer</h3>
+        <div class="role">KI &amp; Automatisierung</div>
+        <p>Baut intelligente, datenschutzkonforme Automatisierungslösungen.</p>
+      </article>
+      <article class="member reveal d2">
+        <div class="avatar">CS</div>
+        <h3>Customer Success</h3>
+        <div class="role">Betreuung &amp; Support</div>
+        <p>Persönlicher Ansprechpartner für nachhaltige Kundenzufriedenheit.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— KONTAKT ————————— -->
+<section class="section" id="kontakt">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Bereit für den nächsten Schritt?</h2>
+        <p>Erzählen Sie uns von Ihrem Projekt – wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+        <ul class="contact-items">
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></span>
+            <a href="mailto:helvetiaadigi@gmail.com"><b>E-Mail</b><span>helvetiaadigi@gmail.com</span></a>
+          </li>
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+            <div><b>Reaktionszeit</b><span>Innerhalb von 24 Stunden</span></div>
+          </li>
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <div><b>Standort</b><span>Zürich · Schweiz</span></div>
+          </li>
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <div><b>Datenschutz</b><span>EU- &amp; DSG-konform</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="form-card reveal d1">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="vorname">Vorname</label>
+              <input type="text" id="vorname" name="vorname" placeholder="Ihr Vorname" required>
+            </div>
+            <div class="field">
+              <label for="nachname">Nachname</label>
+              <input type="text" id="nachname" name="nachname" placeholder="Ihr Nachname" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" placeholder="ihre@email.ch" required>
+          </div>
+          <div class="field">
+            <label for="leistung">Leistung</label>
+            <select id="leistung" name="leistung" required>
+              <option value="" disabled selected>Bitte wählen…</option>
+              <option>Website-Entwicklung</option>
+              <option>App-Entwicklung</option>
+              <option>Chat &amp; Call-Automatisierung</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" placeholder="Erzählen Sie uns von Ihrem Projekt…" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit">Anfrage senden
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+          </button>
+          <p class="form-note">Ihre Anfrage wird direkt an helvetiaadigi@gmail.com gesendet.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— FOOTER ————————— -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-light.png" alt="Helvetia Digital Logo">
+        <p>Ihr digitaler Partner für Gastronomie und Handel. Schweizer &amp; Deutsche Werte, transparent und verlässlich.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#leistungen">Website-Entwicklung</a></li>
+          <li><a href="#leistungen">App-Entwicklung</a></li>
+          <li><a href="#leistungen">Automatisierung</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#compliance">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Helvetia Digital · Zürich, Schweiz</span>
+      <span>Digitale Lösungen · Schweizer &amp; Deutsche Qualität</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ————— Navbar scroll state ————— */
+  var nav = document.getElementById("nav");
+  function onNavScroll(){ nav.classList.toggle("scrolled", window.scrollY > 24); }
+  window.addEventListener("scroll", onNavScroll, {passive:true});
+  onNavScroll();
+
+  /* ————— Mobile menu ————— */
+  var burger = document.getElementById("navBurger");
+  var links = document.getElementById("navLinks");
+  burger.addEventListener("click", function(){
+    var open = links.classList.toggle("open");
+    burger.classList.toggle("open", open);
+    burger.setAttribute("aria-label", open ? "Menü schliessen" : "Menü öffnen");
+  });
+  links.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ links.classList.remove("open"); burger.classList.remove("open"); });
+  });
+
+  /* ————— Active nav link ————— */
+  var sections = ["leistungen","preise","ueber-uns","kontakt"];
+  var navAnchors = {};
+  links.querySelectorAll("a").forEach(function(a){ navAnchors[a.getAttribute("href").slice(1)] = a; });
+  var secObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        Object.values(navAnchors).forEach(function(a){ a.classList.remove("active"); });
+        var id = e.target.id === "team" ? "ueber-uns" : e.target.id;
+        if(navAnchors[id]) navAnchors[id].classList.add("active");
+      }
+    });
+  }, {rootMargin:"-40% 0px -55% 0px"});
+  sections.concat(["team"]).forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) secObserver.observe(el);
+  });
+
+  /* ————— Reveal on scroll ————— */
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting || e.boundingClientRect.top < 0){ e.target.classList.add("in"); revealObserver.unobserve(e.target); }
+    });
+  }, {threshold:.14});
+  document.querySelectorAll(".reveal:not(.in)").forEach(function(el){ revealObserver.observe(el); });
+  /* fallback: instant jumps (anchor links, reduced motion) can skip the observer —
+     reveal anything that already sits above the viewport */
+  var sweepTick = false;
+  function sweepAbove(){
+    sweepTick = false;
+    document.querySelectorAll(".reveal:not(.in)").forEach(function(el){
+      if(el.getBoundingClientRect().bottom < 80){ el.classList.add("in"); revealObserver.unobserve(el); }
+    });
+  }
+  window.addEventListener("scroll", function(){
+    if(!sweepTick){ sweepTick = true; requestAnimationFrame(sweepAbove); }
+  }, {passive:true});
+  sweepAbove();
+
+  /* ————— Count-up stats ————— */
+  function countUp(el){
+    var target = parseInt(el.dataset.count, 10);
+    var suffix = el.dataset.suffix || "";
+    if(reduceMotion){ el.textContent = target + suffix; return; }
+    var start = null, dur = 1600;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var statObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ countUp(e.target); statObserver.unobserve(e.target); }
+    });
+  }, {threshold:.6});
+  document.querySelectorAll("[data-count]").forEach(function(el){ statObserver.observe(el); });
+
+  /* ————— Hero video: controls + scroll-driven frame ————— */
+  var heroVideo = document.getElementById("heroVideo");
+  var heroMedia = document.getElementById("heroMedia");
+  var vcPlay = document.getElementById("vcPlay");
+  var vcMute = document.getElementById("vcMute");
+
+  vcPlay.addEventListener("click", function(){
+    if(heroVideo.paused){ heroVideo.play(); vcPlay.classList.remove("toggled"); vcPlay.setAttribute("aria-label","Video pausieren"); }
+    else { heroVideo.pause(); vcPlay.classList.add("toggled"); vcPlay.setAttribute("aria-label","Video abspielen"); }
+  });
+  vcMute.addEventListener("click", function(){
+    heroVideo.muted = !heroVideo.muted;
+    vcMute.classList.toggle("toggled", heroVideo.muted);
+    vcMute.setAttribute("aria-label", heroVideo.muted ? "Ton einschalten" : "Ton ausschalten");
+  });
+
+  if(!reduceMotion){
+    var heroEl = document.querySelector(".hero");
+    var ticking = false;
+    function heroFrame(){
+      ticking = false;
+      var h = heroEl.offsetHeight;
+      var p = Math.min(Math.max(window.scrollY / (h * 0.9), 0), 1);
+      var inset = p * 22;
+      var radius = p * 30;
+      heroMedia.style.clipPath = "inset(" + (inset*0.6) + "px " + inset + "px " + (inset*0.8) + "px " + inset + "px round " + radius + "px)";
+      heroMedia.querySelector("video").style.transform = "scale(" + (1.02 + p * 0.06) + ")";
+    }
+    window.addEventListener("scroll", function(){
+      if(!ticking){ ticking = true; requestAnimationFrame(heroFrame); }
+    }, {passive:true});
+  }
+
+  /* ————— iPhone: tilt + tap to play ————— */
+  var phone = document.getElementById("phone");
+  var phoneVideo = document.getElementById("phoneVideo");
+  var phoneHint = document.getElementById("phoneHint");
+  var canHover = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+
+  if(canHover && !reduceMotion){
+    phone.addEventListener("mousemove", function(ev){
+      var r = phone.getBoundingClientRect();
+      var x = (ev.clientX - r.left) / r.width - .5;
+      var y = (ev.clientY - r.top) / r.height - .5;
+      phone.style.transform = "rotateY(" + (x * 14) + "deg) rotateX(" + (-y * 12) + "deg)";
+    });
+    phone.addEventListener("mouseleave", function(){ phone.style.transform = "rotateY(0) rotateX(0)"; });
+  }
+  function togglePhoneVideo(){
+    if(phoneVideo.paused){
+      phoneVideo.muted = false;
+      phoneVideo.play();
+      phoneHint.style.opacity = "0";
+    } else {
+      phoneVideo.pause();
+      phoneHint.style.opacity = "1";
+      phoneHint.querySelector("svg").outerHTML = '<svg viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg>';
+    }
+  }
+  phone.addEventListener("click", togglePhoneVideo);
+  phone.addEventListener("keydown", function(ev){
+    if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); togglePhoneVideo(); }
+  });
+  /* Pause phone video when scrolled out of view */
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting && !phoneVideo.paused){ phoneVideo.pause(); phoneHint.style.opacity = "1"; }
+    });
+  }, {threshold:.2}).observe(phone);
+
+  /* ————— Pricing toggle ————— */
+  var pill = document.getElementById("togglePill");
+  var slider = document.getElementById("toggleSlider");
+  var toggleButtons = pill.querySelectorAll("button");
+  function positionSlider(btn){
+    slider.style.width = btn.offsetWidth + "px";
+    slider.style.transform = "translateX(" + (btn.offsetLeft - 5) + "px)";
+  }
+  function setMode(mode){
+    toggleButtons.forEach(function(b){ b.classList.toggle("active", b.dataset.mode === mode); });
+    positionSlider(pill.querySelector("button.active"));
+    document.querySelectorAll("[data-plan]").forEach(function(el){
+      var chf = el.dataset[mode + "Chf"];
+      var sub = el.dataset[mode + "Sub"];
+      var per = el.dataset[mode + "Per"] || "";
+      var best = el.dataset[mode + "Best"];
+      el.style.opacity = "0";
+      setTimeout(function(){
+        el.innerHTML = '<span class="chf">' + chf + '</span>' +
+          (per ? '<span class="per">' + per + '</span>' : '') +
+          (best ? '<span class="best">Bestpreis</span>' : '') +
+          '<span class="sub">' + sub + '</span>';
+        el.style.transition = "opacity .3s";
+        el.style.opacity = "1";
+      }, reduceMotion ? 0 : 160);
+    });
+  }
+  toggleButtons.forEach(function(b){
+    b.addEventListener("click", function(){ setMode(b.dataset.mode); });
+  });
+  window.addEventListener("resize", function(){ positionSlider(pill.querySelector("button.active")); });
+  window.addEventListener("load", function(){ positionSlider(pill.querySelector("button.active")); });
+  positionSlider(toggleButtons[0]);
+
+  /* ————— Price card CTA preselects service ————— */
+  document.querySelectorAll(".price-cta").forEach(function(a){
+    a.addEventListener("click", function(){
+      var svc = a.dataset.service;
+      var sel = document.getElementById("leistung");
+      Array.prototype.forEach.call(sel.options, function(o){
+        if(o.text.replace(/\s+/g," ") === svc.replace(/\s+/g," ")) sel.value = o.value || o.text;
+      });
+    });
+  });
+
+  /* ————— Contact form → mailto ————— */
+  document.getElementById("contactForm").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var v = function(id){ return document.getElementById(id).value.trim(); };
+    var subject = "Anfrage: " + v("leistung") + " – " + v("vorname") + " " + v("nachname");
+    var body = "Vorname: " + v("vorname") + "\n" +
+               "Nachname: " + v("nachname") + "\n" +
+               "E-Mail: " + v("email") + "\n" +
+               "Leistung: " + v("leistung") + "\n\n" +
+               "Nachricht:\n" + v("nachricht");
+    window.location.href = "mailto:helvetiaadigi@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
