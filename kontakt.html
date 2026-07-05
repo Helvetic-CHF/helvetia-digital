@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt – Helvetia Digital</title>
+<meta name="description" content="Sprechen wir über Ihr Projekt: Helvetia Digital aus Zürich antwortet innerhalb von 24 Stunden. Kostenloses und unverbindliches Erstgespräch.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ————————— NAVIGATION ————————— -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Helvetia Digital – Startseite">
+      <img src="assets/logo-light.png" alt="Helvetia Digital">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Startseite</a>
+      <a href="leistungen.html">Leistungen</a>
+      <a href="preise.html">Preise</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="kontakt.html" aria-current="page">Kontakt</a>
+    </div>
+    <div class="nav-right">
+      <a class="nav-cta" href="kontakt.html">Projekt starten</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ————————— SEITENKOPF ————————— -->
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow reveal in">Kontakt</span>
+    <h1 class="reveal in d1">Sprechen wir über Ihr Projekt</h1>
+    <p class="lead reveal in d2">Erzählen Sie uns von Ihrem Vorhaben – wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung. Kostenlos und unverbindlich.</p>
+  </div>
+</header>
+
+<!-- ————————— KONTAKT ————————— -->
+<section class="section" id="kontakt">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">So erreichen Sie uns</span>
+        <h2>Direkt, persönlich, verbindlich</h2>
+        <p>Ob konkrete Anfrage oder erste Idee: Wir nehmen uns Zeit für Ihr Anliegen – und antworten Ihnen persönlich, nicht automatisiert.</p>
+        <ul class="contact-items">
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></span>
+            <a href="mailto:helvetiaadigi@gmail.com"><b>E-Mail</b><span>helvetiaadigi@gmail.com</span></a>
+          </li>
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+            <div><b>Reaktionszeit</b><span>Antwort innerhalb von 24 Stunden</span></div>
+          </li>
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <div><b>Standort</b><span>Zürich · Schweiz</span></div>
+          </li>
+          <li>
+            <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+            <div><b>Datenschutz</b><span>Vertraulich, DSG- &amp; DSGVO-konform</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="form-card reveal d1">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="vorname">Vorname</label>
+              <input type="text" id="vorname" name="vorname" placeholder="Ihr Vorname" autocomplete="given-name" required>
+            </div>
+            <div class="field">
+              <label for="nachname">Nachname</label>
+              <input type="text" id="nachname" name="nachname" placeholder="Ihr Nachname" autocomplete="family-name" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" placeholder="ihre@email.ch" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="leistung">Leistung</label>
+            <select id="leistung" name="leistung" required>
+              <option value="" disabled selected>Bitte wählen…</option>
+              <option>Webseiten-Entwicklung</option>
+              <option>Digitale Sichtbarkeit</option>
+              <option>Chat &amp; Call-Automatisierung</option>
+              <option>Individuelle Lösungen &amp; Apps</option>
+              <option>Sonstiges / Beratung</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" placeholder="Erzählen Sie uns kurz von Ihrem Vorhaben…" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit">Anfrage senden
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+          </button>
+          <p class="form-note">Ihre Anfrage wird direkt an helvetiaadigi@gmail.com gesendet. Keine Weitergabe an Dritte.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— FOOTER ————————— -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-light.png" alt="Helvetia Digital">
+        <p>Professionelle Webseiten und digitale Präsenz für Schweizer KMU – klar, verlässlich und mit Präzision umgesetzt.</p>
+        <span class="loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Zürich · Schweiz</span>
+      </div>
+      <div class="footer-col">
+        <h4>Seiten</h4>
+        <ul>
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="preise.html">Preise</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="leistungen.html#webseiten">Webseiten-Entwicklung</a></li>
+          <li><a href="leistungen.html#sichtbarkeit">Digitale Sichtbarkeit</a></li>
+          <li><a href="leistungen.html#automatisierung">Automatisierung</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:helvetiaadigi@gmail.com">helvetiaadigi@gmail.com</a></li>
+          <li><a href="kontakt.html">Kontaktformular</a></li>
+          <li><a href="preise.html">Preisübersicht</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Helvetia Digital · Zürich, Schweiz</span>
+      <span>Webseiten &amp; digitale Präsenz · Mit Präzision aus Zürich</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
