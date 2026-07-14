@@ -154,6 +154,75 @@
     positionSlider(toggleButtons[0]);
   }
 
+  /* ————— Leistungs-Karussell ————— */
+  var carousel = document.getElementById("carousel");
+  if(carousel){
+    var carSlides = Array.prototype.slice.call(carousel.querySelectorAll(".car-slide"));
+    var dotsWrap = document.getElementById("carDots");
+    var nSlides = carSlides.length, cur = 0;
+    var dragMoved = false;
+
+    carSlides.forEach(function(s, i){
+      var d = document.createElement("button");
+      d.className = "car-dot";
+      d.setAttribute("aria-label", "Beispiel " + (i + 1) + " anzeigen");
+      d.addEventListener("click", function(){ goTo(i); });
+      dotsWrap.appendChild(d);
+    });
+    var dots = dotsWrap.children;
+
+    function goTo(i){
+      cur = ((i % nSlides) + nSlides) % nSlides;
+      carSlides.forEach(function(s, k){
+        var off = (k - cur + nSlides) % nSlides;
+        var cls = "car-slide";
+        if(off === 0) cls += " pos-0";
+        else if(off === 1) cls += " pos-1";
+        else if(off === nSlides - 1) cls += " pos-m1";
+        else if(off === 2) cls += " pos-2";
+        else if(off === nSlides - 2) cls += " pos-m2";
+        else cls += " pos-h";
+        s.className = cls;
+        s.setAttribute("aria-hidden", off === 0 ? "false" : "true");
+      });
+      for(var k = 0; k < nSlides; k++) dots[k].classList.toggle("on", k === cur);
+    }
+
+    document.getElementById("carPrev").addEventListener("click", function(){ goTo(cur - 1); });
+    document.getElementById("carNext").addEventListener("click", function(){ goTo(cur + 1); });
+
+    carousel.addEventListener("keydown", function(ev){
+      if(ev.key === "ArrowLeft"){ ev.preventDefault(); goTo(cur - 1); }
+      if(ev.key === "ArrowRight"){ ev.preventDefault(); goTo(cur + 1); }
+    });
+
+    /* Klick auf Nachbar-Slide navigiert dorthin */
+    carSlides.forEach(function(s, k){
+      s.addEventListener("click", function(){
+        if(dragMoved) return;
+        if((k - cur + nSlides) % nSlides !== 0) goTo(k);
+      });
+    });
+
+    /* Ziehen / Wischen */
+    var downX = null;
+    var stage = document.getElementById("carStage");
+    stage.addEventListener("pointerdown", function(ev){ downX = ev.clientX; dragMoved = false; });
+    window.addEventListener("pointermove", function(ev){
+      if(downX !== null && Math.abs(ev.clientX - downX) > 10) dragMoved = true;
+    });
+    window.addEventListener("pointerup", function(ev){
+      if(downX === null) return;
+      var dx = ev.clientX - downX;
+      if(dx < -45) goTo(cur + 1);
+      else if(dx > 45) goTo(cur - 1);
+      downX = null;
+      setTimeout(function(){ dragMoved = false; }, 0);
+    });
+
+    goTo(0);
+  }
+
   /* ————— Kontaktformular: Leistung vorwählen + mailto ————— */
   var form = document.getElementById("contactForm");
   if(form){
