@@ -869,3 +869,84 @@ footer{border-top:1px solid var(--border);background:#030509;padding:72px 0 36px
 
 /* Slide-Bilder */
 .car-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;-webkit-user-drag:none}
+
+/* ============================================================
+   Terminbuchung (termin.html)
+   ============================================================ */
+.booking-perks{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px;
+}
+.booking-perks > div{
+  display:flex;align-items:center;gap:14px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:18px 20px;
+  transition:border-color .3s;
+}
+.booking-perks > div:hover{border-color:var(--blue-line)}
+.booking-perks .pt-icon{
+  flex:none;width:42px;height:42px;border-radius:12px;
+  background:var(--blue-soft);border:1px solid var(--blue-line);
+  display:flex;align-items:center;justify-content:center;
+}
+.booking-perks svg{width:18px;height:18px;stroke:var(--blue-bright);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.booking-perks b{display:block;font-size:.95rem}
+.booking-perks span{font-size:.85rem;color:var(--muted)}
+
+.booking-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.045),var(--card) 40%);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:clamp(14px,2vw,24px);
+  overflow:hidden;
+}
+.booking-embed{width:100%;min-height:620px;overflow:auto}
+
+.booking-fallback{text-align:center;padding:clamp(30px,6vw,60px) 20px}
+.booking-fallback h3{font-family:var(--font-display);font-size:1.25rem;margin-bottom:10px}
+.booking-fallback p{color:var(--muted);max-width:460px;margin:0 auto 22px}
+
+@media(max-width:880px){
+  .booking-perks{grid-template-columns:1fr}
+  .booking-embed{min-height:560px}
+}
+
+/* Hinweis unter dem Buchungskalender */
+.booking-note{
+  display:flex;align-items:flex-start;gap:16px;
+  background:var(--gold-soft);border:1px solid var(--gold-line);
+  border-radius:16px;padding:20px 22px;margin-top:26px;
+}
+.booking-note .pt-icon{
+  flex:none;width:38px;height:38px;border-radius:11px;
+  background:rgba(201,166,96,.12);border:1px solid var(--gold-line);
+  display:flex;align-items:center;justify-content:center;
+}
+.booking-note svg{width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.booking-note b{display:block;font-size:.95rem;margin-bottom:4px}
+.booking-note p{font-size:.88rem;color:var(--muted);line-height:1.6}
+.booking-note a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.booking-note a:hover{color:#dcc088}
+@media(max-width:600px){
+  .booking-note{flex-direction:column;gap:12px}
+}
+
+/* ============================================================
+   Rechtstexte (datenschutz.html)
+   ============================================================ */
+.legal h2{
+  font-family:var(--font-display);font-size:1.15rem;font-weight:700;
+  margin:38px 0 12px;padding-top:22px;border-top:1px solid var(--border);
+}
+.legal h2:first-of-type{border-top:none;padding-top:0;margin-top:8px}
+.legal p{color:var(--muted);margin-bottom:14px;font-size:.95rem}
+.legal ul{color:var(--muted);margin:0 0 14px 20px;font-size:.95rem}
+.legal li{margin-bottom:7px}
+.legal strong{color:var(--text);font-weight:600}
+.legal a{color:var(--blue-bright);text-decoration:underline;text-underline-offset:3px}
+.legal a:hover{color:#7fb8f0}
+.legal-meta{font-size:.82rem;color:var(--faint);margin-bottom:26px}
+.legal-box{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:14px;padding:18px 20px;line-height:1.8;
+}
+.legal-todo{color:var(--gold);font-style:italic}
