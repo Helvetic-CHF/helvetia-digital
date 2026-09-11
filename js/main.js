@@ -245,4 +245,32 @@
       window.location.href = "mailto:helvetiaadigi@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     });
   }
+
+  /* ————— Website-Check: Formular prüfen + mailto ————— */
+  var checkForm = document.getElementById("checkForm");
+  if(checkForm){
+    var checkErr = document.getElementById("checkError");
+    checkForm.addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var site = document.getElementById("website");
+      var mail = document.getElementById("email");
+      var name = document.getElementById("name");
+      var siteOk = site.value.trim().length > 3 && site.value.indexOf(".") > 0;
+      var mailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim());
+      site.classList.toggle("invalid", !siteOk);
+      mail.classList.toggle("invalid", !mailOk);
+      if(!siteOk || !mailOk){
+        checkErr.hidden = false;
+        (siteOk ? mail : site).focus();
+        return;
+      }
+      checkErr.hidden = true;
+      var subject = "Website-Check: " + site.value.trim();
+      var body = "Website: " + site.value.trim() + "\n" +
+                 "E-Mail: " + mail.value.trim() + "\n" +
+                 "Name: " + (name.value.trim() || "–") + "\n\n" +
+                 "Bitte prüfen Sie meine Website in den 5 Punkten (Mobil-Darstellung, Ladezeit, Google-Auffindbarkeit, Kontakt und Buchung, Rechtliches).";
+      window.location.href = "mailto:helvetiaadigi@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
+  }
 })();
