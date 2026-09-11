@@ -233,6 +233,11 @@
         if(o.text.replace(/\s+/g," ").trim() === wanted.replace(/\s+/g," ").trim()) sel.value = o.value || o.text;
       });
     }
+    var produkt = new URLSearchParams(window.location.search).get("produkt");
+    var nachricht = document.getElementById("nachricht");
+    if(produkt && nachricht && !nachricht.value){
+      nachricht.value = "Ich interessiere mich für: " + produkt + "\n\n";
+    }
     form.addEventListener("submit", function(ev){
       ev.preventDefault();
       var v = function(id){ return document.getElementById(id).value.trim(); };
