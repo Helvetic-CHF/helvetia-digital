@@ -6,7 +6,7 @@
 const STUFEN = [
   { id: 1, name: "Einstieg", spanne: "CHF 243 – 590", ton: "blau",
     ziel: "Schnell umgesetzt, klein im Preis. Sie sehen innert Tagen, wie wir arbeiten — ohne grosse Entscheidung." },
-  { id: 2, name: "Aufbau", spanne: "CHF 190/Mt. – 3’500", ton: "blau",
+  { id: 2, name: "Aufbau", spanne: "CHF 190/Mt. – 2’400", ton: "blau",
     ziel: "Ihr Auftritt läuft — und wird laufend gepflegt. Hier entsteht Verlässlichkeit: Anrufe werden angenommen, Inhalte bleiben aktuell." },
   { id: 3, name: "Abläufe", spanne: "CHF 3’500 – 12’000", ton: "gold",
     ziel: "Wir übernehmen, was heute Zeit frisst: Anfragen, Offerten, Belege. Ab hier geht es um gesparte Stunden, nicht um Design." },
@@ -136,7 +136,7 @@ const PRODUKTE = [
   name: "Website Premium",
   kurz: "Mit Texten, Bildauswahl und Struktur — kein Baukasten.",
   einzeiler: "Die Seite, bei der auch die Texte und Bilder von uns kommen — nicht nur die Technik.",
-  preis: "CHF 3’500",
+  preis: "CHF 1’010",
   wasIstDas: "Alles aus der Basis-Website, plus die Arbeit, an der die meisten Projekte hängenbleiben: Texte schreiben, Bilder erzeugen oder auswählen, Struktur durchdenken. Sie müssen nichts liefern ausser einem Gespräch. Dazu Google-Profil, Analyse-Einrichtung und drei Monate Support.",
   schritte: [
     ["Workshop", "Zwei Stunden: Ihr Angebot, Ihre Kunden, Ihr Wettbewerb, Ihre Ziele."],
