@@ -270,3 +270,39 @@ body.kp-seite main.section{ padding-top:34px !important; }
   body{ background:#fff; color:#111; }
   .kp-band, .kp-karte, .kp-demo{ break-inside:avoid; }
 }
+
+/* ————— Kompass-Explosion (3D, three.js) ————— */
+.kp-kompass{ height:320vh; position:relative; }
+.kp-kompass-buehne{
+  position:sticky; top:0; height:100vh; overflow:hidden;
+  background:
+    radial-gradient(55% 70% at 50% 45%, rgba(201,166,96,.10), transparent 70%),
+    linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
+  border-bottom:1px solid var(--border);
+}
+.kp-kompass-buehne canvas{ display:block; width:100%; height:100%; }
+.kp-kompass-lage{
+  position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-between;
+  padding:calc(var(--nav-h) + 40px) 28px 40px; pointer-events:none;
+}
+.kp-kompass-lage > *{ max-width:1160px; width:100%; margin:0 auto; }
+.kp-kompass-text h2{ font-size:clamp(1.8rem,3.6vw,2.6rem); line-height:1.1; letter-spacing:-.03em; max-width:520px; text-wrap:balance; }
+.kp-kompass-text p{ margin-top:14px; max-width:460px; color:var(--muted); font-size:1.02rem; font-weight:350; line-height:1.65; }
+.kp-kompass-fuss{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.kp-kompass-status{
+  font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold);
+  border:1px solid var(--gold-line); background:var(--gold-soft); border-radius:999px; padding:8px 16px;
+}
+.kp-kompass-cue{ display:flex; align-items:center; gap:12px; color:var(--muted); font-size:14px; }
+.kp-kompass-cue .kp-schiene{ position:relative; width:2px; height:64px; border-radius:999px; background:var(--border-strong); }
+.kp-kompass-cue .kp-schiene i{ position:absolute; left:0; top:0; width:2px; height:0; border-radius:999px; background:var(--gold); }
+.kp-kompass-hinweis{ display:none; }
+@media (max-width:640px){
+  .kp-kompass-lage{ padding:calc(var(--nav-h) + 24px) 20px 28px; }
+  .kp-kompass-text p{ font-size:.95rem; }
+}
+/* Ohne WebGL oder bei reduzierter Bewegung: kurzer Abschnitt statt Scroll-Bühne */
+.kp-kompass.kp-statisch{ height:auto; }
+.kp-kompass.kp-statisch .kp-kompass-buehne{ position:static; height:auto; padding:96px 0 72px; }
+.kp-kompass.kp-statisch canvas, .kp-kompass.kp-statisch .kp-kompass-fuss{ display:none; }
+.kp-kompass.kp-statisch .kp-kompass-lage{ position:static; padding:0 28px; }

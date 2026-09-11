@@ -11,6 +11,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/produkte.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js"
+  },
+  "integrity": {
+    "https://unpkg.com/three@0.184.0/build/three.module.js": "sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J",
+    "https://unpkg.com/three@0.184.0/build/three.core.js": "sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT"
+  }
+}
+</script>
 </head>
 <body class="kp-seite">
 
@@ -54,6 +65,24 @@
     </div>
   </div>
 </header>
+
+<!-- ————————— KOMPASS: Scroll-Explosion (3D) ————————— -->
+<section class="kp-kompass" id="kompass" aria-label="Der Kompass – jedes Produkt ein eigenes Teil">
+  <div class="kp-kompass-buehne">
+    <canvas id="kompassCanvas" aria-hidden="true"></canvas>
+    <div class="kp-kompass-lage">
+      <div class="kp-kompass-text">
+        <div class="eyebrow">Der Kompass</div>
+        <h2>Siebzehn Teile, <span style="color:var(--gold)">ein klarer Kurs</span></h2>
+        <p>Scrollen Sie, um den Kompass zu zerlegen — Gehäuse, Glas, Skala, Rose und Nadeln lösen sich einzeln. Genau so sind unsere Produkte gebaut: jedes für sich abgeschlossen, zusammen ein Ganzes.</p>
+      </div>
+      <div class="kp-kompass-fuss">
+        <span class="kp-kompass-status" id="kompassStatus">Zusammengesetzt</span>
+        <span class="kp-kompass-cue"><span class="kp-schiene"><i id="kompassSchiene"></i></span><span id="kompassCue">Scrollen zum Zerlegen</span></span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <main class="section">
   <div class="container">
@@ -123,5 +152,36 @@
 <script src="js/produkte-3d.js"></script>
 <script src="js/produkte-demos.js"></script>
 <script src="js/produkte.js"></script>
+<script type="module">
+  const abschnitt = document.getElementById('kompass');
+  const canvas = document.getElementById('kompassCanvas');
+  const reduziert = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const webgl = (() => { try { return !!canvas.getContext('webgl2') || !!canvas.getContext('webgl'); } catch { return false; } })();
+  if (reduziert || !webgl) {
+    abschnitt.classList.add('kp-statisch');
+  } else {
+    try {
+      const { mountScrollCompass } = await import('./js/kompass-scroll.js');
+      const api = mountScrollCompass(canvas, abschnitt);
+      const schiene = document.getElementById('kompassSchiene');
+      const status = document.getElementById('kompassStatus');
+      const cue = document.getElementById('kompassCue');
+      let zuletzt = -1;
+      (function tick() {
+        const p = api.progress();
+        if (Math.abs(p - zuletzt) > 0.002) {
+          schiene.style.height = (p * 100).toFixed(1) + '%';
+          status.textContent = p < 0.06 ? 'Zusammengesetzt' : p > 0.9 ? 'Vollständig zerlegt' : 'Wird zerlegt';
+          cue.textContent = p > 0.9 ? 'Nach oben scrollen zum Zusammensetzen' : 'Scrollen zum Zerlegen';
+          zuletzt = p;
+        }
+        requestAnimationFrame(tick);
+      })();
+    } catch (e) {
+      // three.js nicht ladbar (z. B. offline): Abschnitt ohne 3D anzeigen
+      abschnitt.classList.add('kp-statisch');
+    }
+  }
+</script>
 </body>
 </html>
