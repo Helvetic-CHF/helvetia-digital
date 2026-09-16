@@ -4,6 +4,10 @@
 // Anpassungen gegenüber dem Export: Fortschritt bezieht sich auf den Abschnitt
 // (nicht auf die ganze Seite), transparenter Hintergrund für das dunkle Design,
 // Kamera rückt auf schmalen Bildschirmen weiter weg.
+// Geräte-Anpassung (window.Geraet aus js/geraet.js): Fortschritt misst sich an der
+// Bühnenhöhe statt an innerHeight (das springt auf Handys mit der Adressleiste),
+// schwache Geräte rendern mit weniger Pixeln, und ausserhalb des Sichtfelds ruht
+// die Render-Schleife (Akku).
 import * as THREE from 'three';
 import { buildCompass } from './kompass-modell.js';
 
@@ -81,8 +85,10 @@ function collectMovers(root) {
  * @param {HTMLElement} scroller      Der hohe Abschnitt, dessen Scrollweg den Fortschritt bestimmt
  */
 export function mountScrollCompass(canvas, scroller) {
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const G = window.Geraet || {};
+  const schwach = G.leistung === 'schwach';
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !schwach, alpha: true, powerPreference: schwach ? 'low-power' : 'default' });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, schwach ? 1.25 : G.istHandy ? 1.75 : 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.setClearColor(0x000000, 0); // Seitenhintergrund scheint durch
 
@@ -106,13 +112,15 @@ export function mountScrollCompass(canvas, scroller) {
 
   // Fortschritt 0–1 über den Scrollweg des Abschnitts
   let target = 0, current = 0;
+  const buehne = canvas.parentElement; // die klebende Bühne, so hoch wie der sichtbare Bereich
   const onScroll = () => {
     const rect = scroller.getBoundingClientRect();
-    const max = scroller.offsetHeight - innerHeight;
+    const max = scroller.offsetHeight - (buehne ? buehne.offsetHeight : innerHeight);
     target = max > 0 ? clamp01(-rect.top / max) : 0;
   };
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', onScroll);
+  addEventListener('geraet:wechsel', onScroll);
   onScroll();
 
   const resize = () => {
@@ -133,7 +141,13 @@ export function mountScrollCompass(canvas, scroller) {
   new ResizeObserver(resize).observe(canvas);
   resize();
 
+  // Nur rendern, wenn der Abschnitt im Sichtfeld ist
+  let sichtbar = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; }, { rootMargin: '80px 0px' }).observe(scroller);
+  }
   renderer.setAnimationLoop(() => {
+    if (!sichtbar && Math.abs(target - current) < 0.001) return;
     current += (target - current) * 0.09; // weich nachlaufend
     const p = clamp01(current);
     for (const m of movers) {

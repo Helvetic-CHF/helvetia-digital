@@ -85,7 +85,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 6px 28px var(--blue-glow);
   transition:transform .25s var(--ease),box-shadow .25s var(--ease),filter .25s;
 }
-.btn-primary:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 38px var(--blue-glow);filter:brightness(1.06)}
+@media(hover:hover){.btn-primary:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 10px 38px var(--blue-glow);filter:brightness(1.06)}}
 .btn-primary svg{width:15px;height:15px}
 .btn-ghost{
   display:inline-flex;align-items:center;gap:10px;
@@ -95,13 +95,13 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   transition:background .25s,border-color .25s,transform .25s var(--ease);
 }
-.btn-ghost:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.28);transform:translateY(-2px)}
+@media(hover:hover){.btn-ghost:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.28);transform:translateY(-2px)}}
 .link-arrow{
   display:inline-flex;align-items:center;gap:8px;
   font-size:15px;font-weight:600;color:var(--blue-bright);
   transition:gap .25s var(--ease),color .2s;
 }
-.link-arrow:hover{gap:12px;color:#7ab8f2}
+@media(hover:hover){.link-arrow:hover{gap:12px;color:#7ab8f2}}
 .link-arrow svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
 /* ————— Reveal ————— */
@@ -133,7 +133,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   padding:9px 15px;border-radius:999px;
   transition:color .2s;
 }
-.nav-links a:hover{color:var(--text)}
+@media(hover:hover){.nav-links a:hover{color:var(--text)}}
 .nav-links a[aria-current="page"]{color:var(--text)}
 .nav-links a[aria-current="page"]::after{
   content:"";position:absolute;left:15px;right:15px;bottom:3px;height:2px;
@@ -147,7 +147,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 2px 18px var(--blue-glow);
   transition:transform .2s var(--ease),box-shadow .2s,filter .2s;
 }
-.nav-cta:hover{transform:translateY(-1px);filter:brightness(1.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 4px 26px var(--blue-glow)}
+@media(hover:hover){.nav-cta:hover{transform:translateY(-1px);filter:brightness(1.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 4px 26px var(--blue-glow)}}
 .nav-burger{display:none;background:none;border:none;width:44px;height:44px;position:relative}
 .nav-burger span{position:absolute;left:11px;right:11px;height:1.8px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s}
 .nav-burger span:nth-child(1){top:16px}.nav-burger span:nth-child(2){top:22px}.nav-burger span:nth-child(3){top:28px}
@@ -221,7 +221,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   display:flex;align-items:center;justify-content:center;
   transition:background .2s,transform .2s;
 }
-.hero-pause:hover{background:rgba(47,127,212,.35);transform:scale(1.05)}
+@media(hover:hover){.hero-pause:hover{background:rgba(47,127,212,.35);transform:scale(1.05)}}
 .hero-pause svg{width:15px;height:15px;fill:#fff}
 .hero-pause .icon-alt{display:none}
 .hero-pause.toggled .icon-main{display:none}
@@ -272,9 +272,9 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   border-radius:var(--radius);padding:36px 30px;
   transition:transform .4s var(--ease),background .3s,border-color .3s,box-shadow .4s;
 }
-.service:hover{transform:translateY(-5px);background:var(--card-hover);border-color:var(--blue-line);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+@media(hover:hover){.service:hover{transform:translateY(-5px);background:var(--card-hover);border-color:var(--blue-line);box-shadow:0 24px 60px rgba(0,0,0,.5)}}
 .service.featured{border-color:var(--gold-line);background:linear-gradient(180deg,var(--gold-soft) 0%,var(--card) 36%)}
-.service.featured:hover{border-color:rgba(201,166,96,.6);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 44px rgba(201,166,96,.07)}
+@media(hover:hover){.service.featured:hover{border-color:rgba(201,166,96,.6);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 44px rgba(201,166,96,.07)}}
 .featured-badge{
   position:absolute;top:-12px;left:30px;
   font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#14100a;
@@ -329,7 +329,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   border-radius:var(--radius);padding:28px;
   transition:border-color .3s,background .3s,transform .35s var(--ease);
 }
-.secondary-card:hover{border-color:var(--blue-line);background:var(--card-hover);transform:translateY(-3px)}
+@media(hover:hover){.secondary-card:hover{border-color:var(--blue-line);background:var(--card-hover);transform:translateY(-3px)}}
 .secondary-card .service-icon{margin-bottom:0;flex:none}
 .secondary-card h3{font-size:1.08rem}
 .secondary-card p{margin-top:8px;font-size:.9rem;color:var(--muted);font-weight:350}
@@ -483,7 +483,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   border-radius:var(--radius);padding:30px 26px;
   transition:border-color .3s,background .3s,transform .35s var(--ease);
 }
-.step:hover{border-color:var(--blue-line);background:var(--card-hover);transform:translateY(-3px)}
+@media(hover:hover){.step:hover{border-color:var(--blue-line);background:var(--card-hover);transform:translateY(-3px)}}
 .step::before{
   content:"0" counter(step);
   display:block;font-family:var(--font-display);
@@ -526,7 +526,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   border-radius:16px;padding:20px 22px;
   transition:border-color .3s;
 }
-.compliance-points li:hover{border-color:var(--blue-line)}
+@media(hover:hover){.compliance-points li:hover{border-color:var(--blue-line)}}
 .compliance-points .pt-icon{
   flex:none;width:42px;height:42px;border-radius:12px;
   background:var(--blue-soft);border:1px solid var(--blue-line);
@@ -567,14 +567,15 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   border-radius:var(--radius);padding:36px 30px;
   transition:transform .4s var(--ease),border-color .3s,box-shadow .4s;
 }
-.price-card:hover{transform:translateY(-5px);border-color:var(--blue-line);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+@media(hover:hover){.price-card:hover{transform:translateY(-5px);border-color:var(--blue-line);box-shadow:0 24px 60px rgba(0,0,0,.5)}}
 .price-card.popular{
   border-color:var(--gold-line);
   background:linear-gradient(180deg,var(--gold-soft) 0%,var(--card) 36%);
   box-shadow:0 24px 70px rgba(0,0,0,.45);
 }
-.price-card.popular:hover{border-color:rgba(201,166,96,.6)}
-@media(min-width:961px){.price-card.popular{transform:scale(1.03)}.price-card.popular:hover{transform:scale(1.03) translateY(-5px)}}
+@media(hover:hover){.price-card.popular:hover{border-color:rgba(201,166,96,.6)}}
+@media(min-width:961px){.price-card.popular{transform:scale(1.03)}}
+@media(min-width:961px) and (hover:hover){.price-card.popular:hover{transform:scale(1.03) translateY(-5px)}}
 .popular-badge{
   position:absolute;top:-13px;left:50%;transform:translateX(-50%);
   font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#14100a;
@@ -604,13 +605,13 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   padding:13px 20px;border-radius:999px;
   transition:background .2s,transform .2s var(--ease);
 }
-.price-cta:hover{background:rgba(255,255,255,.11);transform:translateY(-1px)}
+@media(hover:hover){.price-cta:hover{background:rgba(255,255,255,.11);transform:translateY(-1px)}}
 .price-card.popular .price-cta{
   background:linear-gradient(180deg,var(--blue-bright),var(--blue));
   border-color:transparent;color:#fff;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 4px 26px var(--blue-glow);
 }
-.price-card.popular .price-cta:hover{filter:brightness(1.07)}
+@media(hover:hover){.price-card.popular .price-cta:hover{filter:brightness(1.07)}}
 @media(max-width:960px){.pricing{grid-template-columns:1fr;max-width:540px;margin:0 auto}}
 
 /* ————— FAQ ————— */
@@ -692,7 +693,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   border-radius:var(--radius);padding:26px 28px;
   transition:border-color .3s,background .3s;
 }
-.founder-card:hover{border-color:var(--gold-line);background:var(--card-hover)}
+@media(hover:hover){.founder-card:hover{border-color:var(--gold-line);background:var(--card-hover)}}
 .founder-card .avatar{
   flex:none;width:58px;height:58px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -726,7 +727,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
   border-radius:16px;padding:18px 20px;
   transition:border-color .3s;
 }
-.contact-items li:hover{border-color:var(--blue-line)}
+@media(hover:hover){.contact-items li:hover{border-color:var(--blue-line)}}
 .contact-items .pt-icon{
   flex:none;width:42px;height:42px;border-radius:12px;
   background:var(--blue-soft);border:1px solid var(--blue-line);
@@ -736,7 +737,7 @@ section{scroll-margin-top:calc(var(--nav-h) + 16px)}
 .contact-items b{display:block;font-size:.95rem}
 .contact-items span{font-size:.85rem;color:var(--muted)}
 .contact-items a span{transition:color .2s}
-.contact-items a:hover span{color:var(--blue-bright)}
+@media(hover:hover){.contact-items a:hover span{color:var(--blue-bright)}}
 .form-card{
   background:linear-gradient(180deg,rgba(255,255,255,.045),var(--card) 40%);
   border:1px solid var(--border);
@@ -798,7 +799,7 @@ footer{border-top:1px solid var(--border);background:#030509;padding:72px 0 36px
 .footer-col h4{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#cdd9ea;margin-bottom:18px}
 .footer-col ul{display:grid;gap:11px}
 .footer-col a{font-size:.9rem;color:var(--muted);transition:color .2s}
-.footer-col a:hover{color:var(--text)}
+@media(hover:hover){.footer-col a:hover{color:var(--text)}}
 .footer-bottom{
   margin-top:56px;padding-top:26px;border-top:1px solid var(--border);
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
@@ -851,11 +852,11 @@ footer{border-top:1px solid var(--border);background:#030509;padding:72px 0 36px
   display:flex;align-items:center;justify-content:center;
   transition:background .25s,border-color .25s,transform .25s var(--ease);
 }
-.car-arrow:hover{background:var(--blue);border-color:transparent;transform:scale(1.06)}
+@media(hover:hover){.car-arrow:hover{background:var(--blue);border-color:transparent;transform:scale(1.06)}}
 .car-arrow svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .car-dots{display:flex;gap:9px}
 .car-dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.18);border:none;padding:0;cursor:pointer;transition:width .35s var(--ease),background .3s}
-.car-dot:hover{background:rgba(255,255,255,.4)}
+@media(hover:hover){.car-dot:hover{background:rgba(255,255,255,.4)}}
 .car-dot.on{width:26px;background:var(--gold)}
 @media(max-width:880px){
   .carousel{--slide-w:86vw}
@@ -882,7 +883,7 @@ footer{border-top:1px solid var(--border);background:#030509;padding:72px 0 36px
   border-radius:16px;padding:18px 20px;
   transition:border-color .3s;
 }
-.booking-perks > div:hover{border-color:var(--blue-line)}
+@media(hover:hover){.booking-perks > div:hover{border-color:var(--blue-line)}}
 .booking-perks .pt-icon{
   flex:none;width:42px;height:42px;border-radius:12px;
   background:var(--blue-soft);border:1px solid var(--blue-line);
@@ -925,7 +926,7 @@ footer{border-top:1px solid var(--border);background:#030509;padding:72px 0 36px
 .booking-note b{display:block;font-size:.95rem;margin-bottom:4px}
 .booking-note p{font-size:.88rem;color:var(--muted);line-height:1.6}
 .booking-note a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
-.booking-note a:hover{color:#dcc088}
+@media(hover:hover){.booking-note a:hover{color:#dcc088}}
 @media(max-width:600px){
   .booking-note{flex-direction:column;gap:12px}
 }
@@ -943,7 +944,7 @@ footer{border-top:1px solid var(--border);background:#030509;padding:72px 0 36px
 .legal li{margin-bottom:7px}
 .legal strong{color:var(--text);font-weight:600}
 .legal a{color:var(--blue-bright);text-decoration:underline;text-underline-offset:3px}
-.legal a:hover{color:#7fb8f0}
+@media(hover:hover){.legal a:hover{color:#7fb8f0}}
 .legal-meta{font-size:.82rem;color:var(--faint);margin-bottom:26px}
 .legal-box{
   background:var(--card);border:1px solid var(--border);
@@ -987,7 +988,7 @@ footer{border-top:1px solid var(--border);background:#030509;padding:72px 0 36px
   border:1px solid var(--gold-line);border-radius:var(--radius);padding:30px 34px;
   transition:border-color .3s,background .3s,transform .35s var(--ease);
 }
-.check-teaser:hover{background:var(--card-hover);transform:translateY(-3px)}
+@media(hover:hover){.check-teaser:hover{background:var(--card-hover);transform:translateY(-3px)}}
 .check-teaser .service-icon{flex:none;margin:0;background:var(--gold-soft);border-color:var(--gold-line)}
 .check-teaser .service-icon svg{stroke:var(--gold)}
 .check-teaser-text{flex:1;display:block}
@@ -998,3 +999,87 @@ footer{border-top:1px solid var(--border);background:#030509;padding:72px 0 36px
 @media(max-width:800px){
   .check-teaser{flex-direction:column;align-items:flex-start;gap:18px;padding:26px 24px}
 }
+
+/* ============================================================
+   Geräte-Anpassungen
+   Die Attribute auf <html> setzt js/geraet.js (data-geraet, data-format,
+   data-eingabe, data-system, …). Ziel: gleiche Wirkung auf PC, Tablet
+   und Handy – Effekte werden übersetzt, nicht abgeschaltet.
+   ============================================================ */
+
+/* ————— Touch-Bedienung: Druck-Rückmeldung statt Hover ————— */
+html[data-eingabe="touch"]{-webkit-tap-highlight-color:transparent}
+html[data-eingabe="touch"] .service:active,
+html[data-eingabe="touch"] .secondary-card:active,
+html[data-eingabe="touch"] .step:active,
+html[data-eingabe="touch"] .price-card:active,
+html[data-eingabe="touch"] .founder-card:active,
+html[data-eingabe="touch"] .check-teaser:active,
+html[data-eingabe="touch"] .contact-items li:active,
+html[data-eingabe="touch"] .compliance-points li:active,
+html[data-eingabe="touch"] .booking-perks > div:active{
+  transform:scale(.985);background:var(--card-hover);border-color:var(--blue-line);
+  transition-duration:.12s;
+}
+html[data-eingabe="touch"] .btn-primary:active,
+html[data-eingabe="touch"] .btn-ghost:active,
+html[data-eingabe="touch"] .nav-cta:active,
+html[data-eingabe="touch"] .price-cta:active,
+html[data-eingabe="touch"] .car-arrow:active,
+html[data-eingabe="touch"] .hero-pause:active{
+  transform:scale(.96);filter:brightness(1.08);transition-duration:.1s;
+}
+/* Grössere Tippflächen */
+html[data-eingabe="touch"] .car-dot{width:11px;height:11px}
+html[data-eingabe="touch"] .car-dot.on{width:28px}
+html[data-eingabe="touch"] .car-dots{gap:12px}
+html[data-eingabe="touch"] .link-arrow{padding:6px 0}
+html[data-eingabe="touch"] .footer-col a{display:inline-block;padding:4px 0}
+/* Weicheres, langsameres Scroll-Verhalten der Navigation auf Touch */
+html[data-eingabe="touch"] .nav-links a{-webkit-user-select:none;user-select:none}
+
+/* ————— Smartphone-Mockup: auf Touch sanftes Wiegen statt Maus-Tilt ————— */
+html[data-eingabe="touch"] .phone{transition:transform .6s var(--ease)}
+.phone.wiegt{animation:phoneWiegen 9s ease-in-out infinite}
+@keyframes phoneWiegen{
+  0%,100%{transform:rotateY(-6deg) rotateX(2deg)}
+  50%{transform:rotateY(6deg) rotateX(-2deg)}
+}
+@media (prefers-reduced-motion:reduce){.phone.wiegt{animation:none}}
+
+/* ————— Schwebende Ergebnis-Chips: auf schmalen Bildschirmen unter dem Gerät statt versteckt ————— */
+@media(max-width:520px){
+  .float-chip{display:flex;position:static;animation:none;order:2;width:min(100%,320px);justify-content:flex-start}
+  .phone-wrap{flex-direction:column;align-items:center;gap:14px}
+  .phone{order:1;margin-bottom:10px}
+  .chip-2{animation-delay:0s}
+}
+
+/* ————— Hero-Video: auf Handys bei langsamer Verbindung nur das Standbild ————— */
+html[data-geraet="handy"][data-netz="langsam"] #heroVideo{display:none}
+html[data-geraet="handy"][data-netz="langsam"] .hero-media{background:url("../assets/hero-poster.jpg") center/cover no-repeat}
+html[data-geraet="handy"][data-netz="langsam"] .hero-pause,
+.hero-pause.ohne-video{display:none}
+
+/* ————— Handy-Format: kompaktere Abstände, Text bleibt lesbar ————— */
+html[data-geraet="handy"] .section{padding-top:clamp(64px,14vw,96px);padding-bottom:clamp(64px,14vw,96px)}
+html[data-geraet="handy"] .section.section-flush-top{padding-top:0}
+html[data-geraet="handy"] .section-tight{padding-top:clamp(52px,11vw,84px);padding-bottom:clamp(52px,11vw,84px)}
+html[data-geraet="handy"] .hero{min-height:calc(var(--vh-echt,1vh) * 100);min-height:100svh}
+html[data-geraet="handy"] .hero-actions{width:100%}
+html[data-geraet="handy"] .hero-actions .btn-primary,
+html[data-geraet="handy"] .hero-actions .btn-ghost{width:min(100%,320px);justify-content:center}
+html[data-geraet="handy"] .nav-links{max-height:calc(100dvh - var(--nav-h));overflow-y:auto}
+html[data-geraet="handy"] h1,html[data-geraet="handy"] h2{text-wrap:balance}
+html[data-geraet="handy"] .float-chip b{font-size:.88rem}
+
+/* ————— Tablet quer: Desktop-Layout, aber Touch-Bedienung ————— */
+html[data-geraet="tablet"][data-ausrichtung="quer"] .nav-links a{padding:8px 10px}
+
+/* ————— Schwache Geräte / Datensparmodus: teure Effekte drosseln ————— */
+html[data-leistung="schwach"] .float-chip,
+html[data-leistung="schwach"] .ms-page,
+html[data-leistung="schwach"] .phone.wiegt{animation:none}
+html[data-leistung="schwach"] .float-chip,
+html[data-leistung="schwach"] .nav-links{backdrop-filter:none;-webkit-backdrop-filter:none}
+html[data-leistung="schwach"] .reveal{transition-duration:.4s}

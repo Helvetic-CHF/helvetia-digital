@@ -50,11 +50,18 @@
   color:inherit; cursor:pointer;
   transition:transform .3s var(--ease), border-color .3s, background .3s, box-shadow .3s;
 }
-.kp-karte:hover, .kp-karte:focus-visible{
+.kp-karte:focus-visible{
   transform:translateY(-3px);
   background:var(--card-hover); border-color:var(--border-strong);
   box-shadow:0 10px 34px rgba(0,0,0,.35);
   outline:none;
+}
+@media(hover:hover){
+  .kp-karte:hover{
+    transform:translateY(-3px);
+    background:var(--card-hover); border-color:var(--border-strong);
+    box-shadow:0 10px 34px rgba(0,0,0,.35);
+  }
 }
 .kp-karte:focus-visible{ border-color:var(--blue); }
 .kp-karte-kopf{ display:flex; align-items:flex-start; justify-content:space-between; gap:8px; margin-bottom:11px; }
@@ -94,7 +101,7 @@ body.kp-seite main.section{ padding-top:34px !important; }
   display:flex; align-items:center; justify-content:center;
   background:radial-gradient(circle at 50% 45%, rgba(47,127,212,.16), transparent 68%);
   border:1px solid var(--border); border-radius:var(--radius-lg);
-  perspective:900px; cursor:grab; touch-action:none; overflow:hidden;
+  perspective:900px; cursor:grab; touch-action:pan-y; overflow:hidden;
 }
 .kp-buehne:active{ cursor:grabbing; }
 .kp-buehne::after{
@@ -242,7 +249,7 @@ body.kp-seite main.section{ padding-top:34px !important; }
 .kp-res-titel{ font-size:11.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin-bottom:8px; }
 .kp-danach{ display:flex; align-items:center; justify-content:space-between; gap:32px; background:linear-gradient(100deg, rgba(201,166,96,.09), rgba(47,127,212,.06)); border:1px solid var(--gold-line); border-radius:var(--radius-lg); padding:30px 34px; }
 .kp-zurueck{ display:flex; width:fit-content; align-items:center; gap:8px; font-size:14px; font-weight:500; color:var(--muted); margin-bottom:20px; transition:color .2s; }
-.kp-zurueck:hover{ color:var(--text); }
+@media(hover:hover){.kp-zurueck:hover{ color:var(--text); }}
 .kp-zurueck svg{ width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
 
 /* ————— Kleinere Bildschirme ————— */
@@ -274,7 +281,8 @@ body.kp-seite main.section{ padding-top:34px !important; }
 /* ————— Kompass-Explosion (3D, three.js) ————— */
 .kp-kompass{ height:320vh; position:relative; }
 .kp-kompass-buehne{
-  position:sticky; top:0; height:100vh; overflow:hidden;
+  position:sticky; top:0; overflow:hidden;
+  height:100vh; height:calc(var(--vh-echt,1vh) * 100); height:100dvh;
   background:
     radial-gradient(55% 70% at 50% 45%, rgba(201,166,96,.10), transparent 70%),
     linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);
@@ -306,3 +314,18 @@ body.kp-seite main.section{ padding-top:34px !important; }
 .kp-kompass.kp-statisch .kp-kompass-buehne{ position:static; height:auto; padding:96px 0 72px; }
 .kp-kompass.kp-statisch canvas, .kp-kompass.kp-statisch .kp-kompass-fuss{ display:none; }
 .kp-kompass.kp-statisch .kp-kompass-lage{ position:static; padding:0 28px; }
+
+/* ————— Geräte-Anpassungen (Attribute von js/geraet.js) ————— */
+/* Handy: kürzerer Scrollweg für die Explosion, Text kompakter */
+html[data-geraet="handy"] .kp-kompass{ height:240vh; }
+html[data-geraet="handy"] .kp-kompass-text h2{ font-size:clamp(1.55rem,7vw,2rem); }
+html[data-geraet="handy"] .kp-kompass-text p{ font-size:.92rem; margin-top:10px; }
+html[data-geraet="handy"] .kp-kompass-cue .kp-schiene{ height:44px; }
+/* Handy quer: wenig Höhe – Text neben dem Kompass statt darüber */
+html[data-geraet="handy"][data-ausrichtung="quer"] .kp-kompass-text{ max-width:46%; }
+html[data-geraet="handy"][data-ausrichtung="quer"] .kp-kompass-text p{ display:none; }
+/* Touch: Hinweis „zum Drehen ziehen" → „wischen" */
+html[data-eingabe="touch"] .kp-buehne::after{ content:"360° · zum Drehen wischen"; white-space:nowrap; }
+html[data-eingabe="touch"] .kp-buehne{ cursor:default; }
+/* Schwache Geräte: Automatikdrehung der 360°-Objekte aus (Akku), Drehen per Finger bleibt */
+html[data-leistung="schwach"] .kp-kompass-buehne{ background:var(--bg-2); }

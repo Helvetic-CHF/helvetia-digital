@@ -2,6 +2,9 @@
 (function(){
   "use strict";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* Geräteerkennung aus js/geraet.js (Fallback, falls das Skript fehlt) */
+  var G = window.Geraet || { typ:"desktop", eingabe:"maus", netz:"schnell", leistung:"normal",
+    istHandy:false, istTablet:false, istDesktop:true, istTouch:false, bei:function(fn){ fn(this); } };
 
   /* ————— Navbar: Scroll-Zustand ————— */
   var nav = document.getElementById("nav");
@@ -74,6 +77,37 @@
   var heroVideo = document.getElementById("heroVideo");
   var heroMedia = document.getElementById("heroMedia");
   var heroPause = document.getElementById("heroPause");
+  /* Handy mit langsamer Verbindung oder Datensparmodus: Video gar nicht erst laden,
+     das Standbild (poster) bleibt – Datenvolumen schonen */
+  if(heroVideo && G.istHandy && G.netz === "langsam"){
+    heroVideo.removeAttribute("autoplay");
+    Array.prototype.forEach.call(heroVideo.querySelectorAll("source"), function(src){ src.removeAttribute("src"); });
+    heroVideo.load();
+    if(heroPause) heroPause.classList.add("ohne-video");
+    heroVideo = null;
+  }
+  /* Autoplay kann auf Handys verboten sein (Energiesparmodus): dann Standbild zeigen
+     und den Knopf auf „abspielen" stellen. Nur ein echtes Verbot zählt (NotAllowedError);
+     ein AbortError beim Laden ist harmlos und wird ignoriert. */
+  if(heroVideo){
+    var autoplayGeprueft = false;
+    var pruefeAutoplay = function(){
+      if(autoplayGeprueft) return;
+      autoplayGeprueft = true;
+      setTimeout(function(){
+        if(!heroVideo.paused || heroVideo.ended) return; // läuft bereits – nichts zu tun
+        var versuch = heroVideo.play();
+        if(versuch && versuch.catch){
+          versuch.catch(function(err){
+            if(!err || err.name !== "NotAllowedError") return;
+            if(heroPause){ heroPause.classList.add("toggled"); heroPause.setAttribute("aria-label","Video abspielen"); }
+          });
+        }
+      }, 800);
+    };
+    if(heroVideo.readyState >= 2) pruefeAutoplay();
+    else heroVideo.addEventListener("loadeddata", pruefeAutoplay, {once:true});
+  }
   if(heroVideo && heroPause){
     heroPause.addEventListener("click", function(){
       if(heroVideo.paused){
@@ -109,6 +143,7 @@
   var phone = document.getElementById("phone");
   var canHover = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
   if(phone && canHover && !reduceMotion){
+    /* Maus: Tilt folgt dem Zeiger */
     phone.addEventListener("mousemove", function(ev){
       var r = phone.getBoundingClientRect();
       var x = (ev.clientX - r.left) / r.width - .5;
@@ -116,6 +151,28 @@
       phone.style.transform = "rotateY(" + (x * 10) + "deg) rotateX(" + (-y * 8) + "deg)";
     });
     phone.addEventListener("mouseleave", function(){ phone.style.transform = "rotateY(0) rotateX(0)"; });
+  } else if(phone && !reduceMotion && G.leistung !== "schwach"){
+    /* Touch: Tilt folgt der Neigung des Geräts (Gyroskop), wo das ohne Nachfrage
+       erlaubt ist (Android). Auf iOS wäre eine Berechtigungsabfrage nötig – dort und
+       ohne Sensor wiegt sich das Gerät sanft von selbst, damit der Effekt überall sichtbar ist. */
+    var gyroAktiv = false, gyroTimer = null;
+    var wiegen = function(){ phone.classList.add("wiegt"); };
+    var aufNeigung = function(ev){
+      if(ev.gamma === null || ev.gamma === undefined) return;
+      if(!gyroAktiv){ gyroAktiv = true; clearTimeout(gyroTimer); phone.classList.remove("wiegt"); }
+      /* gamma: links/rechts (−90…90), beta: vor/zurück (−180…180) – gedämpft und begrenzt */
+      var quer = Math.max(-25, Math.min(25, ev.gamma));
+      var laengs = Math.max(-25, Math.min(25, ev.beta - 45)); // 45° ≈ Halte-Neigung
+      phone.style.transform = "rotateY(" + (quer * 0.4) + "deg) rotateX(" + (-laengs * 0.3) + "deg)";
+    };
+    var brauchtErlaubnis = typeof DeviceOrientationEvent !== "undefined" &&
+      typeof DeviceOrientationEvent.requestPermission === "function";
+    if(!brauchtErlaubnis && "DeviceOrientationEvent" in window){
+      window.addEventListener("deviceorientation", aufNeigung, {passive:true});
+      gyroTimer = setTimeout(function(){ if(!gyroAktiv) wiegen(); }, 1500);
+    } else {
+      wiegen();
+    }
   }
 
   /* ————— Preis-Umschalter (Seite «Preise») ————— */

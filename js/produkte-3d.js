@@ -95,9 +95,11 @@
 
   function starteDrehung(buehne, objekt){
     var drehY = 0, drehX = -14;
-    var auto  = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var G = window.Geraet || {};
+    /* Automatikdrehung: nicht bei reduzierter Bewegung und nicht auf schwachen Geräten (Akku) */
+    var auto  = !window.matchMedia("(prefers-reduced-motion: reduce)").matches && G.leistung !== "schwach";
     var greift = false, letztesX = 0, letztesY = 0, zeiger = null;
-    var laeuft = true;
+    var laeuft = true, sichtbar = true;
 
     function male(){
       objekt.style.transform = "rotateX(" + drehX + "deg) rotateY(" + drehY + "deg)";
@@ -105,8 +107,13 @@
 
     function schritt(){
       if (!laeuft) return;
-      if (auto && !greift){ drehY += 0.28; male(); }
+      if (auto && !greift && sichtbar){ drehY += 0.28; male(); }
       requestAnimationFrame(schritt);
+    }
+
+    /* Ausserhalb des Bilds nicht drehen – spart Rechenzeit auf Handys */
+    if (window.IntersectionObserver){
+      new IntersectionObserver(function(e){ sichtbar = e[0].isIntersecting; }).observe(buehne);
     }
 
     buehne.addEventListener("pointerdown", function(ev){
