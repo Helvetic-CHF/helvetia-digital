@@ -3,26 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="js/geraet.js?v=20260916"></script>
+<script src="js/geraet.js?v=20260916b"></script>
 <title>Produkte – Helvetia Digital</title>
 <meta name="description" content="21 Produkte von CHF 243 bis zur eigenen Software: Website, KI-Telefonassistent, Automatisierung, Kundenportal. Klein anfangen, sinnvoll ausbauen.">
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260916">
-<link rel="stylesheet" href="css/produkte.css?v=20260916">
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.184.0/build/three.module.js"
-  },
-  "integrity": {
-    "https://unpkg.com/three@0.184.0/build/three.module.js": "sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J",
-    "https://unpkg.com/three@0.184.0/build/three.core.js": "sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT"
-  }
-}
-</script>
+<link rel="stylesheet" href="css/style.css?v=20260916b">
+<link rel="stylesheet" href="css/produkte.css?v=20260916b">
 </head>
 <body class="kp-seite">
 
@@ -71,11 +60,17 @@
 <section class="kp-kompass" id="kompass" aria-label="Der Kompass – jedes Produkt ein eigenes Teil">
   <div class="kp-kompass-buehne">
     <canvas id="kompassCanvas" aria-hidden="true"></canvas>
+    <!-- Standbild: erscheint, wenn 3D nicht läuft (kein WebGL, „Bewegung reduzieren", Ladefehler) oder JavaScript aus ist -->
+    <picture class="kp-kompass-bild">
+      <source srcset="assets/kompass-standbild.webp" type="image/webp">
+      <img src="assets/kompass-standbild.png" width="760" height="640" alt="Messingkompass mit Windrose" loading="lazy" decoding="async">
+    </picture>
     <div class="kp-kompass-lage">
       <div class="kp-kompass-text">
         <div class="eyebrow">Der Kompass</div>
         <h2>Siebzehn Teile, <span style="color:var(--gold)">ein klarer Kurs</span></h2>
-        <p>Scrollen Sie, um den Kompass zu zerlegen — Gehäuse, Glas, Skala, Rose und Nadeln lösen sich einzeln. Genau so sind unsere Produkte gebaut: jedes für sich abgeschlossen, zusammen ein Ganzes.</p>
+        <p class="kp-nur-3d">Scrollen Sie, um den Kompass zu zerlegen — Gehäuse, Glas, Skala, Rose und Nadeln lösen sich einzeln. Genau so sind unsere Produkte gebaut: jedes für sich abgeschlossen, zusammen ein Ganzes.</p>
+        <p class="kp-nur-statisch">Gehäuse, Glas, Skala, Rose und Nadeln — siebzehn Teile, jedes für sich gefertigt. Genau so sind unsere Produkte gebaut: jedes für sich abgeschlossen, zusammen ein Ganzes.</p>
       </div>
       <div class="kp-kompass-fuss">
         <span class="kp-kompass-status" id="kompassStatus">Zusammengesetzt</span>
@@ -87,6 +82,67 @@
 
 <main class="section">
   <div class="container">
+    <noscript>
+      <div class="ohne-js" style="max-width:none;margin-bottom:40px">
+        <b>Hinweis:</b> In Ihrem Browser ist JavaScript ausgeschaltet. Die interaktiven Demos und die 360°-Ansicht stehen deshalb nicht zur Verfügung – hier die Übersicht aller Produkte. Für Details schreiben Sie uns direkt oder <a href="termin.html">buchen ein Erstgespräch</a>.
+      </div>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Bereich 1 · CHF 243 – 590</div>
+        <h2 style="margin:8px 0 6px">Einstieg</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Schnell umgesetzt, klein im Preis. Sie sehen innert Tagen, wie wir arbeiten — ohne grosse Entscheidung.</p>
+        <ul class="ohne-js-liste">
+          <li><b>Google-Profil &amp; Sichtbarkeits-Check</b> <span class="preis">CHF 290</span><br><span>Profil eingerichtet, Einträge korrigiert, Bericht was fehlt.</span> <a href="kontakt.html?produkt=Google-Profil%20%26%20Sichtbarkeits-Check">Angebot anfragen</a></li>
+          <li><b>Website Basis</b> <span class="preis">CHF 499</span><br><span>Bis zu 10 Seiten, mobil, Formular, SEO-Grundlagen.</span> <a href="kontakt.html?produkt=Website%20Basis">Angebot anfragen</a></li>
+          <li><b>KI-Chatbot</b> <span class="preis">CHF 243</span><br><span>Beantwortet die immer gleichen Fragen, rund um die Uhr.</span> <a href="kontakt.html?produkt=KI-Chatbot">Angebot anfragen</a></li>
+          <li><b>KI-Bilder &amp; Produktfotos</b> <span class="preis">CHF 590</span><br><span>Produktbilder ohne Fotoshooting. Zehn Motive, druckfertig.</span> <a href="kontakt.html?produkt=KI-Bilder%20%26%20Produktfotos">Angebot anfragen</a></li>
+          <li><b>Übersetzung &amp; Untertitel</b> <span class="preis">CHF 450</span><br><span>Video in fünf Sprachen — die Stimme bleibt dieselbe.</span> <a href="kontakt.html?produkt=%C3%9Cbersetzung%20%26%20Untertitel">Angebot anfragen</a></li>
+        </ul>
+      </section>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Bereich 2 · CHF 190/Mt. – 2’400</div>
+        <h2 style="margin:8px 0 6px">Aufbau</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Ihr Auftritt läuft — und wird laufend gepflegt. Hier entsteht Verlässlichkeit: Anrufe werden angenommen, Inhalte bleiben aktuell.</p>
+        <ul class="ohne-js-liste">
+          <li><b>Website Premium</b> <span class="preis">CHF 1’010</span><br><span>Mit Texten, Bildauswahl und Struktur — kein Baukasten.</span> <a href="kontakt.html?produkt=Website%20Premium">Angebot anfragen</a></li>
+          <li><b>KI-Telefonassistent</b> <span class="preis">CHF 2’400</span><br><span>Nimmt Anrufe an, bucht Termine, verpasst nichts.</span> <a href="kontakt.html?produkt=KI-Telefonassistent">Angebot anfragen</a></li>
+          <li><b>Content- &amp; Social-Betreuung</b> <span class="preis">CHF 690/Mt.</span><br><span>Posts, Newsletter und Bilder — monatlich, verlässlich.</span> <a href="kontakt.html?produkt=Content-%20%26%20Social-Betreuung">Angebot anfragen</a></li>
+          <li><b>Werbe- &amp; Immobilienvideos</b> <span class="preis">ab CHF 1’200</span><br><span>Aus Fotos wird ein Clip. Ein Dreh kostet 1’500 — das hier ab 1’200.</span> <a href="kontakt.html?produkt=Werbe-%20%26%20Immobilienvideos">Angebot anfragen</a></li>
+          <li><b>Betreuungs-Abo</b> <span class="preis">CHF 190/Mt.</span><br><span>Pflege, Inhalte, Google-Profil — Sie müssen nichts tun.</span> <a href="kontakt.html?produkt=Betreuungs-Abo">Angebot anfragen</a></li>
+        </ul>
+      </section>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Bereich 3 · CHF 3’500 – 12’000</div>
+        <h2 style="margin:8px 0 6px">Abläufe</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Wir übernehmen, was heute Zeit frisst: Anfragen, Offerten, Belege. Ab hier geht es um gesparte Stunden, nicht um Design.</p>
+        <ul class="ohne-js-liste">
+          <li><b>Automatisierungs-Paket</b> <span class="preis">CHF 6’500</span><br><span>Anfragen, Mails und CRM laufen ohne Handarbeit durch.</span> <a href="kontakt.html?produkt=Automatisierungs-Paket">Angebot anfragen</a></li>
+          <li><b>Büro-Automatisierung</b> <span class="preis">CHF 4’900</span><br><span>Buchhaltung, Belege, Protokolle und Mails erledigen sich selbst.</span> <a href="kontakt.html?produkt=B%C3%BCro-Automatisierung">Angebot anfragen</a></li>
+          <li><b>Offerten- &amp; Ausschreibungs-Assistent</b> <span class="preis">CHF 5’500</span><br><span>Antwortet auf Ausschreibungen in Stunden statt Tagen.</span> <a href="kontakt.html?produkt=Offerten-%20%26%20Ausschreibungs-Assistent">Angebot anfragen</a></li>
+          <li><b>KI-Wissensassistent</b> <span class="preis">CHF 8’500</span><br><span>Beantwortet Fragen aus Ihren eigenen Dokumenten — mit Quellenangabe.</span> <a href="kontakt.html?produkt=KI-Wissensassistent">Angebot anfragen</a></li>
+          <li><b>Eigene App</b> <span class="preis">ab CHF 599</span><br><span>iOS und Android, ein Backend, Push-Nachrichten, Veröffentlichung inklusive.</span> <a href="kontakt.html?produkt=Eigene%20App">Angebot anfragen</a></li>
+          <li><b>Datenaufbereitung für KI</b> <span class="preis">ab CHF 3’500</span><br><span>Chaotische Excel-Listen und Altsysteme werden brauchbar.</span> <a href="kontakt.html?produkt=Datenaufbereitung%20f%C3%BCr%20KI">Angebot anfragen</a></li>
+        </ul>
+      </section>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Bereich 4 · ab CHF 15’000</div>
+        <h2 style="margin:8px 0 6px">Software &amp; Systeme</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Wenn Standardsoftware nicht mehr passt: gebaut für genau Ihren Betrieb, mit Quellcode und Daten in Ihrer Hand.</p>
+        <ul class="ohne-js-liste">
+          <li><b>Branchen-Software / Kundenportal</b> <span class="preis">ab CHF 18’000</span><br><span>Nach Mass gebaut für genau Ihren Ablauf. Nichts von der Stange.</span> <a href="kontakt.html?produkt=Branchen-Software%20%2F%20Kundenportal">Angebot anfragen</a></li>
+          <li><b>Digitalisierungs-Programm</b> <span class="preis">ab CHF 25’000</span><br><span>Auftritt, Automatisierung, Software und Betreuung als ein Vertrag.</span> <a href="kontakt.html?produkt=Digitalisierungs-Programm">Angebot anfragen</a></li>
+          <li><b>Eigenes KI-Modell anpassen</b> <span class="preis">ab CHF 15’000</span><br><span>Ein Modell lernt die Sprache und das Wissen Ihres Betriebs.</span> <a href="kontakt.html?produkt=Eigenes%20KI-Modell%20anpassen">Angebot anfragen</a></li>
+        </ul>
+      </section>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Bereich 5 · nach Aufwand</div>
+        <h2 style="margin:8px 0 6px">Beratung &amp; Schulung</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Für Fragen, die vor der Umsetzung geklärt sein müssen — was darf Ihr Betrieb mit KI, und was kann Ihr Team damit anfangen?</p>
+        <ul class="ohne-js-liste">
+          <li><b>KI-Prüfung &amp; Datenschutz-Beratung</b> <span class="preis">ab CHF 3’500</span><br><span>Was darf Ihr Betrieb mit KI, was nicht — nach Schweizer DSG und DSGVO.</span> <a href="kontakt.html?produkt=KI-Pr%C3%BCfung%20%26%20Datenschutz-Beratung">Angebot anfragen</a></li>
+          <li><b>Schulung &amp; Workshop</b> <span class="preis">ab CHF 1’200</span><br><span>Halber Tag „KI im Alltag“ für Ihr Team, an Ihren eigenen Aufgaben.</span> <a href="kontakt.html?produkt=Schulung%20%26%20Workshop">Angebot anfragen</a></li>
+        </ul>
+      </section>
+    </noscript>
     <div class="kp-baender" id="produkteBaender"></div>
   </div>
 </main>
@@ -148,11 +204,11 @@
     </div>
   </div>
 </footer>
-<script src="js/main.js?v=20260916"></script>
-<script src="js/produkte-daten.js?v=20260916"></script>
-<script src="js/produkte-3d.js?v=20260916"></script>
-<script src="js/produkte-demos.js?v=20260916"></script>
-<script src="js/produkte.js?v=20260916"></script>
+<script src="js/main.js?v=20260916b"></script>
+<script src="js/produkte-daten.js?v=20260916b"></script>
+<script src="js/produkte-3d.js?v=20260916b"></script>
+<script src="js/produkte-demos.js?v=20260916b"></script>
+<script src="js/produkte.js?v=20260916b"></script>
 <script type="module">
   const abschnitt = document.getElementById('kompass');
   const canvas = document.getElementById('kompassCanvas');
@@ -162,7 +218,7 @@
     abschnitt.classList.add('kp-statisch');
   } else {
     try {
-      const { mountScrollCompass } = await import('./js/kompass-scroll.js?v=20260916');
+      const { mountScrollCompass } = await import('./js/kompass-scroll.js?v=20260916b');
       const api = mountScrollCompass(canvas, abschnitt);
       const schiene = document.getElementById('kompassSchiene');
       const status = document.getElementById('kompassStatus');

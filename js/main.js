@@ -70,7 +70,8 @@
         if(e.isIntersecting){ countUp(e.target); statObserver.unobserve(e.target); }
       });
     }, {threshold:.6});
-    statEls.forEach(function(el){ statObserver.observe(el); });
+    /* Im HTML steht der Endwert (für Besucher ohne JavaScript); hier auf 0 stellen und hochzählen */
+    statEls.forEach(function(el){ if(!reduceMotion) el.textContent = "0" + (el.dataset.suffix || ""); statObserver.observe(el); });
   }
 
   /* ————— Hero-Video: Pause & sanfter Scroll-Rahmen (nur Startseite) ————— */

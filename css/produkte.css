@@ -309,11 +309,33 @@ body.kp-seite main.section{ padding-top:34px !important; }
   .kp-kompass-lage{ padding:calc(var(--nav-h) + 24px) 20px 28px; }
   .kp-kompass-text p{ font-size:.95rem; }
 }
-/* Ohne WebGL oder bei reduzierter Bewegung: kurzer Abschnitt statt Scroll-Bühne */
-.kp-kompass.kp-statisch{ height:auto; }
-.kp-kompass.kp-statisch .kp-kompass-buehne{ position:static; height:auto; padding:96px 0 72px; }
-.kp-kompass.kp-statisch canvas, .kp-kompass.kp-statisch .kp-kompass-fuss{ display:none; }
-.kp-kompass.kp-statisch .kp-kompass-lage{ position:static; padding:0 28px; }
+/* Ohne WebGL, bei reduzierter Bewegung, bei Ladefehler oder ohne JavaScript:
+   kurzer Abschnitt mit Standbild statt Scroll-Bühne.
+   (Ohne JavaScript fehlt data-geraet auf <html> – daran erkennt CSS den Fall.) */
+.kp-kompass-bild{ display:none; }
+.kp-nur-statisch{ display:none; }
+html .kp-kompass.kp-statisch, html[data-geraet] .kp-kompass.kp-statisch, html:not([data-geraet]) .kp-kompass{ height:auto; }
+html .kp-kompass.kp-statisch .kp-kompass-buehne, html:not([data-geraet]) .kp-kompass-buehne{
+  position:static; height:auto; padding:88px 0 72px;
+}
+.kp-kompass.kp-statisch canvas, html:not([data-geraet]) .kp-kompass canvas,
+.kp-kompass.kp-statisch .kp-kompass-fuss, html:not([data-geraet]) .kp-kompass-fuss,
+.kp-kompass.kp-statisch .kp-nur-3d, html:not([data-geraet]) .kp-nur-3d{ display:none; }
+.kp-kompass.kp-statisch .kp-nur-statisch, html:not([data-geraet]) .kp-nur-statisch{ display:block; }
+.kp-kompass.kp-statisch .kp-kompass-lage, html:not([data-geraet]) .kp-kompass-lage{
+  position:static; padding:0 28px; display:grid; grid-template-columns:1fr; gap:36px; align-items:center;
+}
+.kp-kompass.kp-statisch .kp-kompass-bild, html:not([data-geraet]) .kp-kompass-bild{
+  display:block; width:min(100%,520px); margin:0 auto;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.55));
+}
+.kp-kompass-bild img{ display:block; width:100%; height:auto; }
+@media (min-width:861px){
+  .kp-kompass.kp-statisch .kp-kompass-lage, html:not([data-geraet]) .kp-kompass-lage{
+    grid-template-columns:1fr 1fr; max-width:1160px; margin:0 auto;
+  }
+  .kp-kompass.kp-statisch .kp-kompass-bild, html:not([data-geraet]) .kp-kompass-bild{ order:2; }
+}
 
 /* ————— Geräte-Anpassungen (Attribute von js/geraet.js) ————— */
 /* Handy: kürzerer Scrollweg für die Explosion, Text kompakter */
@@ -329,3 +351,10 @@ html[data-eingabe="touch"] .kp-buehne::after{ content:"360° · zum Drehen wisch
 html[data-eingabe="touch"] .kp-buehne{ cursor:default; }
 /* Schwache Geräte: Automatikdrehung der 360°-Objekte aus (Akku), Drehen per Finger bleibt */
 html[data-leistung="schwach"] .kp-kompass-buehne{ background:var(--bg-2); }
+/* Produktliste ohne JavaScript */
+.ohne-js-bereich{ margin-bottom:44px; }
+.ohne-js-liste{ list-style:none; display:grid; gap:12px; }
+.ohne-js-liste li{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px; line-height:1.55; }
+.ohne-js-liste li > span{ color:var(--muted); font-size:.93rem; }
+.ohne-js-liste .preis{ color:var(--gold); font-weight:600; margin-left:8px; }
+.ohne-js-liste a{ color:var(--blue-bright); font-weight:600; margin-left:6px; white-space:nowrap; }

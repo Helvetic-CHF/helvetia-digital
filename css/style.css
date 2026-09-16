@@ -1083,3 +1083,43 @@ html[data-leistung="schwach"] .phone.wiegt{animation:none}
 html[data-leistung="schwach"] .float-chip,
 html[data-leistung="schwach"] .nav-links{backdrop-filter:none;-webkit-backdrop-filter:none}
 html[data-leistung="schwach"] .reveal{transition-duration:.4s}
+
+/* ============================================================
+   Ohne JavaScript
+   js/geraet.js setzt data-geraet auf <html>. Fehlt das Attribut, läuft kein
+   JavaScript (blockiert oder ausgeschaltet) – dann muss alles Wesentliche
+   trotzdem sichtbar und bedienbar sein.
+   ============================================================ */
+html:not([data-geraet]) .reveal{opacity:1;transform:none;transition:none}
+html:not([data-geraet]) .nav{background:rgba(4,7,13,.92);border-bottom-color:var(--border)}
+html:not([data-geraet]) .nav-burger,
+html:not([data-geraet]) .hero-pause,
+html:not([data-geraet]) .toggle-pill,
+html:not([data-geraet]) .car-arrow,
+html:not([data-geraet]) .car-dots{display:none}
+/* Menü: ohne Burger als Zeile unter dem Logo (nur auf schmalen Bildschirmen nötig) */
+@media(max-width:880px){
+  html:not([data-geraet]){--nav-h:128px}
+  html:not([data-geraet]) .nav{height:auto;padding:12px 0 6px}
+  html:not([data-geraet]) .nav-inner{flex-wrap:wrap;row-gap:4px}
+  html:not([data-geraet]) .nav-links{
+    position:static;opacity:1;transform:none;pointer-events:none;
+    flex-direction:row;flex-wrap:wrap;justify-content:center;gap:0;
+    width:100%;order:3;padding:0;border:0;background:none;
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+  }
+  html:not([data-geraet]) .nav-links a{pointer-events:auto;padding:7px 9px;font-size:13px}
+  html:not([data-geraet]) .nav-links a[aria-current="page"]::after{left:9px;right:9px;width:auto;bottom:3px}
+}
+/* Karussell: Bilder untereinander statt drehbar */
+html:not([data-geraet]) .car-stage{height:auto;display:grid;gap:22px;justify-items:center}
+html:not([data-geraet]) .car-slide{position:static;margin:0;transform:none;opacity:1;filter:none;cursor:default}
+/* Hinweisblöcke, die nur ohne JavaScript erscheinen */
+.ohne-js{
+  margin:0 auto;max-width:720px;
+  background:var(--card);border:1px solid var(--gold-line);border-radius:var(--radius);
+  padding:22px 26px;color:var(--muted);font-size:.95rem;line-height:1.6;
+}
+.ohne-js b{color:var(--text)}
+.ohne-js a{color:var(--blue-bright)}
+.ohne-js .btn-primary{margin-top:14px}

@@ -1,6 +1,6 @@
 // Messing-Kompass als 3D-Modell (three.js) — 1:1 aus dem Claude-Design-Export "Brass compass 3D model".
 // Alle Teile tragen Namen; kompass-scroll.js nutzt sie, um jedes Teil beim Scrollen einzeln zu bewegen.
-import * as THREE from 'three';
+import * as THREE from './vendor/three.module.js';
 
 const M = {
   brass: new THREE.MeshStandardMaterial({ name: 'brass', color: 0xc79a55, metalness: 0.38, roughness: 0.3 }),

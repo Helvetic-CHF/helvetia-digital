@@ -8,8 +8,8 @@
 // Bühnenhöhe statt an innerHeight (das springt auf Handys mit der Adressleiste),
 // schwache Geräte rendern mit weniger Pixeln, und ausserhalb des Sichtfelds ruht
 // die Render-Schleife (Akku).
-import * as THREE from 'three';
-import { buildCompass } from './kompass-modell.js';
+import * as THREE from './vendor/three.module.js';
+import { buildCompass } from './kompass-modell.js?v=20260916b';
 
 const EASE = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 const clamp01 = v => Math.min(1, Math.max(0, v));
