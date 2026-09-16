@@ -115,6 +115,16 @@
       label:"Ansichten", anzahl:6, symbol:"handy",
       ergebnis:"Push-Nachricht verschickt · Symbol auf dem Startbildschirm des Kunden" },
 
+    clipping: { art:"vergleich", titel:"Ein Beitrag gegen 30 Clips", status:"Gleiches Video, ein Monat", knopf:"Vergleich starten",
+      label:"Aufrufe und Kosten",
+      balken:[
+        ["1 Beitrag","grau",3,"1’400 Aufrufe"],
+        ["30 Clips","gruen",100,"48’000 Aufrufe"],
+        ["Anzeigen, je 1’000 Aufrufe","grau",100,"CHF 25"],
+        ["Clips, je 1’000 Aufrufe","blau",4,"CHF 0.90"]
+      ],
+      ergebnis:"Dasselbe Material, dreissigfach geschnitten · Aufrufe, die als Anzeige ein Vielfaches kosten würden" },
+
     sprache: { art:"kacheln", titel:"Ein Video, fünf Sprachen", status:"Original: Deutsch, 2:14 Min.", knopf:"Übersetzen",
       label:"Fassungen", anzahl:5, symbol:"sprache", beschriftung:["DE","FR","IT","EN","ES"],
       ergebnis:"Fünf Fassungen · die Stimme des Sprechers bleibt in allen erhalten" }

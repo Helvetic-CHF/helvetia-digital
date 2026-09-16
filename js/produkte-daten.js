@@ -217,7 +217,29 @@ const PRODUKTE = [
     "Fertig in den Formaten für alle Kanäle",
     "Ein Bruchteil der Kosten eines Drehs"
   ],
-  danach: ["content-betreuung", "Ein Video ist ein Video. Erst regelmässig veröffentlicht wird daraus Sichtbarkeit."]
+  danach: ["clipping", "Ein Video ist ein Video. In dreissig Clips zerlegt und laufend veröffentlicht wird daraus Reichweite."]
+},
+{
+  id: "clipping", stufe: 2, icon: "schere", objekt: "karte", badge: "Neu",
+  name: "Clipping & Reichweite",
+  kurz: "Aus einem Video werden 30 Clips im Monat — auf TikTok, Reels und Shorts.",
+  einzeiler: "Viele kurze Clips statt ein Beitrag — so entstehen Aufrufe, die man sonst teuer kaufen müsste.",
+  preis: "ab CHF 990/Mt.",
+  wasIstDas: "Ein einzelner Beitrag erreicht ein paar hundert Leute. Dreissig kurze Clips aus demselben Material erreichen ein Vielfaches — weil die Plattformen kurze, häufige Videos bevorzugen und jeder Clip eine neue Chance ist, dass jemand hängenbleibt. Wir zerlegen Ihr vorhandenes Material (Vorträge, Auftritte, Produktvideos, Alltag im Betrieb) in viele kurze Clips, versehen sie mit Untertiteln und Aufhänger und veröffentlichen sie laufend auf TikTok, Instagram Reels und YouTube Shorts. Dazu gehört das Anhängen an das, was gerade gross ist: Kommt ein Film, ein Ereignis oder ein Trend, über den alle reden, bauen wir Ihre Botschaft so ein, dass sie von dieser Aufmerksamkeit mitgetragen wird. Für grosse Reichweiten schalten wir zusätzlich ein Netzwerk von Clip-Erstellern dazu, das nach Aufrufen bezahlt wird — Sie legen das Budget fest.",
+  schritte: [
+    ["Material & Ziel", "Was ist vorhanden, wer soll es sehen, und was soll danach passieren — Anfragen, Follower, Vorverkauf?"],
+    ["Schneiden & aufhängen", "Aus langem Material werden kurze Clips mit Untertiteln, Aufhänger und Bezug zu dem, was gerade Thema ist."],
+    ["Laufend veröffentlichen", "Täglich, auf mehreren Kanälen und Konten — nicht ein Post pro Woche."],
+    ["Auswerten & nachlegen", "Was Aufrufe bringt, wird vervielfacht; was liegen bleibt, wird gestrichen. Monatsbericht mit Zahlen."]
+  ],
+  demo: "clipping",
+  nutzen: [
+    "Aufrufe in Zehntausenden statt Hunderten — aus Material, das Sie schon haben",
+    "Ein Bruchteil dessen, was bezahlte Werbung pro tausend Aufrufe kostet",
+    "Ihr Betrieb taucht dort auf, wo gerade alle hinschauen",
+    "Monatsbericht: welche Clips liefen, was es gebracht hat"
+  ],
+  danach: ["content-betreuung", "Die Clips bringen Leute aufs Profil. Was sie dort vorfinden, muss dann auch gepflegt sein."]
 },
 {
   id: "betreuungs-abo", stufe: 2, icon: "schild", objekt: "karte",
