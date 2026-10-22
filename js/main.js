@@ -2,6 +2,8 @@
 (function(){
   "use strict";
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* Übersetzung aus js/sprache.js (Fallback: deutscher Text) */
+  var T = window.T || function(s){ return s; };
   /* Geräteerkennung aus js/geraet.js (Fallback, falls das Skript fehlt) */
   var G = window.Geraet || { typ:"desktop", eingabe:"maus", netz:"schnell", leistung:"normal",
     istHandy:false, istTablet:false, istDesktop:true, istTouch:false, bei:function(fn){ fn(this); } };
@@ -21,7 +23,7 @@
     burger.addEventListener("click", function(){
       var open = links.classList.toggle("open");
       burger.classList.toggle("open", open);
-      burger.setAttribute("aria-label", open ? "Menü schliessen" : "Menü öffnen");
+      burger.setAttribute("aria-label", open ? T("Menü schliessen") : T("Menü öffnen"));
     });
   }
 
@@ -101,7 +103,7 @@
         if(versuch && versuch.catch){
           versuch.catch(function(err){
             if(!err || err.name !== "NotAllowedError") return;
-            if(heroPause){ heroPause.classList.add("toggled"); heroPause.setAttribute("aria-label","Video abspielen"); }
+            if(heroPause){ heroPause.classList.add("toggled"); heroPause.setAttribute("aria-label",T("Video abspielen")); }
           });
         }
       }, 800);
@@ -114,11 +116,11 @@
       if(heroVideo.paused){
         heroVideo.play();
         heroPause.classList.remove("toggled");
-        heroPause.setAttribute("aria-label","Video pausieren");
+        heroPause.setAttribute("aria-label",T("Video pausieren"));
       } else {
         heroVideo.pause();
         heroPause.classList.add("toggled");
-        heroPause.setAttribute("aria-label","Video abspielen");
+        heroPause.setAttribute("aria-label",T("Video abspielen"));
       }
     });
   }
@@ -197,7 +199,7 @@
         setTimeout(function(){
           el.innerHTML = '<span class="chf">' + chf + '</span>' +
             (per ? '<span class="per">' + per + '</span>' : '') +
-            (best ? '<span class="best">Bestpreis</span>' : '') +
+            (best ? '<span class="best">' + T("Bestpreis") + '</span>' : '') +
             '<span class="sub">' + sub + '</span>';
           el.style.transition = "opacity .3s";
           el.style.opacity = "1";
@@ -223,7 +225,7 @@
     carSlides.forEach(function(s, i){
       var d = document.createElement("button");
       d.className = "car-dot";
-      d.setAttribute("aria-label", "Beispiel " + (i + 1) + " anzeigen");
+      d.setAttribute("aria-label", T("Beispiel {n} anzeigen").replace("{n}", i + 1));
       d.addEventListener("click", function(){ goTo(i); });
       dotsWrap.appendChild(d);
     });
@@ -294,17 +296,17 @@
     var produkt = new URLSearchParams(window.location.search).get("produkt");
     var nachricht = document.getElementById("nachricht");
     if(produkt && nachricht && !nachricht.value){
-      nachricht.value = "Ich interessiere mich für: " + produkt + "\n\n";
+      nachricht.value = T("Ich interessiere mich für:") + " " + produkt + "\n\n";
     }
     form.addEventListener("submit", function(ev){
       ev.preventDefault();
       var v = function(id){ return document.getElementById(id).value.trim(); };
-      var subject = "Anfrage: " + v("leistung") + " – " + v("vorname") + " " + v("nachname");
-      var body = "Vorname: " + v("vorname") + "\n" +
-                 "Nachname: " + v("nachname") + "\n" +
-                 "E-Mail: " + v("email") + "\n" +
-                 "Leistung: " + v("leistung") + "\n\n" +
-                 "Nachricht:\n" + v("nachricht");
+      var subject = T("Anfrage:") + " " + v("leistung") + " – " + v("vorname") + " " + v("nachname");
+      var body = T("Vorname:") + " " + v("vorname") + "\n" +
+                 T("Nachname:") + " " + v("nachname") + "\n" +
+                 T("E-Mail:") + " " + v("email") + "\n" +
+                 T("Leistung:") + " " + v("leistung") + "\n\n" +
+                 T("Nachricht:") + "\n" + v("nachricht");
       window.location.href = "mailto:helvetiaadigi@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     });
   }
@@ -328,11 +330,11 @@
         return;
       }
       checkErr.hidden = true;
-      var subject = "Website-Check: " + site.value.trim();
-      var body = "Website: " + site.value.trim() + "\n" +
-                 "E-Mail: " + mail.value.trim() + "\n" +
-                 "Name: " + (name.value.trim() || "–") + "\n\n" +
-                 "Bitte prüfen Sie meine Website in den 5 Punkten (Mobil-Darstellung, Ladezeit, Google-Auffindbarkeit, Kontakt und Buchung, Rechtliches).";
+      var subject = T("Website-Check:") + " " + site.value.trim();
+      var body = T("Website:") + " " + site.value.trim() + "\n" +
+                 T("E-Mail:") + " " + mail.value.trim() + "\n" +
+                 T("Name:") + " " + (name.value.trim() || "–") + "\n\n" +
+                 T("Bitte prüfen Sie meine Website in den 5 Punkten (Mobil-Darstellung, Ladezeit, Google-Auffindbarkeit, Kontakt und Buchung, Rechtliches).");
       window.location.href = "mailto:helvetiaadigi@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     });
   }

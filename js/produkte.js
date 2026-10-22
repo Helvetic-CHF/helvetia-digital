@@ -41,6 +41,17 @@
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + pfade + '</svg>';
   }
 
+  /* Übersetzung + Preise in der aktiven Währung (js/sprache.js, js/waehrung.js) */
+  var T = window.T || function(s){ return s; };
+  function tx(s){
+    return window.HD ? window.HD.text(s) : String(s).replace(/\{\{preis:[\w-]+\|([^}]*)\}\}/g, "$1");
+  }
+
+  /* „Nettopreis, zzgl. allfälliger MwSt“ bei EUR/GBP/USD (js/waehrung.js), bei CHF leer */
+  function mwstHinweis(){
+    return window.HDPreis && window.HDPreis.mwstHinweis ? window.HDPreis.mwstHinweis() : "";
+  }
+
   function esc(t){
     return String(t).replace(/[&<>"]/g, function(z){
       return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[z];
@@ -56,15 +67,17 @@
     return null;
   }
   /* Ordnet jedes Produkt einer Auswahl im Kontaktformular zu */
+  var SICHTBAR = T("Digitale Sichtbarkeit"), WEB = T("Webseiten-Entwicklung"),
+      CHAT = T("Chat & Call-Automatisierung"), BERATUNG = T("Sonstiges / Beratung");
   var KATEGORIE = {
-    "google-profil":"Digitale Sichtbarkeit", "website-basis":"Webseiten-Entwicklung", "website-premium":"Webseiten-Entwicklung",
-    "betreuungs-abo":"Webseiten-Entwicklung", "chatbot-basis":"Chat & Call-Automatisierung", "telefonassistent":"Chat & Call-Automatisierung",
-    "ki-bilder":"Digitale Sichtbarkeit", "uebersetzung":"Digitale Sichtbarkeit", "content-betreuung":"Digitale Sichtbarkeit", "werbevideos":"Digitale Sichtbarkeit",
-    "ki-pruefung":"Sonstiges / Beratung", "schulung":"Sonstiges / Beratung"
+    "google-profil":SICHTBAR, "website-basis":WEB, "website-premium":WEB,
+    "betreuungs-abo":WEB, "chatbot-basis":CHAT, "telefonassistent":CHAT,
+    "ki-bilder":SICHTBAR, "uebersetzung":SICHTBAR, "content-betreuung":SICHTBAR, "werbevideos":SICHTBAR,
+    "ki-pruefung":BERATUNG, "schulung":BERATUNG
   };
   function anfrageLink(p){
-    var kat = KATEGORIE[p.id] || "Individuelle Lösungen & Apps";
-    return "kontakt.html?leistung=" + encodeURIComponent(kat) + "&produkt=" + encodeURIComponent(p.name);
+    var kat = KATEGORIE[p.id] || T("Individuelle Lösungen & Apps");
+    return "kontakt.html?leistung=" + encodeURIComponent(kat) + "&produkt=" + encodeURIComponent(tx(p.name));
   }
 
   /* ============================================================
@@ -75,13 +88,13 @@
     return '<a class="kp-karte" href="produkt.html?p=' + encodeURIComponent(p.id) + '">' +
       '<span class="kp-karte-kopf">' +
         '<span class="kp-icon" data-ton="' + ton + '">' + icon(p.icon) + '</span>' +
-        (p.badge ? '<span class="kp-badge">' + esc(p.badge) + '</span>' : '') +
+        (p.badge ? '<span class="kp-badge">' + esc(tx(p.badge)) + '</span>' : '') +
       '</span>' +
-      '<span class="kp-name">' + esc(p.name) + '</span>' +
-      '<span class="kp-kurz">' + esc(p.kurz) + '</span>' +
+      '<span class="kp-name">' + esc(tx(p.name)) + '</span>' +
+      '<span class="kp-kurz">' + esc(tx(p.kurz)) + '</span>' +
       '<span class="kp-preis">' +
-        '<span class="kp-preis-zahl" data-ton="' + ton + '">' + esc(p.preis) + '</span>' +
-        (p.preisZusatz ? '<span class="kp-preis-alt">' + esc(p.preisZusatz) + '</span>' : '') +
+        '<span class="kp-preis-zahl" data-ton="' + ton + '">' + esc(tx(p.preis)) + '</span>' +
+        (p.preisZusatz ? '<span class="kp-preis-alt">' + esc(tx(p.preisZusatz)) + '</span>' : '') +
       '</span>' +
     '</a>';
   }
@@ -99,15 +112,17 @@
             '<div class="kp-marker-kopf">' +
               '<div class="kp-nr" data-ton="' + st.ton + '">' + (st.id <= 4 ? st.id : icon("uhr")) + '</div>' +
               '<div>' +
-                '<div class="kp-stufe-name">' + esc(st.name) + '</div>' +
-                '<div class="kp-spanne" style="color:' + farbe + '">' + esc(st.spanne) + '</div>' +
+                '<div class="kp-stufe-name">' + esc(tx(st.name)) + '</div>' +
+                '<div class="kp-spanne" style="color:' + farbe + '">' + esc(tx(st.spanne)) + '</div>' +
               '</div>' +
             '</div>' +
-            '<p class="kp-stufe-ziel">' + esc(st.ziel) + '</p>' +
+            '<p class="kp-stufe-ziel">' + esc(tx(st.ziel)) + '</p>' +
           '</div>' +
           '<div class="kp-karten" data-spalten="' + spalten + '">' + liste.map(karteHtml).join("") + '</div>' +
         '</section>';
     });
+    var mwst = mwstHinweis();
+    if (mwst) html += '<p class="kp-mwst-hinweis">' + esc(mwst) + '</p>';
     ziel.innerHTML = html;
     einblenden();
   }
@@ -121,25 +136,25 @@
 
   function baueDetail(p){
     var st = stufeVon(p.stufe);
-    document.title = p.name + " – Helvetia Digital";
+    document.title = tx(p.name) + " – Helvetia Digital";
     var meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", p.einzeiler);
+    if (meta) meta.setAttribute("content", tx(p.einzeiler));
 
     document.getElementById("produktKopf").innerHTML =
       '<div class="container">' +
-        '<a class="kp-zurueck" href="produkte.html">' + icon("zurueck") + 'Alle Produkte</a>' +
+        '<a class="kp-zurueck" href="produkte.html">' + icon("zurueck") + T("Alle Produkte") + '</a>' +
         '<div class="kp-produkt-kopf-inner">' +
           '<div class="kp-produkt-kopf-text">' +
             '<div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap">' +
-              '<span class="kp-stufe-pille" data-ton="' + st.ton + '">' + esc(st.name) + '</span>' +
-              (p.badge ? '<span class="kp-badge">' + esc(p.badge) + '</span>' : '') +
+              '<span class="kp-stufe-pille" data-ton="' + st.ton + '">' + esc(tx(st.name)) + '</span>' +
+              (p.badge ? '<span class="kp-badge">' + esc(tx(p.badge)) + '</span>' : '') +
             '</div>' +
-            '<h1 style="font-size:clamp(1.9rem,4vw,2.5rem);line-height:1.12;margin-bottom:16px">' + esc(p.name) + '</h1>' +
-            '<p style="font-size:1.05rem;line-height:1.65;color:var(--muted);font-weight:350;max-width:460px;margin-bottom:26px">' + esc(p.einzeiler) + '</p>' +
+            '<h1 style="font-size:clamp(1.9rem,4vw,2.5rem);line-height:1.12;margin-bottom:16px">' + esc(tx(p.name)) + '</h1>' +
+            '<p style="font-size:1.05rem;line-height:1.65;color:var(--muted);font-weight:350;max-width:460px;margin-bottom:26px">' + esc(tx(p.einzeiler)) + '</p>' +
             '<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">' +
-              '<a class="btn-primary" href="' + anfrageLink(p) + '">Angebot anfragen' + icon("pfeil") + '</a>' +
-              '<span style="font-family:var(--font-display);font-size:1.25rem;font-weight:700;letter-spacing:-.02em;color:' + (st.ton === "gold" ? "var(--gold)" : "var(--blue-bright)") + '">' + esc(p.preis) +
-                (p.preisZusatz ? ' <span style="font-size:.85rem;font-weight:500;color:var(--muted)">' + esc(p.preisZusatz) + '</span>' : '') +
+              '<a class="btn-primary" href="' + anfrageLink(p) + '">' + T("Angebot anfragen") + icon("pfeil") + '</a>' +
+              '<span style="font-family:var(--font-display);font-size:1.25rem;font-weight:700;letter-spacing:-.02em;color:' + (st.ton === "gold" ? "var(--gold)" : "var(--blue-bright)") + '">' + esc(tx(p.preis)) +
+                (p.preisZusatz ? ' <span style="font-size:.85rem;font-weight:500;color:var(--muted)">' + esc(tx(p.preisZusatz)) + '</span>' : '') +
               '</span>' +
             '</div>' +
           '</div>' +
@@ -153,41 +168,42 @@
 
     var h = "";
 
-    h += abschnitt("Was das ist",
-      '<p style="font-size:1.05rem;line-height:1.72;font-weight:350;max-width:820px">' + esc(p.wasIstDas) + '</p>');
+    h += abschnitt(T("Was das ist"),
+      '<p style="font-size:1.05rem;line-height:1.72;font-weight:350;max-width:820px">' + esc(tx(p.wasIstDas)) + '</p>');
 
-    h += abschnitt("So läuft es ab",
+    h += abschnitt(T("So läuft es ab"),
       '<div class="kp-schritte">' + p.schritte.map(function(s, i){
         return '<div class="kp-schritt"><div class="kp-schritt-nr">' + (i + 1) + '</div>' +
-               '<h3>' + esc(s[0]) + '</h3><p>' + esc(s[1]) + '</p></div>';
+               '<h3>' + esc(tx(s[0])) + '</h3><p>' + esc(tx(s[1])) + '</p></div>';
       }).join("") + '</div>');
 
     if (p.demo){
-      h += abschnitt("Live ausprobieren",
-        '<h2 style="font-size:1.5rem;margin-bottom:8px">Kein Video — der Ablauf läuft wirklich durch</h2>' +
+      h += abschnitt(T("Live ausprobieren"),
+        '<h2 style="font-size:1.5rem;margin-bottom:8px">' + T("Kein Video — der Ablauf läuft wirklich durch") + '</h2>' +
         '<p style="font-size:.95rem;line-height:1.65;color:var(--muted);font-weight:350;max-width:700px;margin-bottom:22px">' +
-        'Drücken Sie auf Start und sehen Sie in zwanzig Sekunden, was passiert.</p>' +
+        T("Drücken Sie auf Start und sehen Sie in zwanzig Sekunden, was passiert.") + '</p>' +
         '<div id="demoZiel"></div>');
     }
 
-    h += abschnitt("Was Sie davon haben",
+    h += abschnitt(T("Was Sie davon haben"),
       '<div class="kp-mehrwert-karte">' +
-        '<div class="kp-mehrwert-kopf"><div>' + icon("person") + '</div><h3>Ihr Nutzen</h3></div>' +
+        '<div class="kp-mehrwert-kopf"><div>' + icon("person") + '</div><h3>' + T("Ihr Nutzen") + '</h3></div>' +
         '<div class="kp-punkte">' + p.nutzen.map(function(t){
-          return '<div class="kp-punkt-zeile">' + icon("haken") + '<span>' + esc(t) + '</span></div>';
+          return '<div class="kp-punkt-zeile">' + icon("haken") + '<span>' + esc(tx(t)) + '</span></div>';
         }).join("") + '</div>' +
       '</div>');
 
-    h += abschnitt("Preis",
+    h += abschnitt(T("Preis"),
       '<div class="kp-preisfelder">' +
         '<div class="kp-preisfeld" data-art="ziel">' +
-          '<div class="kp-preisfeld-label">Festpreis</div>' +
-          '<div class="kp-preisfeld-zahl">' + esc(p.preis) + '</div>' +
-          '<div class="kp-preisfeld-note">' + esc(p.preisZusatz || "Inklusive Einführung und Support. Ratenzahlung möglich.") + '</div>' +
+          '<div class="kp-preisfeld-label">' + T("Festpreis") + '</div>' +
+          '<div class="kp-preisfeld-zahl">' + esc(tx(p.preis)) + '</div>' +
+          '<div class="kp-preisfeld-note">' + esc(p.preisZusatz ? tx(p.preisZusatz) : T("Inklusive Einführung und Support. Ratenzahlung möglich.")) + '</div>' +
+          (mwstHinweis() ? '<div class="kp-preisfeld-note">' + esc(mwstHinweis()) + '</div>' : '') +
         '</div>' +
         '<div class="kp-preisfeld" style="display:flex;flex-direction:column;justify-content:center;gap:12px">' +
-          '<p style="font-size:.95rem;line-height:1.6;color:var(--muted);font-weight:350;margin:0">Im kostenlosen Erstgespräch klären wir, ob dieses Produkt zu Ihrem Vorhaben passt — ehrlich und ohne Verkaufsdruck.</p>' +
-          '<a class="btn-ghost" href="termin.html" style="width:fit-content">Erstgespräch buchen</a>' +
+          '<p style="font-size:.95rem;line-height:1.6;color:var(--muted);font-weight:350;margin:0">' + T("Im kostenlosen Erstgespräch klären wir, ob dieses Produkt zu Ihrem Vorhaben passt — ehrlich und ohne Verkaufsdruck.") + '</p>' +
+          '<a class="btn-ghost" href="termin.html" style="width:fit-content">' + T("Erstgespräch buchen") + '</a>' +
         '</div>' +
       '</div>');
 
@@ -195,11 +211,11 @@
     if (naechstes){
       h += '<section class="kp-danach reveal">' +
              '<div style="max-width:620px">' +
-               '<div class="kp-res-titel" style="color:var(--gold)">Und danach?</div>' +
-               '<h2 style="font-size:1.5rem;margin-bottom:8px">' + esc(naechstes.name) + '</h2>' +
-               '<p style="font-size:.95rem;line-height:1.65;color:var(--muted);font-weight:350">' + esc(p.danach[1]) + '</p>' +
+               '<div class="kp-res-titel" style="color:var(--gold)">' + T("Und danach?") + '</div>' +
+               '<h2 style="font-size:1.5rem;margin-bottom:8px">' + esc(tx(naechstes.name)) + '</h2>' +
+               '<p style="font-size:.95rem;line-height:1.65;color:var(--muted);font-weight:350">' + esc(tx(p.danach[1])) + '</p>' +
              '</div>' +
-             '<a class="btn-primary" href="produkt.html?p=' + encodeURIComponent(naechstes.id) + '">Ansehen' + icon("pfeil") + '</a>' +
+             '<a class="btn-primary" href="produkt.html?p=' + encodeURIComponent(naechstes.id) + '">' + T("Ansehen") + icon("pfeil") + '</a>' +
            '</section>';
     }
 
@@ -251,9 +267,9 @@
       if (!p){
         document.getElementById("produktKopf").innerHTML =
           '<div class="container">' +
-            '<a class="kp-zurueck" href="produkte.html">' + icon("zurueck") + 'Alle Produkte</a>' +
-            '<h1 style="font-size:2rem;margin-bottom:12px">Produkt nicht gefunden</h1>' +
-            '<p style="color:var(--muted)">Diesen Eintrag gibt es nicht. In der Übersicht finden Sie alle ' + PRODUKTE.length + ' Produkte.</p>' +
+            '<a class="kp-zurueck" href="produkte.html">' + icon("zurueck") + T("Alle Produkte") + '</a>' +
+            '<h1 style="font-size:2rem;margin-bottom:12px">' + T("Produkt nicht gefunden") + '</h1>' +
+            '<p style="color:var(--muted)">' + T("Diesen Eintrag gibt es nicht. In der Übersicht finden Sie alle {anzahl} Produkte.").replace("{anzahl}", PRODUKTE.length) + '</p>' +
           '</div>';
         return;
       }

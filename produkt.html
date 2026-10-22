@@ -4,14 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="js/sprache.js?v=20261022b"></script>
+<script src="js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
 <title>Produkt – Helvetia Digital</title>
 <meta name="description" content="Produktdetails von Helvetia Digital: Funktion, Ablauf, Live-Demo und Preis.">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/produkt.html">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/produkt.html">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/produkt.html">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/produkt.html">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/produkt.html">
+<!--/HREFLANG-->
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260916b">
-<link rel="stylesheet" href="css/produkte.css?v=20260916b">
+<link rel="stylesheet" href="css/style.css?v=20261022b">
+<link rel="stylesheet" href="css/produkte.css?v=20261022b">
 </head>
 <body class="kp-seite">
 
@@ -32,6 +43,10 @@
       <a href="kontakt.html">Kontakt</a>
     </div>
     <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Sprache wählen">DE</summary><div class="lang-menu"><a href="produkt.html" hreflang="de" lang="de" class="on" aria-current="true">Deutsch</a><a href="en/produkt.html" hreflang="en" lang="en">English</a><a href="fr/produkt.html" hreflang="fr" lang="fr">Français</a><a href="es/produkt.html" hreflang="es" lang="es">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Währung wählen" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
       <a class="nav-cta" href="termin.html">Termin buchen</a>
       <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div>
@@ -100,10 +115,10 @@
     </div>
   </div>
 </footer>
-<script src="js/main.js?v=20260916b"></script>
-<script src="js/produkte-daten.js?v=20260916c"></script>
+<script src="js/main.js?v=20261022b"></script>
+<script src="js/produkte-daten.js?v=20261022b"></script>
 <script src="js/produkte-3d.js?v=20260916b"></script>
-<script src="js/produkte-demos.js?v=20260916c"></script>
-<script src="js/produkte.js?v=20260916c"></script>
+<script src="js/produkte-demos.js?v=20261022b"></script>
+<script src="js/produkte.js?v=20261022b"></script>
 </body>
 </html>

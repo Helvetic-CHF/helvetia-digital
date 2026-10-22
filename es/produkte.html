@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="../js/i18n/es.js?v=20261022b"></script>
+<script src="../js/sprache.js?v=20261022b"></script>
+<script src="../js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
+<title>Productos – Helvetia Digital</title>
+<meta name="description" content="21 productos, desde pequeños paquetes de inicio hasta software propio: web, asistente telefónico con IA, automatización, portal de clientes. Empezar en pequeño, crecer con sentido.">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/produkte.html">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/produkte.html">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/produkte.html">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/produkte.html">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/produkte.html">
+<!--/HREFLANG-->
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=20261022b">
+<link rel="stylesheet" href="../css/produkte.css?v=20261022b">
+</head>
+<body class="kp-seite">
+
+<!-- ————————— NAVIGATION ————————— -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Helvetia Digital – Inicio">
+      <img src="../assets/logo-light.png" alt="Helvetia Digital">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Inicio</a>
+      <a href="leistungen.html">Servicios</a>
+      <a href="produkte.html" aria-current="page">Productos</a>
+      <a href="preise.html">Precios</a>
+      <a href="website-check.html">Revisión web</a>
+      <a href="ueber-uns.html">Sobre nosotros</a>
+      <a href="termin.html">Cita</a>
+      <a href="kontakt.html">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Elegir idioma">ES</summary><div class="lang-menu"><a href="../produkte.html" hreflang="de" lang="de">Deutsch</a><a href="../en/produkte.html" hreflang="en" lang="en">English</a><a href="../fr/produkte.html" hreflang="fr" lang="fr">Français</a><a href="produkte.html" hreflang="es" lang="es" class="on" aria-current="true">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Elegir moneda" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
+      <a class="nav-cta" href="termin.html">Reservar cita</a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <div class="eyebrow reveal in">Productos</div>
+    <h1 class="reveal in d1" style="margin-bottom:18px">
+      Empezar en pequeño,<br><span style="color:var(--gold)">crecer con sentido</span>
+    </h1>
+    <p class="reveal in d2" style="font-size:1.05rem;line-height:1.65;color:var(--muted);font-weight:350;max-width:720px">
+      Cada producto es completo por sí mismo. Usted empieza donde más aporta y decide tras cada paso si sigue y cómo. Toque un producto para ver cómo funciona y cuánto cuesta.
+    </p>
+    <div class="kp-weiter reveal in d3">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      21 productos en cinco áreas
+    </div>
+  </div>
+</header>
+
+<!-- ————————— KOMPASS: Scroll-Explosion (3D) ————————— -->
+<section class="kp-kompass" id="kompass" aria-label="La brújula: cada producto, una pieza propia">
+  <div class="kp-kompass-buehne">
+    <canvas id="kompassCanvas" aria-hidden="true"></canvas>
+    <!-- Standbild: erscheint, wenn 3D nicht läuft (kein WebGL, „Bewegung reduzieren", Ladefehler) oder JavaScript aus ist -->
+    <picture class="kp-kompass-bild">
+      <source srcset="../assets/kompass-standbild.webp" type="image/webp">
+      <img src="../assets/kompass-standbild.png" width="760" height="640" alt="Brújula de latón con rosa de los vientos" loading="lazy" decoding="async">
+    </picture>
+    <div class="kp-kompass-lage">
+      <div class="kp-kompass-text">
+        <div class="eyebrow">La brújula</div>
+        <h2>Diecisiete piezas, <span style="color:var(--gold)">un rumbo claro</span></h2>
+        <p class="kp-nur-3d">Desplácese para desmontar la brújula: caja, cristal, esfera, rosa y agujas se separan una a una. Así están construidos nuestros productos: cada uno completo, juntos un todo.</p>
+        <p class="kp-nur-statisch">Caja, cristal, esfera, rosa y agujas: diecisiete piezas, cada una fabricada por separado. Así están construidos nuestros productos: cada uno completo, juntos un todo.</p>
+      </div>
+      <div class="kp-kompass-fuss">
+        <span class="kp-kompass-status" id="kompassStatus">Montada</span>
+        <span class="kp-kompass-cue"><span class="kp-schiene"><i id="kompassSchiene"></i></span><span id="kompassCue">Desplácese para desmontar</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="section">
+  <div class="container">
+    <noscript>
+      <div class="ohne-js" style="max-width:none;margin-bottom:40px">
+        <b>Nota:</b> JavaScript está desactivado en su navegador. Por eso las demos interactivas y la vista 360° no están disponibles; aquí tiene el resumen de todos los productos. Para más detalles, escríbanos directamente o <a href="termin.html">reserve una primera conversación</a>.
+      </div>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Área 1 · CHF 243 – 590</div>
+        <h2 style="margin:8px 0 6px">Inicio</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Rápido de implementar y de precio reducido. En pocos días verá cómo trabajamos, sin grandes decisiones.</p>
+        <ul class="ohne-js-liste">
+          <li><b>Perfil de Google y revisión de visibilidad</b> <span class="preis">CHF 290</span><br><span>Perfil configurado, fichas corregidas, informe de lo que falta.</span> <a href="kontakt.html?produkt=Google-Profil%20%26%20Sichtbarkeits-Check">Solicitar presupuesto</a></li>
+          <li><b>Web Básica</b> <span class="preis">CHF 499</span><br><span>Hasta 10 páginas, móvil, formulario, fundamentos de SEO.</span> <a href="kontakt.html?produkt=Website%20Basis">Solicitar presupuesto</a></li>
+          <li><b>Chatbot con IA</b> <span class="preis">CHF 243</span><br><span>Responde siempre las mismas preguntas, las 24 horas.</span> <a href="kontakt.html?produkt=KI-Chatbot">Solicitar presupuesto</a></li>
+          <li><b>Imágenes con IA y fotos de producto</b> <span class="preis">CHF 590</span><br><span>Imágenes de producto sin sesión de fotos. Diez motivos, listos para imprimir.</span> <a href="kontakt.html?produkt=KI-Bilder%20%26%20Produktfotos">Solicitar presupuesto</a></li>
+          <li><b>Traducción y subtítulos</b> <span class="preis">CHF 450</span><br><span>Un vídeo en cinco idiomas: la voz sigue siendo la misma.</span> <a href="kontakt.html?produkt=%C3%9Cbersetzung%20%26%20Untertitel">Solicitar presupuesto</a></li>
+        </ul>
+      </section>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Área 2 · CHF 190/mes – 2’400</div>
+        <h2 style="margin:8px 0 6px">Crecimiento</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Su presencia funciona y se mantiene de forma continua. Aquí nace la fiabilidad: las llamadas se atienden y los contenidos se mantienen al día.</p>
+        <ul class="ohne-js-liste">
+          <li><b>Web Premium</b> <span class="preis">CHF 1’010</span><br><span>Con textos, selección de imágenes y estructura, sin constructor.</span> <a href="kontakt.html?produkt=Website%20Premium">Solicitar presupuesto</a></li>
+          <li><b>Asistente telefónico con IA</b> <span class="preis">CHF 2’400</span><br><span>Atiende llamadas, reserva citas, no se le escapa nada.</span> <a href="kontakt.html?produkt=KI-Telefonassistent">Solicitar presupuesto</a></li>
+          <li><b>Gestión de contenidos y redes sociales</b> <span class="preis">CHF 690/mes</span><br><span>Publicaciones, newsletters e imágenes, cada mes y con fiabilidad.</span> <a href="kontakt.html?produkt=Content-%20%26%20Social-Betreuung">Solicitar presupuesto</a></li>
+          <li><b>Vídeos promocionales e inmobiliarios</b> <span class="preis">desde CHF 1’200</span><br><span>Las fotos se convierten en un clip. Un rodaje cuesta 1’500; esto, desde 1’200.</span> <a href="kontakt.html?produkt=Werbe-%20%26%20Immobilienvideos">Solicitar presupuesto</a></li>
+          <li><b>Clipping y alcance</b> <span class="preis">desde CHF 990/mes</span><br><span>Un vídeo se convierte en 30 clips al mes, en TikTok, Reels y Shorts.</span> <a href="kontakt.html?produkt=Clipping%20%26%20Reichweite">Solicitar presupuesto</a></li>
+          <li><b>Suscripción de mantenimiento</b> <span class="preis">CHF 190/mes</span><br><span>Mantenimiento, contenidos, perfil de Google: usted no tiene que hacer nada.</span> <a href="kontakt.html?produkt=Betreuungs-Abo">Solicitar presupuesto</a></li>
+        </ul>
+      </section>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Área 3 · CHF 3’500 – 12’000</div>
+        <h2 style="margin:8px 0 6px">Procesos</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Nos encargamos de lo que hoy le roba tiempo: consultas, presupuestos, justificantes. A partir de aquí se trata de horas ahorradas, no de diseño.</p>
+        <ul class="ohne-js-liste">
+          <li><b>Paquete de automatización</b> <span class="preis">CHF 6’500</span><br><span>Consultas, correos y CRM fluyen sin trabajo manual.</span> <a href="kontakt.html?produkt=Automatisierungs-Paket">Solicitar presupuesto</a></li>
+          <li><b>Automatización de oficina</b> <span class="preis">CHF 4’900</span><br><span>Contabilidad, justificantes, actas y correos se gestionan solos.</span> <a href="kontakt.html?produkt=B%C3%BCro-Automatisierung">Solicitar presupuesto</a></li>
+          <li><b>Asistente de presupuestos y licitaciones</b> <span class="preis">CHF 5’500</span><br><span>Responde a licitaciones en horas en lugar de días.</span> <a href="kontakt.html?produkt=Offerten-%20%26%20Ausschreibungs-Assistent">Solicitar presupuesto</a></li>
+          <li><b>Asistente de conocimiento con IA</b> <span class="preis">CHF 8’500</span><br><span>Responde preguntas a partir de sus propios documentos, con fuentes.</span> <a href="kontakt.html?produkt=KI-Wissensassistent">Solicitar presupuesto</a></li>
+          <li><b>App propia</b> <span class="preis">desde CHF 599</span><br><span>iOS y Android, un backend, notificaciones push, publicación incluida.</span> <a href="kontakt.html?produkt=Eigene%20App">Solicitar presupuesto</a></li>
+          <li><b>Preparación de datos para IA</b> <span class="preis">desde CHF 3’500</span><br><span>Listas de Excel caóticas y sistemas antiguos se vuelven útiles.</span> <a href="kontakt.html?produkt=Datenaufbereitung%20f%C3%BCr%20KI">Solicitar presupuesto</a></li>
+        </ul>
+      </section>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Área 4 · desde CHF 15’000</div>
+        <h2 style="margin:8px 0 6px">Software y sistemas</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Cuando el software estándar ya no encaja: hecho exactamente para su negocio, con el código fuente y los datos en sus manos.</p>
+        <ul class="ohne-js-liste">
+          <li><b>Software sectorial / portal de clientes</b> <span class="preis">desde CHF 18’000</span><br><span>Hecho a medida para su proceso exacto. Nada estándar.</span> <a href="kontakt.html?produkt=Branchen-Software%20%2F%20Kundenportal">Solicitar presupuesto</a></li>
+          <li><b>Programa de digitalización</b> <span class="preis">desde CHF 25’000</span><br><span>Presencia, automatización, software y soporte en un solo contrato.</span> <a href="kontakt.html?produkt=Digitalisierungs-Programm">Solicitar presupuesto</a></li>
+          <li><b>Adaptar su propio modelo de IA</b> <span class="preis">desde CHF 15’000</span><br><span>Un modelo aprende el lenguaje y el conocimiento de su empresa.</span> <a href="kontakt.html?produkt=Eigenes%20KI-Modell%20anpassen">Solicitar presupuesto</a></li>
+        </ul>
+      </section>
+      <section class="ohne-js-bereich">
+        <div class="eyebrow">Área 5 · según el esfuerzo</div>
+        <h2 style="margin:8px 0 6px">Consultoría y formación</h2>
+        <p style="color:var(--muted);max-width:640px;margin-bottom:18px">Para las preguntas que deben aclararse antes de implementar: ¿qué puede hacer su empresa con la IA y qué puede hacer su equipo con ella?</p>
+        <ul class="ohne-js-liste">
+          <li><b>Revisión de IA y asesoría en protección de datos</b> <span class="preis">desde CHF 3’500</span><br><span>Lo que su empresa puede y no puede hacer con la IA, según la LPD suiza y el RGPD.</span> <a href="kontakt.html?produkt=KI-Pr%C3%BCfung%20%26%20Datenschutz-Beratung">Solicitar presupuesto</a></li>
+          <li><b>Formación y taller</b> <span class="preis">desde CHF 1’200</span><br><span>Media jornada de «IA en el día a día» para su equipo, con sus propias tareas.</span> <a href="kontakt.html?produkt=Schulung%20%26%20Workshop">Solicitar presupuesto</a></li>
+        </ul>
+      </section>
+    </noscript>
+    <div class="kp-baender" id="produkteBaender"></div>
+  </div>
+</main>
+
+<section class="section-tight">
+  <div class="container-narrow" style="text-align:center">
+    <h2 style="font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.2;margin-bottom:14px">¿No sabe por dónde empezar?</h2>
+    <p style="font-size:1rem;line-height:1.65;color:var(--muted);font-weight:350;margin-bottom:26px">
+      En una primera conversación gratuita vemos juntos qué producto le aporta más, con honestidad y sin presión comercial.
+    </p>
+    <a class="btn-primary" href="termin.html">Reservar una primera conversación
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/logo-light.png" alt="Helvetia Digital">
+        <p>Sitios web profesionales y presencia digital para pymes: claros, fiables y hechos con precisión.</p>
+        <span class="loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Zúrich · Suiza</span>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="leistungen.html">Servicios</a></li>
+          <li><a href="preise.html">Precios</a></li>
+          <li><a href="website-check.html">Revisión web</a></li>
+          <li><a href="ueber-uns.html">Sobre nosotros</a></li>
+          <li><a href="termin.html">Reservar cita</a></li>
+          <li><a href="kontakt.html">Contacto</a></li>
+          <li><a href="datenschutz.html">Privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="leistungen.html#webseiten">Desarrollo web</a></li>
+          <li><a href="leistungen.html#sichtbarkeit">Visibilidad digital</a></li>
+          <li><a href="leistungen.html#automatisierung">Automatización</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:helvetiaadigi@gmail.com">helvetiaadigi@gmail.com</a></li>
+          <li><a href="termin.html">Reservar cita</a></li>
+          <li><a href="kontakt.html">Formulario de contacto</a></li>
+          <li><a href="preise.html">Resumen de precios</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Helvetia Digital · Zúrich, Suiza</span>
+      <span>Sitios web y presencia digital · Con precisión desde Zúrich</span>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js?v=20261022b"></script>
+<script src="../js/produkte-daten.js?v=20261022b"></script>
+<script src="../js/produkte-3d.js?v=20260916b"></script>
+<script src="../js/produkte-demos.js?v=20261022b"></script>
+<script src="../js/produkte.js?v=20261022b"></script>
+<script type="module">
+  const abschnitt = document.getElementById('kompass');
+  const canvas = document.getElementById('kompassCanvas');
+  const reduziert = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const webgl = (() => { try { return !!canvas.getContext('webgl2') || !!canvas.getContext('webgl'); } catch { return false; } })();
+  if (reduziert || !webgl) {
+    abschnitt.classList.add('kp-statisch');
+  } else {
+    try {
+      const { mountScrollCompass } = await import('../js/kompass-scroll.js?v=20260916b');
+      const api = mountScrollCompass(canvas, abschnitt);
+      const schiene = document.getElementById('kompassSchiene');
+      const status = document.getElementById('kompassStatus');
+      const cue = document.getElementById('kompassCue');
+      let zuletzt = -1;
+      (function tick() {
+        const p = api.progress();
+        if (Math.abs(p - zuletzt) > 0.002) {
+          schiene.style.height = (p * 100).toFixed(1) + '%';
+          status.textContent = p < 0.06 ? T('Zusammengesetzt') : p > 0.9 ? T('Vollständig zerlegt') : T('Wird zerlegt');
+          cue.textContent = p > 0.9 ? T('Nach oben scrollen zum Zusammensetzen') : T('Scrollen zum Zerlegen');
+          zuletzt = p;
+        }
+        requestAnimationFrame(tick);
+      })();
+    } catch (e) {
+      // three.js nicht ladbar (z. B. offline): Abschnitt ohne 3D anzeigen
+      abschnitt.classList.add('kp-statisch');
+    }
+  }
+</script>
+</body>
+</html>

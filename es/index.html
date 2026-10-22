@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="../js/i18n/es.js?v=20261022b"></script>
+<script src="../js/sprache.js?v=20261022b"></script>
+<script src="../js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
+<title>Helvetia Digital – Sitios web y presencia digital desde Zúrich</title>
+<meta name="description" content="Helvetia Digital desarrolla sitios web profesionales para pymes: claros, rápidos y pensados para generar consultas. Presencia digital con precisión suiza, desde Zúrich.">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/">
+<!--/HREFLANG-->
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=20261022b">
+</head>
+<body>
+
+<!-- ————————— NAVIGATION ————————— -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Helvetia Digital – Inicio">
+      <img src="../assets/logo-light.png" alt="Helvetia Digital">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="leistungen.html">Servicios</a>
+      <a href="produkte.html">Productos</a>
+      <a href="preise.html">Precios</a>
+      <a href="website-check.html">Revisión web</a>
+      <a href="ueber-uns.html">Sobre nosotros</a>
+      <a href="termin.html">Cita</a>
+      <a href="kontakt.html">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Elegir idioma">ES</summary><div class="lang-menu"><a href="../index.html" hreflang="de" lang="de">Deutsch</a><a href="../en/index.html" hreflang="en" lang="en">English</a><a href="../fr/index.html" hreflang="fr" lang="fr">Français</a><a href="index.html" hreflang="es" lang="es" class="on" aria-current="true">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Elegir moneda" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
+      <a class="nav-cta" href="termin.html">Reservar cita</a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ————————— HERO ————————— -->
+<header class="hero" id="top">
+  <div class="hero-media" id="heroMedia">
+    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/hero-poster.jpg">
+      <source src="../assets/hero-zurich.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <button class="hero-pause" id="heroPause" aria-label="Pausar vídeo">
+    <svg class="icon-main" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+    <svg class="icon-alt" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg>
+  </button>
+
+  <div class="hero-content container">
+    <div class="hero-badge reveal in"><span class="swiss-dot" aria-hidden="true"></span>Agencia digital · Zúrich</div>
+    <h1 class="reveal in d1">Presencia digital con<br><span class="accent">precisión suiza</span></h1>
+    <p class="hero-sub reveal in d2">Diseñamos, creamos y desarrollamos sitios web profesionales para pequeñas y medianas empresas: imagen clara, gran impacto.</p>
+    <div class="hero-actions reveal in d3">
+      <a class="btn-primary" href="kontakt.html">Iniciar un proyecto
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn-ghost" href="leistungen.html">Descubrir servicios</a>
+    </div>
+    <div class="hero-meta reveal in d3">
+      <span><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Zúrich · Suiza</span>
+      <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Respuesta en 24 horas</span>
+      <span><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg>Conforme a LPD y RGPD</span>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stats-grid reveal">
+      <div class="stat"><b data-count="50" data-suffix="+">50+</b><span>Proyectos realizados</span></div>
+      <div class="stat"><b data-count="4" data-suffix="+">4+</b><span>Años de experiencia en TI</span></div>
+      <div class="stat"><b data-count="24" data-suffix="&thinsp;h">24&thinsp;h</b><span>Tiempo de respuesta a consultas</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ————————— LEISTUNGEN (Teaser) ————————— -->
+<section class="section" id="leistungen">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow centered">Servicios</span>
+      <h2>Soluciones digitales con un enfoque claro</h2>
+      <p>Su sitio web es el centro, complementado con visibilidad y automatización allí donde tenga sentido para su negocio.</p>
+    </div>
+    <div class="services">
+
+      <article class="service featured reveal">
+        <span class="featured-badge">Servicio más solicitado</span>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="15" rx="2"/><path d="M2.5 8.5h19M6 6.3h.01M8.4 6.3h.01"/></svg>
+        </div>
+        <h3>Desarrollo web</h3>
+        <p>Sitios web a medida que representan su empresa de forma profesional: rápidos, convincentes en cualquier dispositivo y pensados para convertir visitantes en consultas.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Diseño personalizado</b> – sin constructor, sin plantilla</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Mobile-first</b> – convincente en cualquier dispositivo</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Fundamentos de SEO</b> – visible en Google</span></li>
+        </ul>
+        <a class="link-arrow" href="leistungen.html#webseiten">Más información<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="service reveal d1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <h3>Visibilidad digital</h3>
+        <p>Un buen sitio web solo funciona si se encuentra. Nos aseguramos de que su empresa esté presente donde buscan sus clientes y de que la visibilidad se convierta en consultas.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Perfil de Empresa en Google</b> – presencia local</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Visibilidad local</b> – optimizado para su región</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Consultas medibles</b> – resultados en lugar de suposiciones</span></li>
+        </ul>
+        <a class="link-arrow" href="leistungen.html#sichtbarkeit">Más información<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="service reveal d2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1.1L3 20l1.1-5.3A8.4 8.4 0 0 1 3 11.5a8.5 8.5 0 0 1 8.5-8.5 8.5 8.5 0 0 1 9.5 8.5z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01"/></svg>
+        </div>
+        <h3>Automatización de chat y llamadas</h3>
+        <p>Asistentes inteligentes gestionan reservas, pedidos y preguntas frecuentes las 24 horas, conforme a la LPD suiza y al RGPD.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Chatbot con IA</b> – responde al instante, a cualquier hora</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Automatización de llamadas</b> – llamadas registradas de forma ordenada</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg><span><b>Conforme a la protección de datos</b> – LPD y RGPD</span></li>
+        </ul>
+        <a class="link-arrow" href="leistungen.html#automatisierung">Más información<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ————————— SHOWCASE: Website im Gerät ————————— -->
+<section class="section showcase" id="showcase">
+  <div class="showcase-glow"></div>
+  <div class="container">
+    <div class="showcase-grid">
+      <div class="showcase-text reveal">
+        <span class="eyebrow">Su sitio web en acción</span>
+        <div class="feature-text">
+          <h2>Una presencia que convence en cualquier dispositivo</h2>
+          <p>En la oficina o en movimiento: sus clientes deciden en segundos si confían en usted. Diseñamos sitios web que ganan ese momento y llevan a los visitantes a contactarle.</p>
+          <ul class="feature-points">
+            <li>
+              <span class="pt-icon"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
+              <div><b>Responsive hasta el último detalle</b><span>Pensado desde la pantalla grande hasta el smartphone</span></div>
+            </li>
+            <li>
+              <span class="pt-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+              <div><b>Visible en Google</b><span>Tecnología limpia y fundamentos de SEO desde el primer día</span></div>
+            </li>
+            <li>
+              <span class="pt-icon"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></span>
+              <div><b>Pensado para generar consultas</b><span>Reserva, contacto o cita: un recorrido claro</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phone-wrap reveal d1">
+        <div class="float-chip chip-1" aria-hidden="true">
+          <span class="chip-ico gold"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-2.9-5.4 2.9 1.1-6L3.2 9.4l6.1-.8z"/></svg></span>
+          <div><b>4,9 de 5 estrellas</b><span>Reseñas de Google</span></div>
+        </div>
+        <div class="float-chip chip-2" aria-hidden="true">
+          <span class="chip-ico"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg></span>
+          <div><b>Nueva reserva</b><span>ahora mismo desde la web</span></div>
+        </div>
+        <div class="phone" id="phone" aria-label="Ejemplo de un sitio web en un smartphone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="ms-browser">
+              <div class="ms-url"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>brasserie-limmat.ch</div>
+            </div>
+            <div class="ms-viewport">
+              <div class="ms-page">
+                <div class="ms-nav"><span class="ms-logo">BRASSERIE <i>LIMMAT</i></span><span class="ms-menu"><s></s><s></s><s></s></span></div>
+                <div class="ms-hero">
+                  <div class="ms-kicker">Zúrich · A orillas del Limmat</div>
+                  <h5>Cocina de temporada con vistas al casco antiguo</h5>
+                  <p>Ingredientes regionales, vinos selectos y una casa con historia.</p>
+                  <span class="ms-btn">Reservar mesa</span>
+                </div>
+                <div class="ms-strip"><div></div><div></div><div></div></div>
+                <div class="ms-section">
+                  <h6>Para cada ocasión</h6>
+                  <p>De la comida de negocios a la celebración familiar: le esperamos con gusto.</p>
+                  <div class="ms-cards">
+                    <div class="ms-card"><div class="ms-ico"></div><b>Menú del mediodía</b><span>Lun–vie, variado y de temporada</span></div>
+                    <div class="ms-card"><div class="ms-ico"></div><b>Eventos privados</b><span>Grupos de hasta 60 personas</span></div>
+                  </div>
+                  <div class="ms-review">
+                    <div class="ms-stars">★★★★★</div>
+                    <p>«Comida maravillosa, servicio cercano: nuestro restaurante de siempre en Zúrich.»</p>
+                    <b>Reseña de Google</b>
+                  </div>
+                </div>
+                <div class="ms-section">
+                  <h6>Visítenos</h6>
+                  <div class="ms-cards">
+                    <div class="ms-card"><div class="ms-ico"></div><b>Horario</b><span>Mar–dom, 11:30–23:00</span></div>
+                    <div class="ms-card"><div class="ms-ico"></div><b>Cómo llegar</b><span>Limmatquai 12, 8001 Zúrich</span></div>
+                  </div>
+                </div>
+                <div class="ms-cta"><h6>Le esperamos</h6><span class="ms-btn">Reservar ahora</span></div>
+                <div class="ms-footer"><s></s><s></s><s></s></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— BEISPIELE: Karussell ————————— -->
+<section class="section carousel-section" id="beispiele">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow centered">Ejemplos</span>
+      <h2>Lo que hacemos por usted</h2>
+      <p>Cuatro ejemplos de cómo puede ser su sitio web: claro, de calidad y pensado para generar consultas.</p>
+    </div>
+  </div>
+
+  <div class="carousel reveal" id="carousel" tabindex="0" role="region" aria-roledescription="Karussell" aria-label="Ejemplos de nuestros servicios">
+    <div class="car-stage" id="carStage">
+
+      <!-- Slide 1 -->
+      <article class="car-slide pos-0">
+        <img class="car-img" src="../assets/showcase-web-1.jpg" alt="Vista previa web: restaurante de alta cocina en un portátil" loading="lazy" draggable="false">
+        <div class="car-cap">
+          <span class="car-kicker">Desarrollo web</span>
+          <h3>Web de alta cocina con reservas</h3>
+          <p>Elegancia oscura, recorrido claro: los clientes ven al instante lo que representa la casa y reservan en dos clics.</p>
+        </div>
+      </article>
+
+      <!-- Slide 2 -->
+      <article class="car-slide pos-1">
+        <img class="car-img" src="../assets/showcase-web-2.jpg" alt="Vista previa web: restaurante italiano en un portátil" loading="lazy" draggable="false">
+        <div class="car-cap">
+          <span class="car-kicker">Diseño personalizado</span>
+          <h3>Cada concepto con su propio sello</h3>
+          <p>Imágenes auténticas en lugar de plantillas: la web transmite cocina, casa y ambiente.</p>
+        </div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="car-slide pos-2">
+        <img class="car-img" src="../assets/showcase-web-3.jpg" alt="Vista previa web: bar y coctelería en un portátil" loading="lazy" draggable="false">
+        <div class="car-cap">
+          <span class="car-kicker">Presencia digital</span>
+          <h3>Web de bar con carácter</h3>
+          <p>De la primera impresión a la carta: una web que transmite ambiente y despierta la curiosidad.</p>
+        </div>
+      </article>
+
+      <!-- Slide 4 -->
+      <article class="car-slide pos-m1">
+        <img class="car-img" src="../assets/showcase-web-4.jpg" alt="Vista previa web: hamburguesería gourmet en un portátil" loading="lazy" draggable="false">
+        <div class="car-cap">
+          <span class="car-kicker">Pensado para generar consultas</span>
+          <h3>Ofertas en primer plano</h3>
+          <p>Menú, promociones y reservas en el centro: para más consultas de forma medible.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="car-controls">
+      <button class="car-arrow" id="carPrev" aria-label="Ejemplo anterior">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="car-dots" id="carDots"></div>
+      <button class="car-arrow" id="carNext" aria-label="Ejemplo siguiente">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— VORGEHEN ————————— -->
+<section class="section" id="vorgehen">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow centered">Proceso</span>
+      <h2>Cuatro pasos hacia una presencia profesional</h2>
+      <p>Procesos claros, acuerdos fiables y una persona de contacto fija, desde el inicio hasta después del lanzamiento.</p>
+    </div>
+    <div class="process">
+      <div class="step reveal">
+        <b>Primera conversación</b>
+        <p>Escuchamos: objetivos, público y alcance. Gratis y sin compromiso.</p>
+      </div>
+      <div class="step reveal d1">
+        <b>Concepto y diseño</b>
+        <p>Estructura, contenidos y diseño, adaptados a su marca y a sus clientes.</p>
+      </div>
+      <div class="step reveal d2">
+        <b>Desarrollo</b>
+        <p>Desarrollo limpio, tiempos de carga rápidos y aprobación junto con usted.</p>
+      </div>
+      <div class="step reveal d3">
+        <b>Acompañamiento</b>
+        <p>Lanzamiento, formación y soporte: seguimos disponibles después.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— VERTRAUEN & DATENSCHUTZ ————————— -->
+<section class="section section-flush-top" id="vertrauen">
+  <div class="container">
+    <div class="compliance reveal">
+      <div>
+        <span class="eyebrow">Confianza y protección de datos</span>
+        <h2>Hecho con cuidado, gestionado con seguridad jurídica</h2>
+        <p>Su sitio web y los datos de sus clientes merecen el mismo estándar: cuidado. Trabajamos conforme a la ley suiza de protección de datos y al RGPD, con transparencia y sin letra pequeña.</p>
+        <div class="badges">
+          <span><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>LPD suiza</span>
+          <span><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Conforme al RGPD</span>
+          <span><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Cifrado SSL</span>
+        </div>
+      </div>
+      <ul class="compliance-points">
+        <li>
+          <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div><b>Implementación jurídicamente segura</b><span>Aviso legal, privacidad y gestión de cookies resueltos correctamente</span></div>
+        </li>
+        <li>
+          <span class="pt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/></svg></span>
+          <div><b>Colaboración transparente</b><span>Precios fijos, procesos claros, decisiones comprensibles</span></div>
+        </li>
+        <li>
+          <span class="pt-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+          <div><b>Alojamiento en Suiza y la UE</b><span>Sus datos permanecen en el ámbito jurídico suizo/europeo</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— CTA ————————— -->
+<!-- ————————— WEBSITE-CHECK TEASER ————————— -->
+<section class="section section-flush-top">
+  <div class="container">
+    <a class="check-teaser reveal" href="website-check.html">
+      <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M8.5 11l1.8 1.8L14 9.2"/></svg></span>
+      <span class="check-teaser-text">
+        <span class="eyebrow">Nuevo · Gratis</span>
+        <b>¿No sabe si su sitio web le hace perder clientes?</b>
+        <p>Revisamos gratis su sitio web actual en 5 puntos: evaluación por escrito en 48 horas, sin compromiso.</p>
+      </span>
+      <span class="link-arrow">Revisar mi sitio web
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<section class="section section-flush-top">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>¿Listo para una presencia a la altura de su empresa?</h2>
+      <p>Cuéntenos su proyecto: le respondemos en 24 horas con una valoración honesta.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="kontakt.html">Iniciar un proyecto
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn-ghost" href="produkte.html">Ver todos los productos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— FOOTER ————————— -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/logo-light.png" alt="Helvetia Digital">
+        <p>Sitios web profesionales y presencia digital para pymes: claros, fiables y hechos con precisión.</p>
+        <span class="loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Zúrich · Suiza</span>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="leistungen.html">Servicios</a></li>
+          <li><a href="preise.html">Precios</a></li>
+          <li><a href="website-check.html">Revisión web</a></li>
+          <li><a href="ueber-uns.html">Sobre nosotros</a></li>
+          <li><a href="termin.html">Reservar cita</a></li>
+          <li><a href="kontakt.html">Contacto</a></li>
+          <li><a href="datenschutz.html">Privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="leistungen.html#webseiten">Desarrollo web</a></li>
+          <li><a href="leistungen.html#sichtbarkeit">Visibilidad digital</a></li>
+          <li><a href="leistungen.html#automatisierung">Automatización</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:helvetiaadigi@gmail.com">helvetiaadigi@gmail.com</a></li>
+          <li><a href="termin.html">Reservar cita</a></li>
+          <li><a href="kontakt.html">Formulario de contacto</a></li>
+          <li><a href="preise.html">Resumen de precios</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Helvetia Digital · Zúrich, Suiza</span>
+      <span>Sitios web y presencia digital · Con precisión desde Zúrich</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=20261022b"></script>
+</body>
+</html>

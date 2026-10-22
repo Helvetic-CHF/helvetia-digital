@@ -4,13 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="js/sprache.js?v=20261022b"></script>
+<script src="js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
 <title>Kostenloser Website-Check | Helvetia Digital Zürich</title>
 <meta name="description" content="Wir prüfen Ihre Website kostenlos in 5 Punkten und senden Ihnen innerhalb von 48 Stunden eine schriftliche Auswertung. Unverbindlich, ohne Verkaufsgespräch.">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/website-check.html">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/website-check.html">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/website-check.html">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/website-check.html">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/website-check.html">
+<!--/HREFLANG-->
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260916b">
+<link rel="stylesheet" href="css/style.css?v=20261022b">
 </head>
 <body>
 
@@ -31,6 +42,10 @@
       <a href="kontakt.html">Kontakt</a>
     </div>
     <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Sprache wählen">DE</summary><div class="lang-menu"><a href="website-check.html" hreflang="de" lang="de" class="on" aria-current="true">Deutsch</a><a href="en/website-check.html" hreflang="en" lang="en">English</a><a href="fr/website-check.html" hreflang="fr" lang="fr">Français</a><a href="es/website-check.html" hreflang="es" lang="es">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Währung wählen" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
       <a class="nav-cta" href="termin.html">Termin buchen</a>
       <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div>
@@ -187,7 +202,7 @@
       </details>
       <details>
         <summary>Was passiert, wenn ich meine Website überarbeiten lassen möchte?</summary>
-        <div class="faq-body">Dann besprechen wir die nächsten Schritte in einem 30-minütigen Gespräch. Eine neue Website kostet bei uns CHF 499.– zum Festpreis, mit individuellem Design, bis zu 10 Unterseiten, Kontakt- oder Buchungsformular, mobiler Optimierung, SEO-Grundlagen, Google-Unternehmensprofil und einem Monat Support. Auf Wunsch in 6 Monatsraten.</div>
+        <div class="faq-body">Dann besprechen wir die nächsten Schritte in einem 30-minütigen Gespräch. Eine neue Website kostet bei uns <span data-preis="website-basis-strich">CHF 499.–</span> zum Festpreis, mit individuellem Design, bis zu 10 Unterseiten, Kontakt- oder Buchungsformular, mobiler Optimierung, SEO-Grundlagen, Google-Unternehmensprofil und einem Monat Support. Auf Wunsch in 6 Monatsraten.</div>
       </details>
     </div>
   </div>
@@ -256,6 +271,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260916b"></script>
+<script src="js/main.js?v=20261022b"></script>
 </body>
 </html>

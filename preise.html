@@ -4,13 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="js/sprache.js?v=20261022b"></script>
+<script src="js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
 <title>Preise – Helvetia Digital</title>
 <meta name="description" content="Transparente Festpreise für Webseiten-Entwicklung, Automatisierung und individuelle Lösungen – wahlweise mit Ratenzahlung über 6 Monate. Helvetia Digital, Zürich.">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/preise.html">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/preise.html">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/preise.html">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/preise.html">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/preise.html">
+<!--/HREFLANG-->
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260916b">
+<link rel="stylesheet" href="css/style.css?v=20261022b">
 </head>
 <body>
 
@@ -31,6 +42,10 @@
       <a href="kontakt.html">Kontakt</a>
     </div>
     <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Sprache wählen">DE</summary><div class="lang-menu"><a href="preise.html" hreflang="de" lang="de" class="on" aria-current="true">Deutsch</a><a href="en/preise.html" hreflang="en" lang="en">English</a><a href="fr/preise.html" hreflang="fr" lang="fr">Français</a><a href="es/preise.html" hreflang="es" lang="es">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Währung wählen" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
       <a class="nav-cta" href="termin.html">Termin buchen</a>
       <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div>
@@ -64,7 +79,7 @@
       <article class="price-card reveal">
         <h3>Chat &amp; Call-Automatisierung</h3>
         <p class="plan-desc">Entlastung bei wiederkehrenden Anfragen</p>
-        <div class="price-amount" data-plan
+        <div class="price-amount" data-plan="chat-call"
           data-voll-chf="CHF 243.–" data-voll-sub="inkl. 8,1% MwSt: CHF 262.68" data-voll-best="1"
           data-raten-chf="6× CHF 45.36" data-raten-per="/Mt." data-raten-sub="Gesamt CHF 272.16 · inkl. MwSt: CHF 294.20">
           <span class="chf">CHF 243.–</span><span class="best">Bestpreis</span>
@@ -84,7 +99,7 @@
         <span class="popular-badge">Beliebteste Wahl</span>
         <h3>Webseiten-Entwicklung</h3>
         <p class="plan-desc">Ihr professioneller Auftritt – komplett</p>
-        <div class="price-amount" data-plan
+        <div class="price-amount" data-plan="webseiten"
           data-voll-chf="CHF 499.–" data-voll-sub="inkl. 8,1% MwSt: CHF 539.42" data-voll-best="1"
           data-raten-chf="6× CHF 93.15" data-raten-per="/Mt." data-raten-sub="Gesamt CHF 558.88 · inkl. MwSt: CHF 604.15">
           <span class="chf">CHF 499.–</span><span class="best">Bestpreis</span>
@@ -104,7 +119,7 @@
       <article class="price-card reveal d2">
         <h3>Individuelle Lösungen &amp; Apps</h3>
         <p class="plan-desc">Ergänzend, wenn eine Website nicht reicht</p>
-        <div class="price-amount" data-plan
+        <div class="price-amount" data-plan="individuell"
           data-voll-chf="ab CHF 599.–" data-voll-sub="inkl. 8,1% MwSt: ab CHF 647.52" data-voll-best="1"
           data-raten-chf="6× CHF 111.81" data-raten-per="/Mt." data-raten-sub="Gesamt CHF 670.88 · inkl. MwSt: CHF 725.22">
           <span class="chf">ab CHF 599.–</span><span class="best">Bestpreis</span>
@@ -150,7 +165,7 @@
       </details>
       <details>
         <summary>Fallen laufende Kosten an?</summary>
-        <div class="faq-body">Für den Betrieb fallen übliche Kosten für Domain und Hosting an (je nach Anbieter meist unter CHF 15.– pro Monat). Wir beraten Sie transparent und binden Sie an keinen eigenen Vertrag.</div>
+        <div class="faq-body">Für den Betrieb fallen übliche Kosten für Domain und Hosting an (je nach Anbieter meist unter <span data-preis="hosting">CHF 15.–</span> pro Monat). Wir beraten Sie transparent und binden Sie an keinen eigenen Vertrag.</div>
       </details>
     </div>
   </div>
@@ -218,6 +233,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260916b"></script>
+<script src="js/main.js?v=20261022b"></script>
 </body>
 </html>

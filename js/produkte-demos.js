@@ -20,7 +20,7 @@
         ["Besucher","kunde","Haben Sie morgen offen?"],
         ["Assistent","system","Ja, morgen von 8 bis 18:30 Uhr. Möchten Sie einen Termin?"],
         ["Besucher","kunde","Was kostet ein Service?"],
-        ["Assistent","system","Der kleine Service kostet CHF 180, der grosse CHF 340. Soll ich Ihnen einen Termin reservieren?"]
+        ["Assistent","system","Der kleine Service kostet {{preis:demo-klein|CHF 180}}, der grosse {{preis:demo-gross|CHF 340}}. Soll ich Ihnen einen Termin reservieren?"]
       ],
       ergebnis:"Anfrage beantwortet um 22:41 — ohne dass jemand aufstehen musste" },
 
@@ -101,7 +101,7 @@
 
     bilder: { art:"kacheln", titel:"Aus 3 Handyfotos", status:"Vorlage: Produktbilder vom Kunden", knopf:"Bilder erzeugen",
       label:"Ergebnis", anzahl:8, symbol:"bild",
-      ergebnis:"8 einheitliche Produktbilder in 40 Minuten · ein Shooting kostet ab CHF 1’500" },
+      ergebnis:"8 einheitliche Produktbilder in 40 Minuten · ein Shooting kostet {{preis:shooting-ab|ab CHF 1’500}}" },
 
     video: { art:"kacheln", titel:"Aus Objektfotos", status:"12 Bilder einer Wohnung", knopf:"Video erzeugen",
       label:"Einstellungen", anzahl:6, symbol:"film",
@@ -120,8 +120,8 @@
       balken:[
         ["1 Beitrag","grau",3,"1’400 Aufrufe"],
         ["30 Clips","gruen",100,"48’000 Aufrufe"],
-        ["Anzeigen, je 1’000 Aufrufe","grau",100,"CHF 25"],
-        ["Clips, je 1’000 Aufrufe","blau",4,"CHF 0.90"]
+        ["Anzeigen, je 1’000 Aufrufe","grau",100,"{{preis:anzeigen|CHF 25}}"],
+        ["Clips, je 1’000 Aufrufe","blau",4,"{{preis:clip|CHF 0.90}}"]
       ],
       ergebnis:"Dasselbe Material, dreissigfach geschnitten · Aufrufe, die als Anzeige ein Vielfaches kosten würden" },
 
@@ -143,6 +143,25 @@
   };
 
   function warte(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+
+  /* Übersetzung + Preise in der aktiven Währung (js/sprache.js, js/waehrung.js) */
+  var T = window.T || function(s){ return s; };
+  function tx(s){
+    return window.HD ? window.HD.text(s) : String(s).replace(/\{\{preis:[\w-]+\|([^}]*)\}\}/g, "$1");
+  }
+  /* Kopie eines Szenarios mit übersetzten Texten – Rollen (zeilen[i][1]) und
+     Farbtöne (balken[i][1]) sind Kennungen und bleiben (siehe tools/js-texte.mjs) */
+  function uebersetze(sz){
+    var k = {};
+    Object.keys(sz).forEach(function(f){ k[f] = sz[f]; });
+    ["titel", "status", "knopf", "label", "ergebnis"].forEach(function(f){ if (k[f]) k[f] = tx(k[f]); });
+    if (k.zeilen) k.zeilen = k.zeilen.map(function(z){ return [tx(z[0]), z[1], tx(z[2])]; });
+    if (k.knoten) k.knoten = k.knoten.map(tx);
+    ["balken", "vergleich"].forEach(function(f){
+      if (k[f]) k[f] = k[f].map(function(b){ return [tx(b[0]), b[1], b[2], tx(b[3])]; });
+    });
+    return k;
+  }
 
   /* ---------- dialog ---------- */
   function baueDialog(sz, buehne){
@@ -167,12 +186,12 @@
 
       zeile.classList.add("da");
       if (istSystem){
-        setStatus("Assistent formuliert …");
+        setStatus(T("Assistent formuliert …"));
         blase.innerHTML = '<span class="kp-tippt"><span></span><span></span><span></span></span>';
         await warte(900);
         if (abbruch()) return;
       } else {
-        setStatus("Gegenüber spricht …");
+        setStatus(T("Gegenüber spricht …"));
       }
       blase.textContent = "";
       blase.style.whiteSpace = "pre-line";
@@ -185,7 +204,7 @@
       await warte(420);
     }
     if (abbruch()) return;
-    setStatus("Abgeschlossen");
+    setStatus(T("Abgeschlossen"));
     buehne.querySelector(".kp-ergebnis").classList.add("da");
   }
 
@@ -198,7 +217,7 @@
     });
     html += '</div>';
     if (sz.vergleich){
-      html += '<div class="kp-demo-label" style="margin-top:18px">Zeitaufwand im Vergleich</div><div class="kp-vergleich">';
+      html += '<div class="kp-demo-label" style="margin-top:18px">' + T("Zeitaufwand im Vergleich") + '</div><div class="kp-vergleich">';
       sz.vergleich.forEach(function(b){
         html += '<div class="kp-balken-zeile"><span>' + b[0] + '</span>' +
                 '<div class="kp-balken-bahn"><div class="kp-balken-fuell" data-ton="' + b[1] + '" data-breite="' + b[2] + '"></div></div>' +
@@ -228,7 +247,7 @@
     });
     await warte(700);
     if (abbruch()) return;
-    setStatus("Abgeschlossen");
+    setStatus(T("Abgeschlossen"));
     buehne.querySelector(".kp-ergebnis").classList.add("da");
   }
 
@@ -253,7 +272,7 @@
       await warte(620);
     }
     if (abbruch()) return;
-    setStatus("Abgeschlossen");
+    setStatus(T("Abgeschlossen"));
     buehne.querySelector(".kp-ergebnis").classList.add("da");
   }
 
@@ -275,12 +294,12 @@
     var kacheln = buehne.querySelectorAll(".kp-kachel");
     for (var i = 0; i < kacheln.length; i++){
       if (abbruch()) return;
-      setStatus("Erzeuge " + (i + 1) + " von " + sz.anzahl + " …");
+      setStatus(T("Erzeuge {n} von {gesamt} …").replace("{n}", i + 1).replace("{gesamt}", sz.anzahl));
       kacheln[i].classList.add("da");
       await warte(430);
     }
     if (abbruch()) return;
-    setStatus("Abgeschlossen");
+    setStatus(T("Abgeschlossen"));
     buehne.querySelector(".kp-ergebnis").classList.add("da");
   }
 
@@ -291,8 +310,8 @@
      Öffentliche Funktion
      ============================================================ */
   window.KompassDemo = function(behaelter, name){
-    var sz = SZENARIEN[name];
-    if (!sz) return null;
+    if (!SZENARIEN[name]) return null;
+    var sz = uebersetze(SZENARIEN[name]);
 
     var lauf = 0;
 
@@ -326,13 +345,13 @@
 
       aufbauen();
       el.classList.add("laeuft");
-      knopf.textContent = "Nochmal";
+      knopf.textContent = T("Nochmal");
       knopf.disabled = true;
 
       try {
         await SPIELER[sz.art](sz, buehne, setStatus, abbruch);
       } catch (e) {
-        setStatus("Demo abgebrochen");
+        setStatus(T("Demo abgebrochen"));
       }
 
       if (!abbruch()){
@@ -345,4 +364,5 @@
     behaelter.appendChild(el);
     return el;
   };
+  window.KompassDemo.SZENARIEN = SZENARIEN;   // für tools/js-texte.mjs
 })();

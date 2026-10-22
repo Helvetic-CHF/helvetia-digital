@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="../js/i18n/es.js?v=20261022b"></script>
+<script src="../js/sprache.js?v=20261022b"></script>
+<script src="../js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
+<title>Precios – Helvetia Digital</title>
+<meta name="description" content="Precios fijos transparentes para desarrollo web, automatización y soluciones a medida, con pago a plazos en 6 meses opcional. Helvetia Digital, Zúrich.">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/preise.html">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/preise.html">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/preise.html">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/preise.html">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/preise.html">
+<!--/HREFLANG-->
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=20261022b">
+</head>
+<body>
+
+<!-- ————————— NAVIGATION ————————— -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Helvetia Digital – Inicio">
+      <img src="../assets/logo-light.png" alt="Helvetia Digital">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Inicio</a>
+      <a href="leistungen.html">Servicios</a>
+      <a href="produkte.html">Productos</a>
+      <a href="preise.html" aria-current="page">Precios</a>
+      <a href="website-check.html">Revisión web</a>
+      <a href="ueber-uns.html">Sobre nosotros</a>
+      <a href="termin.html">Cita</a>
+      <a href="kontakt.html">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Elegir idioma">ES</summary><div class="lang-menu"><a href="../preise.html" hreflang="de" lang="de">Deutsch</a><a href="../en/preise.html" hreflang="en" lang="en">English</a><a href="../fr/preise.html" hreflang="fr" lang="fr">Français</a><a href="preise.html" hreflang="es" lang="es" class="on" aria-current="true">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Elegir moneda" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
+      <a class="nav-cta" href="termin.html">Reservar cita</a>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ————————— SEITENKOPF ————————— -->
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow reveal in">Precios</span>
+    <h1 class="reveal in d1">Precios transparentes, sin sorpresas</h1>
+    <p class="lead reveal in d2">Precios fijos en lugar de facturación por horas abierta: sabe desde el principio cuánto cuesta su proyecto, en un pago único al mejor precio o en seis cuotas mensuales.</p>
+  </div>
+</header>
+
+<!-- ————————— PREISE ————————— -->
+<section class="section" id="preise">
+  <div class="container">
+
+    <div class="price-toggle reveal">
+      <div class="toggle-pill" id="togglePill">
+        <span class="toggle-slider" id="toggleSlider"></span>
+        <button class="active" data-mode="voll">Pago único</button>
+        <button data-mode="raten">Pago a plazos</button>
+      </div>
+    </div>
+    <p class="toggle-note reveal">Inversión única, sin costes ocultos. Cómodo pago a plazos en 6 meses.</p>
+
+    <div class="pricing">
+
+      <article class="price-card reveal">
+        <h3>Automatización de chat y llamadas</h3>
+        <p class="plan-desc">Alivio ante consultas repetidas</p>
+        <div class="price-amount" data-plan="chat-call"
+          data-voll-chf="CHF 243.–" data-voll-sub="IVA 8,1 % incl.: CHF 262.68" data-voll-best="1"
+          data-raten-chf="6× CHF 45.36" data-raten-per="/mes" data-raten-sub="Total CHF 272.16 · IVA incl.: CHF 294.20">
+          <span class="chf">CHF 243.–</span><span class="best">Mejor precio</span>
+          <span class="sub">IVA 8,1 % incl.: CHF 262.68</span>
+        </div>
+        <ul class="price-incl">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Configuración del chatbot con IA</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Automatización de llamadas</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Conforme a LPD y RGPD</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Integración CRM posible</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>1 mes de soporte incluido</li>
+        </ul>
+        <a class="price-cta" href="kontakt.html?leistung=Chat %26 Call-Automatisierung">Enviar consulta</a>
+      </article>
+
+      <article class="price-card popular reveal d1">
+        <span class="popular-badge">La opción más elegida</span>
+        <h3>Desarrollo web</h3>
+        <p class="plan-desc">Su presencia profesional, completa</p>
+        <div class="price-amount" data-plan="webseiten"
+          data-voll-chf="CHF 499.–" data-voll-sub="IVA 8,1 % incl.: CHF 539.42" data-voll-best="1"
+          data-raten-chf="6× CHF 93.15" data-raten-per="/mes" data-raten-sub="Total CHF 558.88 · IVA incl.: CHF 604.15">
+          <span class="chf">CHF 499.–</span><span class="best">Mejor precio</span>
+          <span class="sub">IVA 8,1 % incl.: CHF 539.42</span>
+        </div>
+        <ul class="price-incl">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Diseño personalizado</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Hasta 10 subpáginas</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Formulario de contacto y reserva</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Optimizado para móvil y fundamentos de SEO</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Perfil de Empresa en Google</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>1 mes de soporte incluido</li>
+        </ul>
+        <a class="price-cta" href="kontakt.html?leistung=Webseiten-Entwicklung">Enviar consulta</a>
+      </article>
+
+      <article class="price-card reveal d2">
+        <h3>Soluciones a medida y apps</h3>
+        <p class="plan-desc">Complemento cuando una web no basta</p>
+        <div class="price-amount" data-plan="individuell"
+          data-voll-chf="desde CHF 599.–" data-voll-sub="IVA 8,1 % incl.: desde CHF 647.52" data-voll-best="1"
+          data-raten-chf="6× CHF 111.81" data-raten-per="/mes" data-raten-sub="Total CHF 670.88 · IVA incl.: CHF 725.22">
+          <span class="chf">desde CHF 599.–</span><span class="best">Mejor precio</span>
+          <span class="sub">IVA 8,1 % incl.: desde CHF 647.52</span>
+        </div>
+        <ul class="price-incl">
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>iOS &amp; Android</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Backend compartido</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Notificaciones push</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>Publicación en App Store</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg>3 meses de soporte incluidos</li>
+        </ul>
+        <a class="price-cta" href="kontakt.html?leistung=Individuelle Lösungen %26 Apps">Enviar consulta</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ————————— FAQ ————————— -->
+<section class="section section-flush-top" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow centered">Preguntas frecuentes</span>
+      <h2>Conviene saber</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>¿Cómo funciona el pago a plazos?</summary>
+        <div class="faq-body">Paga el precio del proyecto en seis cuotas mensuales iguales, sin banco ni estudio de solvencia, directamente a nosotros. La primera cuota vence al iniciar el proyecto. Con el pago único se beneficia del mejor precio.</div>
+      </details>
+      <details>
+        <summary>¿Cuánto dura un proyecto web?</summary>
+        <div class="faq-body">Según el alcance, normalmente de dos a cuatro semanas desde la primera conversación, en función de lo rápido que estén los textos y las imágenes. Fijamos juntos el calendario exacto al principio.</div>
+      </details>
+      <details>
+        <summary>¿Qué necesito para empezar?</summary>
+        <div class="faq-body">Solo una idea de lo que debe lograr su presencia. Logotipo, textos e imágenes ayudan, pero no son imprescindibles: le apoyamos con la estructura, la redacción y la selección de imágenes.</div>
+      </details>
+      <details>
+        <summary>¿Qué pasa después del lanzamiento?</summary>
+        <div class="faq-body">El primer mes incluye ajustes y soporte. Después seguimos cuidando su web si lo desea, desde cambios puntuales hasta el mantenimiento continuo de contenidos y del perfil de Google.</div>
+      </details>
+      <details>
+        <summary>¿Hay costes recurrentes?</summary>
+        <div class="faq-body">El funcionamiento conlleva los costes habituales de dominio y alojamiento (según el proveedor, normalmente menos de <span data-preis="hosting">CHF 15.–</span> al mes). Le asesoramos con transparencia y no le atamos a ningún contrato propio.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— CTA ————————— -->
+<section class="section section-flush-top">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>¿Prefiere hablar primero, sin compromiso?</h2>
+      <p>En una primera conversación gratuita recibe una valoración honesta y un presupuesto que encaja con su proyecto.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="kontakt.html">Solicitar una primera conversación
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— FOOTER ————————— -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/logo-light.png" alt="Helvetia Digital">
+        <p>Sitios web profesionales y presencia digital para pymes: claros, fiables y hechos con precisión.</p>
+        <span class="loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Zúrich · Suiza</span>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="leistungen.html">Servicios</a></li>
+          <li><a href="preise.html">Precios</a></li>
+          <li><a href="website-check.html">Revisión web</a></li>
+          <li><a href="ueber-uns.html">Sobre nosotros</a></li>
+          <li><a href="termin.html">Reservar cita</a></li>
+          <li><a href="kontakt.html">Contacto</a></li>
+          <li><a href="datenschutz.html">Privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="leistungen.html#webseiten">Desarrollo web</a></li>
+          <li><a href="leistungen.html#sichtbarkeit">Visibilidad digital</a></li>
+          <li><a href="leistungen.html#automatisierung">Automatización</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:helvetiaadigi@gmail.com">helvetiaadigi@gmail.com</a></li>
+          <li><a href="termin.html">Reservar cita</a></li>
+          <li><a href="kontakt.html">Formulario de contacto</a></li>
+          <li><a href="preise.html">Resumen de precios</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Helvetia Digital · Zúrich, Suiza</span>
+      <span>Sitios web y presencia digital · Con precisión desde Zúrich</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=20261022b"></script>
+</body>
+</html>

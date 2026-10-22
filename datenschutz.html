@@ -4,14 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="js/sprache.js?v=20261022b"></script>
+<script src="js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
 <title>Datenschutzerklärung – Helvetia Digital</title>
 <meta name="description" content="Datenschutzerklärung von Helvetia Digital, Zürich: Welche Daten wir erheben, welche Dienste wir einsetzen und welche Rechte Sie haben.">
 <meta name="robots" content="noindex, follow">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/datenschutz.html">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/datenschutz.html">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/datenschutz.html">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/datenschutz.html">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/datenschutz.html">
+<!--/HREFLANG-->
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260916b">
+<link rel="stylesheet" href="css/style.css?v=20261022b">
 </head>
 <body>
 
@@ -32,6 +43,10 @@
       <a href="kontakt.html">Kontakt</a>
     </div>
     <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Sprache wählen">DE</summary><div class="lang-menu"><a href="datenschutz.html" hreflang="de" lang="de" class="on" aria-current="true">Deutsch</a><a href="en/datenschutz.html" hreflang="en" lang="en">English</a><a href="fr/datenschutz.html" hreflang="fr" lang="fr">Français</a><a href="es/datenschutz.html" hreflang="es" lang="es">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Währung wählen" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
       <a class="nav-cta" href="termin.html">Termin buchen</a>
       <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
     </div>
@@ -153,6 +168,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260916b"></script>
+<script src="js/main.js?v=20261022b"></script>
 </body>
 </html>

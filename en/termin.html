@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="../js/i18n/en.js?v=20261022b"></script>
+<script src="../js/sprache.js?v=20261022b"></script>
+<script src="../js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
+<title>Book a call – Helvetia Digital</title>
+<meta name="description" content="Book your free initial consultation with Helvetia Digital – choose your slot online, instant confirmation by email. Zurich, no obligation.">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/termin.html">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/termin.html">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/termin.html">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/termin.html">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/termin.html">
+<!--/HREFLANG-->
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=20261022b">
+</head>
+<body>
+
+<!-- ————————— NAVIGATION ————————— -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Helvetia Digital – Home">
+      <img src="../assets/logo-light.png" alt="Helvetia Digital">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="leistungen.html">Services</a>
+      <a href="produkte.html">Products</a>
+      <a href="preise.html">Pricing</a>
+      <a href="website-check.html">Website check</a>
+      <a href="ueber-uns.html">About us</a>
+      <a href="termin.html" aria-current="page">Appointment</a>
+      <a href="kontakt.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Choose language">EN</summary><div class="lang-menu"><a href="../termin.html" hreflang="de" lang="de">Deutsch</a><a href="termin.html" hreflang="en" lang="en" class="on" aria-current="true">English</a><a href="../fr/termin.html" hreflang="fr" lang="fr">Français</a><a href="../es/termin.html" hreflang="es" lang="es">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Choose currency" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
+      <a class="nav-cta" href="termin.html">Book a call</a>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ————————— SEITENKOPF ————————— -->
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow reveal in">Appointment booking</span>
+    <h1 class="reveal in d1">Choose your appointment</h1>
+    <p class="lead reveal in d2">Free initial consultation, 30 minutes, by phone or video. Simply pick a free slot – you will receive the confirmation by email straight away.</p>
+  </div>
+</header>
+
+<!-- ————————— BUCHUNG ————————— -->
+<section class="section" id="buchung">
+  <div class="container">
+
+    <div class="booking-perks reveal">
+      <div>
+        <span class="pt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></svg></span>
+        <div><b>30 minutes</b><span>Compact and to the point</span></div>
+      </div>
+      <div>
+        <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg></span>
+        <div><b>Free &amp; without obligation</b><span>No commitment, no sales pressure</span></div>
+      </div>
+      <div>
+        <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg></span>
+        <div><b>Swiss FADP &amp; GDPR compliant</b><span>Your data stays confidential</span></div>
+      </div>
+    </div>
+
+    <div class="booking-card reveal d1">
+      <!-- Cal.com Inline-Kalender wird hier geladen -->
+      <div id="calBooking" class="booking-embed"></div>
+      <noscript>
+        <div class="ohne-js">
+          <b>The embedded calendar needs JavaScript.</b> You can still book the appointment – directly on our booking page:
+          <div><a class="btn-primary" href="https://cal.com/helvetia-digital/30min" rel="noopener">Book on cal.com</a></div>
+          Or by email: <a href="mailto:helvetiaadigi@gmail.com?subject=Terminanfrage">helvetiaadigi@gmail.com</a>
+        </div>
+      </noscript>
+
+      <!-- Wird nur sichtbar, wenn der Kalender nicht laden kann -->
+      <div id="calFallback" class="booking-fallback" hidden>
+        <h3>The calendar could not be loaded</h3>
+        <p>No problem – just write to us directly and we will find a time together.</p>
+        <a class="btn-primary" href="mailto:helvetiaadigi@gmail.com?subject=Terminanfrage">Write an email</a>
+      </div>
+    </div>
+
+    <div class="booking-note reveal d2">
+      <span class="pt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span>
+      <div>
+        <b>No suitable slot?</b>
+        <p>In exceptional cases we are happy to arrange evening appointments until 8 pm. Just send us a short <a href="mailto:helvetiaadigi@gmail.com?subject=Terminanfrage%20ausserhalb%20der%20Zeiten">Email</a> or use the <a href="kontakt.html">Contact form</a> – we will get back to you within 24 hours.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ————————— FOOTER ————————— -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/logo-light.png" alt="Helvetia Digital">
+        <p>Professional websites and digital presence for small and medium-sized businesses – clear, reliable and implemented with precision.</p>
+        <span class="loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Zurich · Switzerland</span>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="leistungen.html">Services</a></li>
+          <li><a href="preise.html">Pricing</a></li>
+          <li><a href="website-check.html">Website check</a></li>
+          <li><a href="ueber-uns.html">About us</a></li>
+          <li><a href="termin.html">Book a call</a></li>
+          <li><a href="kontakt.html">Contact</a></li>
+          <li><a href="datenschutz.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="leistungen.html#webseiten">Website development</a></li>
+          <li><a href="leistungen.html#sichtbarkeit">Digital visibility</a></li>
+          <li><a href="leistungen.html#automatisierung">Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:helvetiaadigi@gmail.com">helvetiaadigi@gmail.com</a></li>
+          <li><a href="termin.html">Book a call</a></li>
+          <li><a href="kontakt.html">Contact form</a></li>
+          <li><a href="preise.html">Price overview</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Helvetia Digital · Zurich, Switzerland</span>
+      <span>Websites &amp; digital presence · Made with precision in Zurich</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=20261022b"></script>
+
+<!-- ————————— CAL.COM BUCHUNGSKALENDER —————————
+     CAL_LINK = Cal.com-Benutzername / Kürzel des Termintyps.
+     Wird der Termintyp in Cal.com umbenannt und ändert sich dabei
+     das URL-Kürzel, muss es hier mitgezogen werden – sonst zeigt
+     die Seite den Ersatztext statt des Kalenders.
+     Zeiten und Verfügbarkeit werden NICHT hier gepflegt, sondern
+     ausschliesslich in Cal.com.
+     ————————————————————————————————————————————— -->
+<script>
+  var CAL_LINK = "helvetia-digital/30min";
+
+  (function(){
+    var box = document.getElementById("calBooking");
+    var fallback = document.getElementById("calFallback");
+
+    // Solange kein echter Cal-Name eingetragen ist: Hinweis statt kaputtem Kalender
+    if (CAL_LINK.indexOf("DEIN-CAL-NAME") === 0) {
+      box.hidden = true;
+      fallback.hidden = false;
+      fallback.querySelector("h3").textContent = T("Kalender noch nicht verbunden");
+      fallback.querySelector("p").textContent =
+        T("Die Terminbuchung wird gerade eingerichtet. Schreiben Sie uns solange direkt – wir melden uns innerhalb von 24 Stunden.");
+      return;
+    }
+
+    // Cal.com Embed laden
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", "termin", { origin: "https://cal.com" });
+
+    // Dunkles Thema VOR dem Laden setzen, sonst blitzt kurz die helle Version auf
+    Cal.ns.termin("ui", {
+      theme: "dark",
+      cssVarsPerTheme: { dark: { "cal-brand": "#2f7fd4" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+
+    Cal.ns.termin("inline", {
+      elementOrSelector: "#calBooking",
+      config: { layout: "month_view", theme: "dark" },
+      calLink: CAL_LINK
+    });
+
+    // Falls der Kalender nach 8 Sekunden nichts gerendert hat: Notfall-Kontakt zeigen
+    setTimeout(function(){
+      if (!box.querySelector("iframe")) {
+        box.hidden = true;
+        fallback.hidden = false;
+      }
+    }, 8000);
+  })();
+</script>
+
+</body>
+</html>

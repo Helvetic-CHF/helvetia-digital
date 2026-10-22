@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="../js/i18n/fr.js?v=20261022b"></script>
+<script src="../js/sprache.js?v=20261022b"></script>
+<script src="../js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
+<title>Audit de site gratuit | Helvetia Digital Zurich</title>
+<meta name="description" content="Nous analysons gratuitement votre site sur 5 points et vous envoyons une évaluation écrite sous 48 heures. Sans engagement, sans argumentaire de vente.">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/website-check.html">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/website-check.html">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/website-check.html">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/website-check.html">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/website-check.html">
+<!--/HREFLANG-->
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=20261022b">
+</head>
+<body>
+
+<!-- ————————— NAVIGATION ————————— -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Helvetia Digital – Accueil">
+      <img src="../assets/logo-light.png" alt="Helvetia Digital">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="leistungen.html">Prestations</a>
+      <a href="produkte.html">Produits</a>
+      <a href="preise.html">Tarifs</a>
+      <a href="website-check.html" aria-current="page">Audit de site</a>
+      <a href="ueber-uns.html">À propos</a>
+      <a href="termin.html">Rendez-vous</a>
+      <a href="kontakt.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Choisir la langue">FR</summary><div class="lang-menu"><a href="../website-check.html" hreflang="de" lang="de">Deutsch</a><a href="../en/website-check.html" hreflang="en" lang="en">English</a><a href="website-check.html" hreflang="fr" lang="fr" class="on" aria-current="true">Français</a><a href="../es/website-check.html" hreflang="es" lang="es">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Choisir la devise" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
+      <a class="nav-cta" href="termin.html">Prendre rendez-vous</a>
+      <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ————————— SEITENKOPF ————————— -->
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow reveal in">Audit de site gratuit</span>
+    <h1 class="reveal in d1">Votre site web vous fait-il perdre des clients ?<br><span class="accent">Nous vérifions.</span></h1>
+    <p class="lead reveal in d2">Nous analysons gratuitement votre site actuel sur 5 points et vous envoyons sous 48 heures une courte évaluation écrite avec des recommandations concrètes. Sans engagement et sans argumentaire de vente.</p>
+    <div class="hero-actions left reveal in d3">
+      <a class="btn-primary" href="#check">Faire analyser mon site maintenant
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </a>
+      <a class="btn-ghost" href="termin.html">Prendre directement rendez-vous</a>
+    </div>
+    <div class="hero-meta left reveal in d3">
+      <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Gratuit et sans engagement</span>
+      <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Évaluation sous 48 heures</span>
+      <span><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Agence zurichoise</span>
+    </div>
+  </div>
+</header>
+
+<!-- ————————— AUSGANGSLAGE ————————— -->
+<section class="section" id="ausgangslage">
+  <div class="container">
+    <div class="feature-split">
+      <div class="feature-text reveal">
+        <span class="eyebrow">Le constat</span>
+        <h2>Beaucoup de sites web font perdre des demandes au lieu d’en apporter</h2>
+        <p>La plupart des clients cherchent aujourd’hui un commerce sur leur téléphone : coiffeur, onglerie, artisan, cabinet ou restaurant. Si le site y charge lentement, paraît confus ou n’affiche le numéro de téléphone qu’après une longue recherche, ils passent au résultat suivant sur Google. En tant que propriétaire, vous ne le remarquez pas – la demande n’arrive tout simplement jamais.</p>
+      </div>
+      <div class="reveal d1">
+        <div class="check-quote">
+          <p>En tant que propriétaire, vous ne le remarquez pas – la demande n’arrive tout simplement jamais.</p>
+          <a class="link-arrow" href="#check">Faire analyser maintenant
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— DIE 5 PRÜFPUNKTE ————————— -->
+<section class="section section-flush-top" id="pruefpunkte">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow centered">Points de contrôle</span>
+      <h2>Ce que nous vérifions pour vous</h2>
+    </div>
+    <ol class="checks">
+      <li class="secondary-card reveal">
+        <span class="service-icon"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18h2"/></svg></span>
+        <div><h3>Affichage mobile</h3><p>Nous vérifions si votre site s’affiche correctement sur smartphone et s’utilise facilement.</p></div>
+      </li>
+      <li class="secondary-card reveal d1">
+        <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+        <div><h3>Temps de chargement</h3><p>Nous mesurons la vitesse de chargement de votre page et montrons ce qui la ralentit.</p></div>
+      </li>
+      <li class="secondary-card reveal d2">
+        <span class="service-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+        <div><h3>Visibilité sur Google</h3><p>Nous regardons si votre entreprise est trouvée sur Google et si les bases essentielles sont en place.</p></div>
+      </li>
+      <li class="secondary-card reveal">
+        <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+        <div><h3>Contact et réservation</h3><p>Nous vérifions si les prospects peuvent vous appeler, vous écrire ou prendre rendez-vous en quelques clics.</p></div>
+      </li>
+      <li class="secondary-card reveal d1">
+        <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <div><h3>Aspects juridiques</h3><p>Nous contrôlons si les mentions légales et la déclaration de confidentialité existent et répondent aux exigences de la LPD et du RGPD.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ————————— ABLAUF ————————— -->
+<section class="section section-flush-top" id="ablauf">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow centered">Déroulement</span>
+      <h2>Comment se déroule l’audit de site</h2>
+    </div>
+    <div class="process three">
+      <div class="step reveal">
+        <b>Indiquer l’adresse du site</b>
+        <p>Indiquez ci-dessous l’adresse de votre site et votre e-mail – c’est tout ce dont nous avons besoin.</p>
+      </div>
+      <div class="step reveal d1">
+        <b>Nous vérifions les 5 points</b>
+        <p>Nous examinons personnellement votre site et l’évaluons selon les cinq points de contrôle.</p>
+      </div>
+      <div class="step reveal d2">
+        <b>Évaluation sous 48 heures</b>
+        <p>Vous recevez par e-mail une courte évaluation écrite avec des recommandations concrètes, à mettre en œuvre vous-même ou avec nous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— FORMULAR ————————— -->
+<section class="section section-flush-top" id="check">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow centered">Demande</span>
+      <h2>Demander un audit de site</h2>
+    </div>
+    <div class="form-card check-form reveal d1">
+      <form id="checkForm" action="mailto:helvetiaadigi@gmail.com?subject=Website-Check" method="post" enctype="text/plain" novalidate>
+        <div class="field">
+          <label for="website">Adresse du site</label>
+          <input type="text" id="website" name="website" placeholder="www.votre-entreprise.ch" autocomplete="url" inputmode="url" required>
+        </div>
+        <div class="field">
+          <label for="email">Adresse e-mail</label>
+          <input type="email" id="email" name="email" placeholder="nom@exemple.ch" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="name">Nom (facultatif)</label>
+          <input type="text" id="name" name="name" autocomplete="name">
+        </div>
+        <p class="form-error" id="checkError" role="alert" hidden>Veuillez indiquer l’adresse de votre site et une adresse e-mail valide.</p>
+        <button type="submit" class="btn-primary form-submit">Demander l’audit gratuit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        </button>
+        <p class="form-note">Nous utilisons vos données uniquement pour l’évaluation de votre site et ne les transmettons pas à des tiers. Pas de newsletter, pas d’appel commercial.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— FAQ ————————— -->
+<section class="section section-flush-top" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow centered">Questions fréquentes</span>
+      <h2>Bon à savoir</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Combien cela coûte-t-il vraiment ?</summary>
+        <div class="faq-body">Rien. L’audit de site est gratuit, et vous recevez l’évaluation écrite sans contrepartie. Nous investissons ce temps parce que c’est la meilleure façon de montrer comment nous travaillons.</div>
+      </details>
+      <details>
+        <summary>Dois-je acheter quelque chose ensuite ?</summary>
+        <div class="faq-body">Non. L’évaluation est sans engagement et aucun entretien de vente n’est nécessaire. Si vous souhaitez mettre en œuvre les recommandations avec nous, nous en serons ravis – mais vous pouvez tout aussi bien les appliquer vous-même ou avec un autre prestataire.</div>
+      </details>
+      <details>
+        <summary>Que contient l’évaluation ?</summary>
+        <div class="faq-body">Une courte appréciation de chacun des cinq points : affichage mobile, temps de chargement, visibilité sur Google, contact et réservation ainsi qu’aspects juridiques. Pour chaque point, vous recevez des recommandations concrètes d’amélioration.</div>
+      </details>
+      <details>
+        <summary>Que se passe-t-il si je souhaite faire refaire mon site ?</summary>
+        <div class="faq-body">Nous discutons alors des prochaines étapes lors d’un entretien de 30 minutes. Chez nous, un nouveau site web coûte <span data-preis="website-basis-strich">CHF 499.–</span> à prix fixe, avec design individuel, jusqu’à 10 sous-pages, formulaire de contact ou de réservation, optimisation mobile, bases du SEO, fiche d’établissement Google et un mois de support. Paiement en 6 mensualités sur demande.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— ABSCHLUSS-CTA ————————— -->
+<section class="section section-flush-top">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Vous préférez en parler directement ?</h2>
+      <p>Réservez un entretien gratuit de 30 minutes et nous passons votre site en revue ensemble – réponse à votre demande sous 24 heures.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="termin.html">Prendre rendez-vous
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn-ghost" href="preise.html">Voir les tarifs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ————————— FOOTER ————————— -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/logo-light.png" alt="Helvetia Digital">
+        <p>Sites web professionnels et présence numérique pour les PME – clairs, fiables et réalisés avec précision.</p>
+        <span class="loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Zurich · Suisse</span>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="leistungen.html">Prestations</a></li>
+          <li><a href="preise.html">Tarifs</a></li>
+          <li><a href="website-check.html">Audit de site</a></li>
+          <li><a href="ueber-uns.html">À propos</a></li>
+          <li><a href="termin.html">Prendre rendez-vous</a></li>
+          <li><a href="kontakt.html">Contact</a></li>
+          <li><a href="datenschutz.html">Protection des données</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Prestations</h4>
+        <ul>
+          <li><a href="leistungen.html#webseiten">Développement de sites web</a></li>
+          <li><a href="leistungen.html#sichtbarkeit">Visibilité numérique</a></li>
+          <li><a href="leistungen.html#automatisierung">Automatisation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:helvetiaadigi@gmail.com">helvetiaadigi@gmail.com</a></li>
+          <li><a href="termin.html">Prendre rendez-vous</a></li>
+          <li><a href="kontakt.html">Formulaire de contact</a></li>
+          <li><a href="preise.html">Aperçu des tarifs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Helvetia Digital · Zurich, Suisse</span>
+      <span>Sites web &amp; présence numérique · Avec précision depuis Zurich</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=20261022b"></script>
+</body>
+</html>

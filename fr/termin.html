@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="../js/geraet.js?v=20260916b"></script>
+<!--I18N-->
+<script src="../js/i18n/fr.js?v=20261022b"></script>
+<script src="../js/sprache.js?v=20261022b"></script>
+<script src="../js/waehrung.js?v=20261022b"></script>
+<!--/I18N-->
+<title>Prendre rendez-vous – Helvetia Digital</title>
+<meta name="description" content="Réservez votre premier entretien gratuit avec Helvetia Digital – choisissez votre créneau en ligne, confirmation immédiate par e-mail. Zurich, sans engagement.">
+<!--HREFLANG-->
+<link rel="alternate" hreflang="de" href="https://helvetic-chf.github.io/helvetia-digital/termin.html">
+<link rel="alternate" hreflang="en" href="https://helvetic-chf.github.io/helvetia-digital/en/termin.html">
+<link rel="alternate" hreflang="fr" href="https://helvetic-chf.github.io/helvetia-digital/fr/termin.html">
+<link rel="alternate" hreflang="es" href="https://helvetic-chf.github.io/helvetia-digital/es/termin.html">
+<link rel="alternate" hreflang="x-default" href="https://helvetic-chf.github.io/helvetia-digital/termin.html">
+<!--/HREFLANG-->
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Inter+Tight:wght@500..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=20261022b">
+</head>
+<body>
+
+<!-- ————————— NAVIGATION ————————— -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html" aria-label="Helvetia Digital – Accueil">
+      <img src="../assets/logo-light.png" alt="Helvetia Digital">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Accueil</a>
+      <a href="leistungen.html">Prestations</a>
+      <a href="produkte.html">Produits</a>
+      <a href="preise.html">Tarifs</a>
+      <a href="website-check.html">Audit de site</a>
+      <a href="ueber-uns.html">À propos</a>
+      <a href="termin.html" aria-current="page">Rendez-vous</a>
+      <a href="kontakt.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <!--SPRACHWAHL-->
+      <details class="lang-switch" id="langSwitch"><summary aria-label="Choisir la langue">FR</summary><div class="lang-menu"><a href="../termin.html" hreflang="de" lang="de">Deutsch</a><a href="../en/termin.html" hreflang="en" lang="en">English</a><a href="termin.html" hreflang="fr" lang="fr" class="on" aria-current="true">Français</a><a href="../es/termin.html" hreflang="es" lang="es">Español</a></div></details>
+      <select class="cur-switch" id="curSwitch" aria-label="Choisir la devise" hidden><option value="CHF">CHF</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="USD">USD $</option></select>
+      <!--/SPRACHWAHL-->
+      <a class="nav-cta" href="termin.html">Prendre rendez-vous</a>
+      <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ————————— SEITENKOPF ————————— -->
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow reveal in">Prise de rendez-vous</span>
+    <h1 class="reveal in d1">Choisissez votre rendez-vous</h1>
+    <p class="lead reveal in d2">Premier entretien gratuit, 30 minutes, par téléphone ou en vidéo. Choisissez simplement un créneau libre – vous recevez la confirmation immédiatement par e-mail.</p>
+  </div>
+</header>
+
+<!-- ————————— BUCHUNG ————————— -->
+<section class="section" id="buchung">
+  <div class="container">
+
+    <div class="booking-perks reveal">
+      <div>
+        <span class="pt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></svg></span>
+        <div><b>30 minutes</b><span>Compact et sans détour</span></div>
+      </div>
+      <div>
+        <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg></span>
+        <div><b>Gratuit &amp; sans engagement</b><span>Aucun engagement, aucune pression commerciale</span></div>
+      </div>
+      <div>
+        <span class="pt-icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg></span>
+        <div><b>Conforme LPD &amp; RGPD</b><span>Vos données restent confidentielles</span></div>
+      </div>
+    </div>
+
+    <div class="booking-card reveal d1">
+      <!-- Cal.com Inline-Kalender wird hier geladen -->
+      <div id="calBooking" class="booking-embed"></div>
+      <noscript>
+        <div class="ohne-js">
+          <b>Le calendrier intégré nécessite JavaScript.</b> Vous pouvez tout de même réserver – directement sur notre page de réservation :
+          <div><a class="btn-primary" href="https://cal.com/helvetia-digital/30min" rel="noopener">Réserver sur cal.com</a></div>
+          Ou par e-mail : <a href="mailto:helvetiaadigi@gmail.com?subject=Terminanfrage">helvetiaadigi@gmail.com</a>
+        </div>
+      </noscript>
+
+      <!-- Wird nur sichtbar, wenn der Kalender nicht laden kann -->
+      <div id="calFallback" class="booking-fallback" hidden>
+        <h3>Le calendrier n’a pas pu être chargé</h3>
+        <p>Pas de problème – écrivez-nous simplement et nous trouverons ensemble un créneau.</p>
+        <a class="btn-primary" href="mailto:helvetiaadigi@gmail.com?subject=Terminanfrage">Écrire un e-mail</a>
+      </div>
+    </div>
+
+    <div class="booking-note reveal d2">
+      <span class="pt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span>
+      <div>
+        <b>Aucun créneau ne vous convient ?</b>
+        <p>Exceptionnellement, nous organisons volontiers des rendez-vous en soirée jusqu’à 20 h. Envoyez-nous simplement un <a href="mailto:helvetiaadigi@gmail.com?subject=Terminanfrage%20ausserhalb%20der%20Zeiten">E-mail</a> ou utilisez le <a href="kontakt.html">Formulaire de contact</a> – nous vous répondons sous 24 heures.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ————————— FOOTER ————————— -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/logo-light.png" alt="Helvetia Digital">
+        <p>Sites web professionnels et présence numérique pour les PME – clairs, fiables et réalisés avec précision.</p>
+        <span class="loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.1-7-11a7 7 0 0 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Zurich · Suisse</span>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="leistungen.html">Prestations</a></li>
+          <li><a href="preise.html">Tarifs</a></li>
+          <li><a href="website-check.html">Audit de site</a></li>
+          <li><a href="ueber-uns.html">À propos</a></li>
+          <li><a href="termin.html">Prendre rendez-vous</a></li>
+          <li><a href="kontakt.html">Contact</a></li>
+          <li><a href="datenschutz.html">Protection des données</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Prestations</h4>
+        <ul>
+          <li><a href="leistungen.html#webseiten">Développement de sites web</a></li>
+          <li><a href="leistungen.html#sichtbarkeit">Visibilité numérique</a></li>
+          <li><a href="leistungen.html#automatisierung">Automatisation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:helvetiaadigi@gmail.com">helvetiaadigi@gmail.com</a></li>
+          <li><a href="termin.html">Prendre rendez-vous</a></li>
+          <li><a href="kontakt.html">Formulaire de contact</a></li>
+          <li><a href="preise.html">Aperçu des tarifs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Helvetia Digital · Zurich, Suisse</span>
+      <span>Sites web &amp; présence numérique · Avec précision depuis Zurich</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=20261022b"></script>
+
+<!-- ————————— CAL.COM BUCHUNGSKALENDER —————————
+     CAL_LINK = Cal.com-Benutzername / Kürzel des Termintyps.
+     Wird der Termintyp in Cal.com umbenannt und ändert sich dabei
+     das URL-Kürzel, muss es hier mitgezogen werden – sonst zeigt
+     die Seite den Ersatztext statt des Kalenders.
+     Zeiten und Verfügbarkeit werden NICHT hier gepflegt, sondern
+     ausschliesslich in Cal.com.
+     ————————————————————————————————————————————— -->
+<script>
+  var CAL_LINK = "helvetia-digital/30min";
+
+  (function(){
+    var box = document.getElementById("calBooking");
+    var fallback = document.getElementById("calFallback");
+
+    // Solange kein echter Cal-Name eingetragen ist: Hinweis statt kaputtem Kalender
+    if (CAL_LINK.indexOf("DEIN-CAL-NAME") === 0) {
+      box.hidden = true;
+      fallback.hidden = false;
+      fallback.querySelector("h3").textContent = T("Kalender noch nicht verbunden");
+      fallback.querySelector("p").textContent =
+        T("Die Terminbuchung wird gerade eingerichtet. Schreiben Sie uns solange direkt – wir melden uns innerhalb von 24 Stunden.");
+      return;
+    }
+
+    // Cal.com Embed laden
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", "termin", { origin: "https://cal.com" });
+
+    // Dunkles Thema VOR dem Laden setzen, sonst blitzt kurz die helle Version auf
+    Cal.ns.termin("ui", {
+      theme: "dark",
+      cssVarsPerTheme: { dark: { "cal-brand": "#2f7fd4" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+
+    Cal.ns.termin("inline", {
+      elementOrSelector: "#calBooking",
+      config: { layout: "month_view", theme: "dark" },
+      calLink: CAL_LINK
+    });
+
+    // Falls der Kalender nach 8 Sekunden nichts gerendert hat: Notfall-Kontakt zeigen
+    setTimeout(function(){
+      if (!box.querySelector("iframe")) {
+        box.hidden = true;
+        fallback.hidden = false;
+      }
+    }, 8000);
+  })();
+</script>
+
+</body>
+</html>
