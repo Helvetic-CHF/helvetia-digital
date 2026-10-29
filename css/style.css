@@ -1105,6 +1105,7 @@ html[data-eingabe="touch"] .phone{transition:transform .6s var(--ease)}
 /* ————— Hero-Video: auf Handys bei langsamer Verbindung nur das Standbild ————— */
 html[data-geraet="handy"][data-netz="langsam"] #heroVideo{display:none}
 html[data-geraet="handy"][data-netz="langsam"] .hero-media{background:url("../assets/hero-zurich-poster.jpg") center/cover no-repeat}
+@media (orientation:portrait){html[data-geraet="handy"][data-netz="langsam"] .hero-media{background-image:url("../assets/hero-zurich-poster-hoch.jpg")}}
 html[data-geraet="handy"][data-netz="langsam"] .hero-pause,
 .hero-pause.ohne-video{display:none}
 

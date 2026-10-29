@@ -80,6 +80,11 @@
   var heroVideo = document.getElementById("heroVideo");
   var heroMedia = document.getElementById("heroMedia");
   var heroPause = document.getElementById("heroPause");
+  /* Handy hochkant: Hochkant-Standbild statt des quer geschnittenen (sonst unscharf,
+     z. B. im iPhone-Stromsparmodus, wo nur das Standbild erscheint) */
+  if(heroVideo && window.matchMedia && matchMedia("(max-width: 900px) and (orientation: portrait)").matches){
+    heroVideo.setAttribute("poster", heroVideo.getAttribute("poster").replace("hero-zurich-poster.jpg", "hero-zurich-poster-hoch.jpg"));
+  }
   /* Handy mit langsamer Verbindung oder Datensparmodus: Video gar nicht erst laden,
      das Standbild (poster) bleibt – Datenvolumen schonen */
   if(heroVideo && G.istHandy && G.netz === "langsam"){
