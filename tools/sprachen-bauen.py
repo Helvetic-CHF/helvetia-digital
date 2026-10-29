@@ -28,7 +28,7 @@ SEITEN = ["index.html", "leistungen.html", "produkte.html", "produkt.html", "pre
 SPRACHEN = ["en", "fr", "es"]
 ALLE = ["de"] + SPRACHEN
 BASIS_URL = "https://helvetic-chf.github.io/helvetia-digital/"
-VERSION = "20261022b"
+VERSION = "20261029a"
 
 # Attribute mit sichtbarem bzw. vorgelesenem Text
 TEXT_ATTRIBUTE = {"alt", "title", "aria-label", "placeholder",
