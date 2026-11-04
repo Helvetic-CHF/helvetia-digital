@@ -78,6 +78,7 @@ window.HD_I18N = {
 "App-Bildschirme": "Pantallas de la app",
 "Assistent": "Asistente",
 "Assistent formuliert …": "El asistente está escribiendo…",
+"Auf Anfrage": "Bajo consulta",
 "Auf der Seite einbauen": "Integrar en la web",
 "Aufbau": "Crecimiento",
 "Aufbereiten": "Preparar",
@@ -531,6 +532,7 @@ window.HD_I18N = {
 "Werbe- & Immobilienvideos": "Vídeos promocionales e inmobiliarios",
 "Wie lange gilt bei uns die Garantie auf Ersatzteile?": "¿Cuánto dura nuestra garantía de los recambios?",
 "Wir bauen die Startseite, Sie sehen sie klickbar, bevor der Rest entsteht.": "Construimos la página de inicio y la ve navegable antes de crear el resto.",
+"Wir erstellen Ihnen ein persönliches Angebot — kostenlos und unverbindlich.": "Le preparamos una oferta personalizada, gratuita y sin compromiso.",
 "Wir erzeugen mehr als nötig, Sie wählen die besten zehn aus.": "Creamos más de las necesarias y usted elige las diez mejores.",
 "Wir richten den Zugriff ein oder bestätigen die Inhaberschaft mit Ihnen.": "Configuramos el acceso o confirmamos la titularidad con usted.",
 "Wir schreiben, Sie korrigieren — nicht umgekehrt.": "Nosotros escribimos, usted corrige, y no al revés.",
@@ -561,13 +563,11 @@ window.HD_I18N = {
 "Zwei Wochen Analyse: Abläufe, Rollen, Umfang. Danach erst der Festpreis.": "Dos semanas de análisis: procesos, roles, alcance. Solo después, el precio fijo.",
 "Zwei Wochen begleiten wir, bis es zur Gewohnheit wird.": "Durante dos semanas le acompañamos hasta que se convierta en costumbre.",
 "iOS und Android, ein Backend, Push-Nachrichten, Veröffentlichung inklusive.": "iOS y Android, un backend, notificaciones push, publicación incluida.",
-"nach Aufwand": "según el esfuerzo",
 "Änderungen ohne Einzelrechnung und ohne Nachfragen": "Cambios sin factura aparte y sin tener que insistir",
 "Öffnungszeiten, Leistungen, Preise und häufige Fragen einmal hinterlegen.": "Indicar una vez horarios, servicios, precios y preguntas frecuentes.",
 "Übergeben": "Entregar",
 "Übergeben und weiterbetreuen": "Entregar y seguir acompañando",
 "Übernahme": "Traspaso",
 "Übersetzen": "Traducir",
-"Übersetzung & Untertitel": "Traducción y subtítulos",
-"über 12 Monate": "en 12 meses"
+"Übersetzung & Untertitel": "Traducción y subtítulos"
 };

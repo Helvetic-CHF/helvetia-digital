@@ -196,10 +196,10 @@
     h += abschnitt(T("Preis"),
       '<div class="kp-preisfelder">' +
         '<div class="kp-preisfeld" data-art="ziel">' +
-          '<div class="kp-preisfeld-label">' + T("Festpreis") + '</div>' +
+          '<div class="kp-preisfeld-label">' + (p.anfrage ? T("Preis") : T("Festpreis")) + '</div>' +
           '<div class="kp-preisfeld-zahl">' + esc(tx(p.preis)) + '</div>' +
-          '<div class="kp-preisfeld-note">' + esc(p.preisZusatz ? tx(p.preisZusatz) : T("Inklusive Einführung und Support. Ratenzahlung möglich.")) + '</div>' +
-          (mwstHinweis() ? '<div class="kp-preisfeld-note">' + esc(mwstHinweis()) + '</div>' : '') +
+          '<div class="kp-preisfeld-note">' + esc(p.anfrage ? T("Wir erstellen Ihnen ein persönliches Angebot — kostenlos und unverbindlich.") : p.preisZusatz ? tx(p.preisZusatz) : T("Inklusive Einführung und Support. Ratenzahlung möglich.")) + '</div>' +
+          (!p.anfrage && mwstHinweis() ? '<div class="kp-preisfeld-note">' + esc(mwstHinweis()) + '</div>' : '') +
         '</div>' +
         '<div class="kp-preisfeld" style="display:flex;flex-direction:column;justify-content:center;gap:12px">' +
           '<p style="font-size:.95rem;line-height:1.6;color:var(--muted);font-weight:350;margin:0">' + T("Im kostenlosen Erstgespräch klären wir, ob dieses Produkt zu Ihrem Vorhaben passt — ehrlich und ohne Verkaufsdruck.") + '</p>' +

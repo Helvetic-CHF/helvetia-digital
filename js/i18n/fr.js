@@ -78,6 +78,7 @@ window.HD_I18N = {
 "App-Bildschirme": "Écrans de l’app",
 "Assistent": "Assistant",
 "Assistent formuliert …": "L’assistant rédige …",
+"Auf Anfrage": "Sur demande",
 "Auf der Seite einbauen": "Intégrer au site",
 "Aufbau": "Développement",
 "Aufbereiten": "Préparer",
@@ -531,6 +532,7 @@ window.HD_I18N = {
 "Werbe- & Immobilienvideos": "Vidéos publicitaires & immobilières",
 "Wie lange gilt bei uns die Garantie auf Ersatzteile?": "Combien de temps dure notre garantie sur les pièces de rechange ?",
 "Wir bauen die Startseite, Sie sehen sie klickbar, bevor der Rest entsteht.": "Nous construisons la page d’accueil, vous la voyez cliquable avant que le reste ne soit créé.",
+"Wir erstellen Ihnen ein persönliches Angebot — kostenlos und unverbindlich.": "Nous vous préparons une offre personnalisée — gratuite et sans engagement.",
 "Wir erzeugen mehr als nötig, Sie wählen die besten zehn aus.": "Nous en créons plus que nécessaire, vous choisissez les dix meilleures.",
 "Wir richten den Zugriff ein oder bestätigen die Inhaberschaft mit Ihnen.": "Nous configurons l’accès ou confirmons la propriété avec vous.",
 "Wir schreiben, Sie korrigieren — nicht umgekehrt.": "Nous rédigeons, vous corrigez — et non l’inverse.",
@@ -561,13 +563,11 @@ window.HD_I18N = {
 "Zwei Wochen Analyse: Abläufe, Rollen, Umfang. Danach erst der Festpreis.": "Deux semaines d’analyse : processus, rôles, périmètre. Ensuite seulement le prix fixe.",
 "Zwei Wochen begleiten wir, bis es zur Gewohnheit wird.": "Pendant deux semaines, nous vous accompagnons jusqu’à ce que cela devienne une habitude.",
 "iOS und Android, ein Backend, Push-Nachrichten, Veröffentlichung inklusive.": "iOS et Android, un backend, notifications push, publication incluse.",
-"nach Aufwand": "selon le travail",
 "Änderungen ohne Einzelrechnung und ohne Nachfragen": "Modifications sans facture séparée et sans relances",
 "Öffnungszeiten, Leistungen, Preise und häufige Fragen einmal hinterlegen.": "Renseigner une fois horaires, prestations, prix et questions fréquentes.",
 "Übergeben": "Remettre",
 "Übergeben und weiterbetreuen": "Remettre et continuer le suivi",
 "Übernahme": "Reprise",
 "Übersetzen": "Traduire",
-"Übersetzung & Untertitel": "Traduction & sous-titres",
-"über 12 Monate": "sur 12 mois"
+"Übersetzung & Untertitel": "Traduction & sous-titres"
 };

@@ -10,9 +10,9 @@ const STUFEN = [
     ziel: "Ihr Auftritt läuft — und wird laufend gepflegt. Hier entsteht Verlässlichkeit: Anrufe werden angenommen, Inhalte bleiben aktuell." },
   { id: 3, name: "Abläufe", spanne: "{{preis:stufe-3|CHF 3’500 – 12’000}}", ton: "gold",
     ziel: "Wir übernehmen, was heute Zeit frisst: Anfragen, Offerten, Belege. Ab hier geht es um gesparte Stunden, nicht um Design." },
-  { id: 4, name: "Software & Systeme", spanne: "{{preis:stufe-4|ab CHF 15’000}}", ton: "gold",
+  { id: 4, name: "Software & Systeme", spanne: "Auf Anfrage", ton: "gold",
     ziel: "Wenn Standardsoftware nicht mehr passt: gebaut für genau Ihren Betrieb, mit Quellcode und Daten in Ihrer Hand." },
-  { id: 5, name: "Beratung & Schulung", spanne: "nach Aufwand", ton: "blau",
+  { id: 5, name: "Beratung & Schulung", spanne: "Auf Anfrage", ton: "blau",
     ziel: "Für Fragen, die vor der Umsetzung geklärt sein müssen — was darf Ihr Betrieb mit KI, und was kann Ihr Team damit anfangen?" }
 ];
 
@@ -404,7 +404,7 @@ const PRODUKTE = [
   name: "Branchen-Software / Kundenportal",
   kurz: "Nach Mass gebaut für genau Ihren Ablauf. Nichts von der Stange.",
   einzeiler: "Software, die genau Ihren Ablauf abbildet — nicht umgekehrt.",
-  preis: "{{preis:software-ab|ab CHF 18’000}}",
+  preis: "Auf Anfrage", anfrage: true,
   wasIstDas: "Eine eigene Anwendung für Ihren Betrieb: Kundenportal, Auftragsverwaltung, Planung — was auch immer der Kern Ihres Geschäfts ist. Standardsoftware zwingt Sie in fremde Abläufe; hier ist es umgekehrt. Mit Zugängen für Mitarbeiter und Kunden, Auswertungen und Anbindung an das, was bei Ihnen schon läuft.",
   schritte: [
     ["Vorprojekt", "Zwei Wochen Analyse: Abläufe, Rollen, Umfang. Danach erst der Festpreis."],
@@ -426,7 +426,7 @@ const PRODUKTE = [
   name: "Digitalisierungs-Programm",
   kurz: "Auftritt, Automatisierung, Software und Betreuung als ein Vertrag.",
   einzeiler: "Ein Vertrag über ein Jahr statt fünf Einzelaufträge — planbar für Sie.",
-  preis: "{{preis:programm-ab|ab CHF 25’000}}", preisZusatz: "über 12 Monate",
+  preis: "Auf Anfrage", anfrage: true,
   wasIstDas: "Kein Produkt, sondern eine Begleitung: Über zwölf Monate wird Ihr Betrieb Schritt für Schritt digitalisiert — Auftritt, Abläufe, Software, Schulung, Betreuung. Mit festem Monatsbudget, festem Ansprechpartner und einem Fahrplan, der alle drei Monate überprüft wird.",
   schritte: [
     ["Bestandsaufnahme", "Vier Wochen: alle Abläufe, Systeme und Schmerzpunkte erfassen."],
@@ -448,7 +448,7 @@ const PRODUKTE = [
   name: "Eigenes KI-Modell anpassen",
   kurz: "Ein Modell lernt die Sprache und das Wissen Ihres Betriebs.",
   einzeiler: "Eine KI, die klingt wie Ihr Betrieb und weiss, was er weiss.",
-  preis: "{{preis:modell-ab|ab CHF 15’000}}",
+  preis: "Auf Anfrage", anfrage: true,
   wasIstDas: "Ein vorhandenes Sprachmodell wird auf die Daten Ihres Betriebs angepasst — Fachbegriffe, Tonfall, typische Fälle. Sinnvoll bei sehr eigener Fachsprache oder wenn viele gleichartige Texte entstehen. Ehrlich gesagt: In den meisten Fällen reicht der Wissensassistent — und dann sagen wir das auch.",
   schritte: [
     ["Machbarkeit prüfen", "Reicht der Wissensassistent? Meistens ja. Das klären wir ehrlich, bevor Sie etwas kaufen."],
@@ -472,7 +472,7 @@ const PRODUKTE = [
   name: "KI-Prüfung & Datenschutz-Beratung",
   kurz: "Was darf Ihr Betrieb mit KI, was nicht — nach Schweizer DSG und DSGVO.",
   einzeiler: "Schriftlich festhalten, was erlaubt ist — bevor jemand im Betrieb Kundendaten irgendwo hineinkopiert.",
-  preis: "{{preis:pruefung-ab|ab CHF 3’500}}",
+  preis: "Auf Anfrage", anfrage: true,
   wasIstDas: "Eine Bestandsaufnahme: Welche KI-Werkzeuge werden in Ihrem Betrieb bereits genutzt — oft ohne dass die Leitung es weiss? Welche Daten fliessen dabei wohin? Was ist nach Schweizer DSG und DSGVO zulässig? Ergebnis ist ein Bericht mit Ampelbewertung, eine Nutzungsrichtlinie für Ihre Mitarbeiter und eine Liste konkreter Massnahmen. Wir prüfen technisch — Rechtsberatung ist ausdrücklich nicht Teil davon.",
   schritte: [
     ["Bestand erheben", "Gespräche und Umfrage: wer nutzt was. Das Ergebnis überrascht die Leitung meist."],
@@ -494,7 +494,7 @@ const PRODUKTE = [
   name: "Schulung & Workshop",
   kurz: "Halber Tag „KI im Alltag“ für Ihr Team, an Ihren eigenen Aufgaben.",
   einzeiler: "Ihr Team lernt in einem halben Tag, was wirklich hilft — und was nur Zeit frisst.",
-  preis: "{{preis:schulung-ab|ab CHF 1’200}}",
+  preis: "Auf Anfrage", anfrage: true,
   wasIstDas: "Ein halber oder ganzer Tag mit Ihrem Team, an konkreten Aufgaben aus deren Alltag — nicht an erfundenen Beispielen. Was hilft wirklich, was ist Zeitverschwendung, wo sind die Grenzen, was darf man mit Kundendaten nicht tun. Jeder geht mit drei Dingen raus, die er am Montag anwenden kann.",
   schritte: [
     ["Vorgespräch", "Eine Stunde: welche Aufgaben, welches Vorwissen, welche Sorgen."],

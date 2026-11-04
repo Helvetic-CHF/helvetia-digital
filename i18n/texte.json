@@ -1289,11 +1289,6 @@
   "fr": "Les listes Excel chaotiques et les anciens systèmes deviennent exploitables.",
   "es": "Listas de Excel caóticas y sistemas antiguos se vuelven útiles."
  },
- "Bereich 4 · ab CHF 15’000": {
-  "en": "Area 4 · from CHF 15’000",
-  "fr": "Domaine 4 · dès CHF 15’000",
-  "es": "Área 4 · desde CHF 15’000"
- },
  "Software &amp; Systeme": {
   "en": "Software &amp; systems",
   "fr": "Logiciels &amp; systèmes",
@@ -1309,11 +1304,6 @@
   "fr": "Logiciel métier / portail client",
   "es": "Software sectorial / portal de clientes"
  },
- "ab CHF 18’000": {
-  "en": "from CHF 18’000",
-  "fr": "dès CHF 18’000",
-  "es": "desde CHF 18’000"
- },
  "Nach Mass gebaut für genau Ihren Ablauf. Nichts von der Stange.": {
   "en": "Custom-built for exactly your workflow. Nothing off the shelf.",
   "fr": "Fait sur mesure pour votre processus exact. Rien de standard.",
@@ -1323,11 +1313,6 @@
   "en": "Digitalisation programme",
   "fr": "Programme de digitalisation",
   "es": "Programa de digitalización"
- },
- "ab CHF 25’000": {
-  "en": "from CHF 25’000",
-  "fr": "dès CHF 25’000",
-  "es": "desde CHF 25’000"
  },
  "Auftritt, Automatisierung, Software und Betreuung als ein Vertrag.": {
   "en": "Presence, automation, software and support in one contract.",
@@ -1339,20 +1324,10 @@
   "fr": "Adapter votre propre modèle d’IA",
   "es": "Adaptar su propio modelo de IA"
  },
- "ab CHF 15’000": {
-  "en": "from CHF 15’000",
-  "fr": "dès CHF 15’000",
-  "es": "desde CHF 15’000"
- },
  "Ein Modell lernt die Sprache und das Wissen Ihres Betriebs.": {
   "en": "A model learns the language and knowledge of your business.",
   "fr": "Un modèle apprend le langage et le savoir de votre entreprise.",
   "es": "Un modelo aprende el lenguaje y el conocimiento de su empresa."
- },
- "Bereich 5 · nach Aufwand": {
-  "en": "Area 5 · based on effort",
-  "fr": "Domaine 5 · selon le travail",
-  "es": "Área 5 · según el esfuerzo"
  },
  "Beratung &amp; Schulung": {
   "en": "Consulting &amp; training",
@@ -5119,11 +5094,6 @@
   "fr": "Pendant deux semaines, nous vous accompagnons jusqu’à ce que cela devienne une habitude.",
   "es": "Durante dos semanas le acompañamos hasta que se convierta en costumbre."
  },
- "nach Aufwand": {
-  "en": "based on effort",
-  "fr": "selon le travail",
-  "es": "según el esfuerzo"
- },
  "Änderungen ohne Einzelrechnung und ohne Nachfragen": {
   "en": "Changes without separate invoices and without chasing",
   "fr": "Modifications sans facture séparée et sans relances",
@@ -5159,9 +5129,24 @@
   "fr": "Traduction & sous-titres",
   "es": "Traducción y subtítulos"
  },
- "über 12 Monate": {
-  "en": "over 12 months",
-  "fr": "sur 12 mois",
-  "es": "en 12 meses"
+ "Bereich 4 · Auf Anfrage": {
+  "en": "Area 4 · On request",
+  "fr": "Domaine 4 · Sur demande",
+  "es": "Área 4 · Bajo consulta"
+ },
+ "Bereich 5 · Auf Anfrage": {
+  "en": "Area 5 · On request",
+  "fr": "Domaine 5 · Sur demande",
+  "es": "Área 5 · Bajo consulta"
+ },
+ "Auf Anfrage": {
+  "en": "On request",
+  "fr": "Sur demande",
+  "es": "Bajo consulta"
+ },
+ "Wir erstellen Ihnen ein persönliches Angebot — kostenlos und unverbindlich.": {
+  "en": "We will prepare a personal quote for you — free of charge and without obligation.",
+  "fr": "Nous vous préparons une offre personnalisée — gratuite et sans engagement.",
+  "es": "Le preparamos una oferta personalizada, gratuita y sin compromiso."
  }
 }

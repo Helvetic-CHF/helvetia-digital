@@ -78,6 +78,7 @@ window.HD_I18N = {
 "App-Bildschirme": "App screens",
 "Assistent": "Assistant",
 "Assistent formuliert …": "Assistant is typing …",
+"Auf Anfrage": "On request",
 "Auf der Seite einbauen": "Integrate on the website",
 "Aufbau": "Building up",
 "Aufbereiten": "Prepare",
@@ -531,6 +532,7 @@ window.HD_I18N = {
 "Werbe- & Immobilienvideos": "Promo & real estate videos",
 "Wie lange gilt bei uns die Garantie auf Ersatzteile?": "How long is our warranty on spare parts?",
 "Wir bauen die Startseite, Sie sehen sie klickbar, bevor der Rest entsteht.": "We build the home page, and you see it clickable before the rest is created.",
+"Wir erstellen Ihnen ein persönliches Angebot — kostenlos und unverbindlich.": "We will prepare a personal quote for you — free of charge and without obligation.",
 "Wir erzeugen mehr als nötig, Sie wählen die besten zehn aus.": "We create more than needed, you choose the best ten.",
 "Wir richten den Zugriff ein oder bestätigen die Inhaberschaft mit Ihnen.": "We set up access or confirm ownership with you.",
 "Wir schreiben, Sie korrigieren — nicht umgekehrt.": "We write, you correct — not the other way round.",
@@ -561,13 +563,11 @@ window.HD_I18N = {
 "Zwei Wochen Analyse: Abläufe, Rollen, Umfang. Danach erst der Festpreis.": "Two weeks of analysis: processes, roles, scope. Only then the fixed price.",
 "Zwei Wochen begleiten wir, bis es zur Gewohnheit wird.": "For two weeks we support you until it becomes a habit.",
 "iOS und Android, ein Backend, Push-Nachrichten, Veröffentlichung inklusive.": "iOS and Android, one backend, push notifications, publication included.",
-"nach Aufwand": "based on effort",
 "Änderungen ohne Einzelrechnung und ohne Nachfragen": "Changes without separate invoices and without chasing",
 "Öffnungszeiten, Leistungen, Preise und häufige Fragen einmal hinterlegen.": "Store opening hours, services, prices and frequent questions once.",
 "Übergeben": "Hand over",
 "Übergeben und weiterbetreuen": "Hand over and keep supporting",
 "Übernahme": "Takeover",
 "Übersetzen": "Translate",
-"Übersetzung & Untertitel": "Translation & subtitles",
-"über 12 Monate": "over 12 months"
+"Übersetzung & Untertitel": "Translation & subtitles"
 };
